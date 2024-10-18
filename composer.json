@@ -1,6 +1,13 @@
 {
     "name": "ignar/control-stock-venta",
     "description": "Un template de aplicación web especializado en el control de stock y ventas para locales de base pequeña y media clientela pudiendo flexibilizarse a comodidad del cliente.",
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models"
+        }
+    },
     "authors": [
         {
             "name": "IgnaciogRuiz",
