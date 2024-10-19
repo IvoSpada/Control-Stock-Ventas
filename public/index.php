@@ -8,9 +8,14 @@ use Controllers\LoginController;
 
 $router = new Router();
 
-//Iniciar Sesion 
-$router->get('/', [LoginController::class, 'login']);
-$router->post('/', [LoginController::class, 'login']);
+//Seleccion de usuarios
+$router->get('/', [LoginController::class, 'SelectUser']);
+
+//Login de Admin
+$router->get('/login', [LoginController::class, 'login']);
+$router->post('/login', [LoginController::class, 'login']);
+
+//logout
 $router->get('/logout', [LoginController::class, 'logout']);
 
 

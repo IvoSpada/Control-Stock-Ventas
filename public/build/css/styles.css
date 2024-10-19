@@ -21,21 +21,90 @@ Globales
 ----------------------------------
 */
 
+
 /*
 ----------------------------------
-Login
+SELECT USER
 ----------------------------------
 */
-.contenedor-login {
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+.encabezado {
+    margin-top: 20rem;
+    text-align: center;
 }
-.contenedor-login .imagen {
-    background-image: url(../images/inventario.jpg);
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat; 
-    height: 100rem; 
-    margin: 0;
+.contenedor-user {
+    width: 50%;
+    margin:  50px auto;
+}
+.usuarios {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+}
+
+.usuarios button {
+    padding: 0.1em 0.25em;
+    width: 13em;
+    height: 4.2em;
+    background-color: #212121;
+    border: 0.08em solid #fff;
+    border-radius: 0.3em;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.usuarios button span {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0.4em;
+    width: 8.25em;
+    height: 2.5em;
+    background-color: #212121;
+    border-radius: 0.2em;
+    font-size: 1.5em;
+    color: #fff;
+    border: 0.08em solid #fff;
+    box-shadow: 0 0.4em 0.1em 0.019em #fff;
+}
+
+.usuarios button span:hover {
+    transition: all 0.5s;
+    transform: translate(0, 0.4em);
+    box-shadow: 0 0 0 0 #fff;
+}
+
+.usuarios button span:not(hover) {
+    transition: all 1s;
+}
+
+
+@media (max-width: 500px) {
+    .contenedor-user {
+        width: 100%;
+        margin:  15px;
+        margin-top: 5rem;
+    }
+    .usuarios {
+        flex-direction: column;
+        gap: 5rem;
+    }
+    .usuarios button {
+        width: 90%;
+    }
+    .usuarios button span {
+        width: 100%;
+    }
+}
+
+/*
+----------------------------------
+LOGIN ADMIN
+----------------------------------
+*/
+
+.login-Admin {
+    margin-top: 5rem;
+    text-align: center;
 }
