@@ -21,10 +21,31 @@ Globales
 ----------------------------------
 */
 
+/*
+----------------------------------
+ALERTAS
+----------------------------------
+*/
+.alerta {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+@media (max-width: 500px) {
+    .alerta {
+        width: 90%;
+    }
+}
 
 /*
 ----------------------------------
-SELECT USER
+SELECT USER - LOGIN
 ----------------------------------
 */
 .encabezado {
@@ -42,6 +63,7 @@ SELECT USER
 
 }
 
+.login-Admin button,
 .usuarios button {
     padding: 0.1em 0.25em;
     width: 13em;
@@ -53,6 +75,7 @@ SELECT USER
     cursor: pointer;
 }
 
+.login-Admin button span,
 .usuarios button span {
     position: relative;
     display: flex;
@@ -69,6 +92,7 @@ SELECT USER
     box-shadow: 0 0.4em 0.1em 0.019em #fff;
 }
 
+.login-Admin button span:hover,
 .usuarios button span:hover {
     transition: all 0.5s;
     transform: translate(0, 0.4em);
@@ -98,13 +122,14 @@ SELECT USER
     }
 }
 
-/*
-----------------------------------
-LOGIN ADMIN
-----------------------------------
-*/
-
 .login-Admin {
     margin-top: 5rem;
     text-align: center;
 }
+.login-Admin .botones {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
