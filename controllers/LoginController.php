@@ -35,10 +35,10 @@ class LoginController {
                         $_SESSION['admin'] = $usuario->admin;
                         $_SESSION['login'] = true;
 
-                            header('Location: /dashboard');
+                            header('Location: admin/dashboard');
 
                     } else {
-                        Usuario::setAlerta('error', 'Contraseña incorrecto');
+                        Usuario::setAlerta('error', 'Contraseña incorrecta');
                     }
                 } else {
                     echo 'no existe el admin';
@@ -55,6 +55,16 @@ class LoginController {
 
 
     public static function logout() {
-        echo 'desde logout';
+        //Inicia la sesión
+        session_start();
+
+        //Elimina todas las variables de sesión
+        $_SESSION = [];
+
+        //destruir completamente la sesión
+        session_destroy();
+
+        header('Location: /');
+        exit();
     }
-}
+} 

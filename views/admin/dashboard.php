@@ -1,4 +1,19 @@
     <div class="container">
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="user-menu">
+                <span id="username">Administrador</span>
+                <div class="dropdown">
+                    <button class="dropdown-button" onclick="toggleDropdown()">Cambiar Usuario</button>
+                    <div id="dropdownContent" class="dropdown-content">
+                        <a href="#">Perfil</a>
+                        <a href="/logout">Cerrar Sesión</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="logo">Stock y Ventas HB</div>
@@ -21,21 +36,6 @@
 
         <!-- Main Content -->
         <div class="main-content">
-            <!-- Header -->
-            <header class="header">
-                <div class="user-menu">
-                    <span id="username">Administrador</span>
-                    <div class="dropdown">
-                        <button class="dropdown-button" onclick="toggleDropdown()">Cambiar Usuario</button>
-                            <div id="dropdownContent" class="dropdown-content">
-                            <a href="#">Perfil</a>
-                            <a href="#">Cerrar Sesión</a>
-                    </div>
-    </div>
-                    </div>
-                </div>
-            </header>
-
             <!-- Dashboard -->
             <section class="dashboard">
                 <h1>Bienvenido al Sistema de Gestión de Stock HB</h1>

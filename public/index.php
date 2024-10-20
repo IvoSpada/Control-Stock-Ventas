@@ -14,9 +14,10 @@ $router->get('/', [LoginController::class, 'SelectUser']);
 //Login de Admin
 $router->get('/login', [LoginController::class, 'login']);
 $router->post('/login', [LoginController::class, 'login']);
+
 //Dashbord admin 
-$router->get('/admin/dashbord', [AdminController::class, 'admin']);
-$router->post('/admin/dashbord', [AdminController::class, 'admin']);
+$router->get('/admin/dashboard', [AdminController::class, 'admin']);
+$router->post('/admin/dashboard', [AdminController::class, 'admin']);
 
 //logout
 $router->get('/logout', [LoginController::class, 'logout']);
