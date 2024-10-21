@@ -312,6 +312,7 @@ DASHBOARD
 }
 /* CODIGO PARA EL ASIDE RESPONSIVE A PARTIR DE LOS 904 PX */
 
+/* Sidebar */
 .sidebar {
     width: 250px;
     background-color: #333;
@@ -324,29 +325,45 @@ DASHBOARD
     overflow-x: hidden; /* Evita el scroll horizontal */
 }
 
+/* Main Content */
 .main-content {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
-    margin-left: 250px;
+    margin-left: 0; /* Eliminamos el margen a la izquierda */
+    height: 100vh; /* Aseguramos que ocupe toda la altura de la ventana */
     overflow-y: auto; /* Asegura que el contenido principal tenga su propio scroll */
+    padding-top: 80px; /* Agregamos un padding superior para evitar desbordamiento por el header */
 }
 
+/* Ajustar el Header */
+.header {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 0;
+}
+
+
+/* Responsividad */
 @media (max-width: 904px) {
     .sidebar {
-        position: absolute;
+        position: fixed; /* Asegúrate de que sea fixed */
         left: -250px; /* Escondemos la barra lateral */
         transition: left 0.3s ease;
+        height: 100vh; /* Asegúrate de que mantenga el 100vh */
         overflow-y: auto; /* Asegura que el scroll siga activo en pantallas pequeñas */
     }
 
     .sidebar.show {
         left: 0; /* Mostrar barra lateral */
-    }
-
-    .main-content {
-        margin-left: 0; /* Alinear contenido cuando el aside esté oculto */
-        overflow-y: auto; /* Scroll del contenido principal */
     }
 }

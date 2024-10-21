@@ -2,40 +2,41 @@
 
     <!-- Header -->
     <header class="header">
-        <button class="toggle-sidebar" onclick="toggleSidebar()">☰</button> <!-- Botón para abrir/cerrar -->
-        <div class="user-menu">
-            <span id="username">Administrador</span>
-            <div class="dropdown">
-                <button class="dropdown-button" onclick="toggleDropdown()">Cambiar Usuario</button>
-                <div id="dropdownContent" class="dropdown-content">
-                    <a href="#">Perfil</a>
-                    <a href="/logout">Cerrar Sesión</a>
-                </div>
+    <button class="toggle-sidebar" onclick="toggleSidebar()">☰</button> <!-- Botón para abrir/cerrar -->
+    <div class="user-menu">
+        <span id="username">Administrador</span>
+        <div class="dropdown">
+            <button class="dropdown-button" onclick="toggleDropdown()">Cambiar Usuario</button>
+            <div id="dropdownContent" class="dropdown-content">
+                <a href="#">Perfil</a>
+                <a href="/logout">Cerrar Sesión</a>
             </div>
         </div>
-    </header>
+    </div>
+</header>
+
 
 
     <!-- Sidebar -->
     <aside class="sidebar">
-    <button class="close-sidebar" onclick="toggleSidebar()">✖</button> <!-- Botón para cerrar -->
-    <div class="logo">Stock y Ventas HB</div>
-    <nav class="nav">
-        <ul>
-            <p>Empleado</p>
-            <li><a href="#">Panel de control</a></li>
-            <li><a href="#">Caja</a></li>
-            <li><a href="#">Historial de ventas</a></li>
-            <li><a href="#">Cuentas Corrientes</a></li>
+        <button class="close-sidebar" onclick="toggleSidebar()">✖</button> <!-- Botón para cerrar -->
+        <div class="logo">Stock y Ventas HB</div>
+        <nav class="nav">
+            <ul>
+                <p>Empleado</p>
+                <li><a href="#">Panel de control</a></li>
+                <li><a href="#">Caja</a></li>
+                <li><a href="#">Historial de ventas</a></li>
+                <li><a href="#">Cuentas Corrientes</a></li>
 
-            <p>Admin</p>
-            <li><a href="#">Stock</a></li>
-            <li><a href="#">Productos</a></li>
-            <li><a href="#">Historial de cajas</a></li>
-            <li><a href="#">Códigos de barra</a></li>
-        </ul>
-    </nav>
-</aside>
+                <p>Admin</p>
+                <li><a href="#">Stock</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Historial de cajas</a></li>
+                <li><a href="#">Códigos de barra</a></li>
+            </ul>
+        </nav>
+    </aside>
 
 
     <!-- Main Content -->
