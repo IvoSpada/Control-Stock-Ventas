@@ -22,10 +22,31 @@ class LoginController {
             $alertas = $auth->validarLogin();
 
             if (empty($alertas)) {
-                
+                //comprar el admin
+                $usuario = Usuario::where('admin', 1);
+
+                if($usuario) {
+                    //si existe verifica la contraseña
+                    if ($usuario->comprobarPassword($auth->contraseña)) {
+                        session_start();
+
+                        $_SESSION['id'] = $usuario->id;
+                        $_SESSION['nombre'] = $usuario->nombre;
+                        $_SESSION['admin'] = $usuario->admin;
+                        $_SESSION['login'] = true;
+
+                            header('Location: admin/dashboard');
+
+                    } else {
+                        Usuario::setAlerta('error', 'Contraseña incorrecta');
+                    }
+                } else {
+                    echo 'no existe el admin';
+                }
+
             }
         }
-
+        $alertas = Usuario::getAlertas();
         //renderizar unaa vista. una ruta y paramentros
         $router->render('auth/login', [
             'alertas'=>$alertas
@@ -34,6 +55,16 @@ class LoginController {
 
 
     public static function logout() {
-        echo 'desde logout';
+        //Inicia la sesión
+        session_start();
+
+        //Elimina todas las variables de sesión
+        $_SESSION = [];
+
+        //destruir completamente la sesión
+        session_destroy();
+
+        header('Location: /');
+        exit();
     }
-}
+} 

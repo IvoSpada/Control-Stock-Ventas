@@ -29,21 +29,46 @@ class ActiveRecord {
         return static::$alertas;
     }
 
-    // Consulta SQL para crear un objeto en Memoria
+    // // Consulta SQL para crear un objeto en Memoria
+    // public static function consultarSQL($query) {
+    //     // Consultar la base de datos
+    //     $resultado = self::$db->query($query);
+
+    //     // Iterar los resultados
+    //     $array = [];
+    //     while($registro = $resultado->fetch_assoc()) {
+    //         $array[] = static::crearObjeto($registro);
+    //     }
+
+    //     // liberar la memoria
+    //     $resultado->free();
+
+    //     // retornar los resultados
+    //     return $array;
+    // }
+
+        // Consulta SQL para crear un objeto en Memoria
     public static function consultarSQL($query) {
         // Consultar la base de datos
         $resultado = self::$db->query($query);
 
+        // Verificar si la consulta falló
+        if ($resultado === false) {
+            // Opcional: mostrar el error de la consulta para depuración
+            error_log("Error en la consulta SQL: " . self::$db->error);
+            return false; // O retornar un array vacío [] si prefieres
+        }
+
         // Iterar los resultados
         $array = [];
-        while($registro = $resultado->fetch_assoc()) {
+        while ($registro = $resultado->fetch_assoc()) {
             $array[] = static::crearObjeto($registro);
         }
 
-        // liberar la memoria
+        // Liberar la memoria
         $resultado->free();
 
-        // retornar los resultados
+        // Retornar los resultados
         return $array;
     }
 
