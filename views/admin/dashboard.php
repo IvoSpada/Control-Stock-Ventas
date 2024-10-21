@@ -2,18 +2,18 @@
 
     <!-- Header -->
     <header class="header">
-    <button class="toggle-sidebar" onclick="toggleSidebar()">☰</button> <!-- Botón para abrir/cerrar -->
-    <div class="user-menu">
-        <span id="username">Administrador</span>
-        <div class="dropdown">
-            <button class="dropdown-button" onclick="toggleDropdown()">Cambiar Usuario</button>
-            <div id="dropdownContent" class="dropdown-content">
-                <a href="#">Perfil</a>
-                <a href="/logout">Cerrar Sesión</a>
+        <button class="toggle-sidebar" onclick="toggleSidebar()">☰</button> <!-- Botón para abrir/cerrar -->
+        <div class="user-menu">
+            <span id="username">Administrador</span>
+            <div class="dropdown">
+                <button class="dropdown-button" onclick="toggleDropdown()">Cambiar Usuario</button>
+                <div id="dropdownContent" class="dropdown-content">
+                    <a href="#">Perfil</a>
+                    <a href="/logout">Cerrar Sesión</a>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 
 
 
@@ -24,18 +24,26 @@
         <nav class="nav">
             <ul>
                 <p>Empleado</p>
-                <li><a href="#">Panel de control</a></li>
-                <li><a href="#">Caja</a></li>
-                <li><a href="#">Historial de ventas</a></li>
-                <li><a href="#">Cuentas Corrientes</a></li>
+                <li><a href="#"><i class="fas fa-tachometer-alt"></i> Panel de control <i
+                            class="fas fa-arrow-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-cash-register"></i> Caja <i class="fas fa-arrow-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-history"></i> Historial de ventas <i
+                            class="fas fa-arrow-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-user-friends"></i> Cuentas Corrientes <i
+                            class="fas fa-arrow-right"></i></a></li>
 
                 <p>Admin</p>
-                <li><a href="#">Stock</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Historial de cajas</a></li>
-                <li><a href="#">Códigos de barra</a></li>
+                <li><a href="#"><i class="fas fa-warehouse"></i> Stock <i class="fas fa-arrow-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-box"></i> Productos <i class="fas fa-arrow-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-receipt"></i> Historial de cajas <i class="fas fa-arrow-right"></i></a>
+                </li>
+                <li><a href="#"><i class="fas fa-barcode"></i> Códigos de barra <i class="fas fa-arrow-right"></i></a>
+                </li>
             </ul>
         </nav>
+
+
+
     </aside>
 
 
