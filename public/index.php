@@ -15,15 +15,16 @@ $router->get('/', [LoginController::class, 'SelectUser']);
 $router->get('/login', [LoginController::class, 'login']);
 $router->post('/login', [LoginController::class, 'login']);
 
+//logout
+$router->get('/logout', [LoginController::class, 'logout']);
+
 //Dashbord admin 
 $router->get('/admin/dashboard', [AdminController::class, 'admin']);
 $router->post('/admin/dashboard', [AdminController::class, 'admin']);
 
-//logout
-$router->get('/logout', [LoginController::class, 'logout']);
-
-
-
+//Perfil de Admin
+$router->get('/admin/perfil', [AdminController::class, 'perfil']);
+$router->post('/admin/perfil', [AdminController::class, 'prefil']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();
