@@ -527,7 +527,7 @@ DASHBOARD
     }
 }
 
-@media (max-width: 1229px) {
+@media (max-width: 1282px) {
     .card-container {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -637,23 +637,16 @@ CODIGO PARA EL ASIDE RESPONSIVE A PARTIR DE LOS 904 PX
 }
 
 /* Responsividad */
-@media (min-width: 904px) {
-    .main-content {
-        margin-left: 25rem;
-    }
-
+@media (min-width: 974px) {
     .close-sidebar {
         display: none;
-        /* Oculta el botón de cerrar en vista de escritorio */
     }
-
     .main-content {
-        margin-left: 25rem;
-        /* Mantiene el margen que ya has definido */
+        margin-left: 300px;
     }
 }
 
-@media (max-width: 904px) {
+@media (max-width: 974px) {
     .sidebar {
         position: fixed;
         /* Asegúrate de que sea fixed */
@@ -806,6 +799,7 @@ CODIGO PARA EL ASIDE RESPONSIVE A PARTIR DE LOS 904 PX
     color: #fff;
     /* Color de la flecha */
 }
+
 
 /*
 ----------------------------------
