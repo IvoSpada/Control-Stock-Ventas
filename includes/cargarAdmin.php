@@ -5,12 +5,12 @@ function hashearAdmin($contra): string {
     $hash = password_hash($contra, PASSWORD_BCRYPT);
     return $hash;
 }
-$nombre = "admin11"; 
+$nombre = "admin prueba"; 
 $rol = 1; 
 $contra = "prueba1234";
 $hash = hashearAdmin($contra);
 
-$query = "INSERT INTO usuarios (nombre, rol, contraseña) VALUES (?, ?, ?)";
+$query = "INSERT INTO usuarios (nombre, admin, contraseña) VALUES (?, ?, ?)";
 
 $stmt = mysqli_prepare($db, $query);
 
