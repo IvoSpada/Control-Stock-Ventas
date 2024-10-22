@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Gestión de Proveedores</title>
+</head>
+<body>
 <div class="container">
     <!-- Header -->
     <header class="header">
@@ -19,28 +28,35 @@
         <button class="close-sidebar" onclick="toggleSidebar()">✖</button>
         <div class="logo">Stock y Ventas HB</div>
         <nav class="nav">
-            <ul>
+        <ul>
                 <p>Empleado</p>
-                <li><a href="#"><i class="fas fa-tachometer-alt"></i> Panel de control <i class="fas fa-arrow-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-tachometer-alt"></i> Panel de control <i
+                            class="fas fa-arrow-right"></i></a></li>
                 <li><a href="#"><i class="fas fa-cash-register"></i> Caja <i class="fas fa-arrow-right"></i></a></li>
-                <li><a href="#"><i class="fas fa-history"></i> Historial de ventas <i class="fas fa-arrow-right"></i></a></li>
-                <li><a href="#"><i class="fas fa-user-friends"></i> Cuentas Corrientes <i class="fas fa-arrow-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-history"></i> Historial de ventas <i
+                            class="fas fa-arrow-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-user-friends"></i> Cuentas Corrientes <i
+                            class="fas fa-arrow-right"></i></a></li>
 
                 <p>Admin</p>
                 <li><a href="#"><i class="fas fa-warehouse"></i> Stock <i class="fas fa-arrow-right"></i></a></li>
-                <li><a href="/admin/productos" class="selected"><i class="fas fa-box"></i> Productos <i class="fas fa-arrow-right"></i></a></li>
-                <li><a href="#"><i class="fas fa-receipt"></i> Historial de cajas <i class="fas fa-arrow-right"></i></a></li>
-                <li><a href="#"><i class="fa-solid fa-list"></i> Categorías <i class="fas fa-arrow-right"></i></a></li>
-                <li><a href="#"><i class="fa-solid fa-user"></i> Empleados <i class="fas fa-arrow-right"></i></a></li>
+                <li><a href="/admin/proveedor" class="selected"><i class="fas fa-box"></i> Proveedor <i class="fas fa-arrow-right"></i></a></li>
+                <li><a href="/admin/productos"><i class="fas fa-box"></i> Productos <i class="fas fa-arrow-right"></i></a></li>
+                <li><a href="#"><i class="fas fa-receipt"></i> Historial de cajas <i class="fas fa-arrow-right"></i></a>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-list"></i></i> Categorías <i class="fas fa-arrow-right"></i></a>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-user"></i> Empleados <i class="fas fa-arrow-right"></i></a>
+                </li>
             </ul>
         </nav>
     </aside>
 
     <!-- Main Content -->
     <div class="main-content">
-        <h1>Productos</h1>
+        <h1>Proveedores</h1>
         <div class="supplier-container">
-            <h2>Manage Supplier List</h2>
+            <h2>Administrar lista de Proveedores</h2>
             <button id="addSupplierBtn" class="button-add">Agregar Proveedor</button>
             <table class="supplier-table">
                 <thead>
@@ -79,4 +95,6 @@
 </div>
 
 <footer class="footer"></footer>
-<script src="script.js"></script>
+<script src="/build/js/Script.js"></script>
+</body>
+</html>

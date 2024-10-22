@@ -858,7 +858,6 @@ PRODUCTOS ADMIN
 CSS PARA POP-UP DE PRODUCTOS
 ----------------------------------
 */
-
 .container {
     display: flex;
 }
@@ -869,6 +868,11 @@ CSS PARA POP-UP DE PRODUCTOS
 
 .supplier-container {
     padding: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
 }
 
 .button-add {
@@ -977,4 +981,3 @@ CSS PARA POP-UP DE PRODUCTOS
 .button-submit:hover {
     background-color: #007bb5;
 }
-

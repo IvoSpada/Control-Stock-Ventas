@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addSupplierBtn.addEventListener('click', () => {
         supplierPopup.style.display = 'block'; // Muestra el popup
         supplierForm.reset(); // Resetea el formulario
+        console.log("boton apretado");
     });
 
     // Cerrar el popup

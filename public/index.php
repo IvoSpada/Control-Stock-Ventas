@@ -27,8 +27,8 @@ $router->get('/admin/perfil', [AdminController::class, 'perfil']);
 $router->post('/admin/perfil', [AdminController::class, 'prefil']);
 
 //Productos Admin
-$router->get('/admin/productos', [AdminController::class, 'productos']);
-$router->post('/admin/productos', [AdminController::class, 'productos']);
+$router->get('/admin/proveedor', [AdminController::class, 'proveedor']);
+$router->post('/admin/proveedor', [AdminController::class, 'proveedor']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();

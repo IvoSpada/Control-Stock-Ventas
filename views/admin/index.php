@@ -35,6 +35,7 @@
 
                 <p>Admin</p>
                 <li><a href="#"><i class="fas fa-warehouse"></i> Stock <i class="fas fa-arrow-right"></i></a></li>
+                <li><a href="/admin/proveedor"><i class="fas fa-box"></i> Proveedor <i class="fas fa-arrow-right"></i></a></li>
                 <li><a href="/admin/productos"><i class="fas fa-box"></i> Productos <i class="fas fa-arrow-right"></i></a></li>
                 <li><a href="#"><i class="fas fa-receipt"></i> Historial de cajas <i class="fas fa-arrow-right"></i></a>
                 </li>
