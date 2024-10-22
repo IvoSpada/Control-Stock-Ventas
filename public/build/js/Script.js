@@ -48,3 +48,46 @@ function toggleSidebar() {
 //         sidebar.classList.remove("show");
 //     }
 // };
+
+/* CODIGO JS PARA EL POP-UP DE PRODUCTO */
+document.addEventListener('DOMContentLoaded', () => {
+    const addSupplierBtn = document.getElementById('addSupplierBtn');
+    const supplierPopup = document.getElementById('supplierPopup');
+    const supplierForm = document.getElementById('supplierForm');
+    const supplierList = document.getElementById('supplierList');
+
+    // Abrir el popup
+    addSupplierBtn.addEventListener('click', () => {
+        supplierPopup.style.display = 'block'; // Muestra el popup
+        supplierForm.reset(); // Resetea el formulario
+    });
+
+    // Cerrar el popup
+    window.closePopup = () => {
+        supplierPopup.style.display = 'none'; // Oculta el popup
+    };
+
+    // Manejar el envío del formulario
+    supplierForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // Previene el comportamiento por defecto
+
+        const id = supplierList.rows.length + 1; // Genera un ID basado en el número de filas
+        const name = document.getElementById('supplierName').value;
+        const contact = document.getElementById('supplierContact').value;
+
+        // Lógica para agregar el proveedor a la tabla
+        const newRow = supplierList.insertRow();
+        newRow.innerHTML = `
+            <td>${id}</td>
+            <td>${name}</td>
+            <td>${contact}</td>
+            <td class="actions">
+                <button onclick="editSupplier(this)">Editar</button>
+                <button onclick="deleteSupplier(this)">Eliminar</button>
+            </td>
+        `;
+
+        // Cerrar el popup
+        closePopup();
+    });
+});
