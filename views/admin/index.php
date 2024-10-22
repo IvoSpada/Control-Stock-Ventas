@@ -38,12 +38,14 @@
                 <li><a href="#"><i class="fas fa-box"></i> Productos <i class="fas fa-arrow-right"></i></a></li>
                 <li><a href="#"><i class="fas fa-receipt"></i> Historial de cajas <i class="fas fa-arrow-right"></i></a>
                 </li>
-                <li><a href="#"><i class="fas fa-barcode"></i> Códigos de barra <i class="fas fa-arrow-right"></i></a>
+                <li><a href="#"><i class="fa-solid fa-list"></i></i> Categorías <i class="fas fa-arrow-right"></i></a>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-user"></i> Empleados <i class="fas fa-arrow-right"></i></a>
                 </li>
             </ul>
         </nav>
 
-
+        
 
     </aside>
 
