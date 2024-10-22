@@ -6,7 +6,7 @@
 </div>
 <?php include_once __DIR__ . "/../templates/alertas.php"?>
 <div class='login-Admin'>
-    <form action="./login" method='POST'>
+    <form action="./login" method='POST' >
         <label for="password">Contraseña:</label>
         <input type="password" name="contraseña" id="password">
         <div class='botones'>

@@ -502,10 +502,8 @@ DASHBOARD
     display: block;
 }
 
-/* Dashboard */
 .dashboard {
     margin-top: 80px;
-    /* Desplazar contenido debajo del header */
     padding: 20px;
 }
 
@@ -527,7 +525,7 @@ DASHBOARD
     }
 }
 
-@media (max-width: 1229px) {
+@media (max-width: 1282px) {
     .card-container {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -582,44 +580,34 @@ CODIGO PARA EL ASIDE RESPONSIVE A PARTIR DE LOS 904 PX
         padding: 0;
     }
 
-    .sidebar .nav ul li a {
+.sidebar .nav ul li a {
         display: flex;
     }
 }
 
-/* Sidebar */
 .sidebar {
     width: 300px;
     background-color: #333;
     color: white;
     padding: 20px;
     height: 100vh;
-    /* Ocupa toda la altura de la pantalla */
     position: fixed;
     z-index: 99;
     overflow-y: auto;
-    /* Activa el scroll vertical */
     overflow-x: hidden;
-    /* Evita el scroll horizontal */
 }
 
-/* Main Content */
 .main-content {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-left: 0;
-    /* Eliminamos el margen a la izquierda */
     height: 100vh;
-    /* Aseguramos que ocupe toda la altura de la ventana */
     overflow-y: auto;
-    /* Asegura que el contenido principal tenga su propio scroll */
     padding-top: 80px;
-    /* Agregamos un padding superior para evitar desbordamiento por el header */
 }
 
-/* Ajustar el Header */
 .header {
     margin: 0;
     display: flex;
@@ -634,173 +622,220 @@ CODIGO PARA EL ASIDE RESPONSIVE A PARTIR DE LOS 904 PX
     z-index: 0;
 }
 
-/* Responsividad */
-@media (min-width: 904px) {
-    .main-content {
-        margin-left: 25rem;
-    }
-
+@media (min-width: 974px) {
     .close-sidebar {
         display: none;
-        /* Oculta el botón de cerrar en vista de escritorio */
     }
-
     .main-content {
-        margin-left: 25rem;
-        /* Mantiene el margen que ya has definido */
+        margin-left: 300px;
     }
 }
 
-@media (max-width: 904px) {
+@media (max-width: 974px) {
     .sidebar {
         position: fixed;
-        /* Asegúrate de que sea fixed */
         left: -300px;
-        /* Escondemos la barra lateral */
         transition: left 0.3s ease;
         height: 100vh;
-        /* Asegúrate de que mantenga el 100vh */
         overflow-y: auto;
-        /* Asegura que el scroll siga activo en pantallas pequeñas */
     }
 
     .sidebar.show {
         left: 0;
-        /* Mostrar barra lateral */
     }
 }
 
-/* ESTILOS HAMBURGUESA PARA ABRIR EL SIDEBAR */
 .toggle-sidebar {
     background-color: rgb(54, 54, 54);
-    /* Fondo transparente */
     border-radius: 10px;
     border: none;
-    /* Sin borde */
     color: white;
-    /* Color del ícono */
     font-size: 24px;
-    /* Tamaño del ícono */
     cursor: pointer;
-    /* Cambia el cursor al pasar el ratón */
     transition: color 0.3s;
-    /* Transición suave para el color */
 }
 
 .toggle-sidebar:hover {
     color: #ccc;
-    /* Color al pasar el ratón */
 }
 
 /* ESTILOS BOTON CRUZ PARA CERRAR SIDEBAR */
 .close-sidebar {
     background-color: transparent;
-    /* Fondo transparente */
     border: none;
-    /* Sin borde */
     color: white;
-    /* Color de la cruz */
     font-size: 24px;
-    /* Tamaño de la cruz */
     cursor: pointer;
-    /* Cambia el cursor al pasar el ratón */
     transition: color 0.3s;
-    /* Transición suave para el color */
 }
 
 .close-sidebar:hover {
     color: #ccc;
-    /* Color al pasar el ratón */
 }
 
 /* MEJORAS SIDEBAR */
 
-/* Estilo para el encabezado de sección */
 .sidebar .nav p {
     font-size: 1.2rem;
-    /* Tamaño de fuente más pequeño */
     font-weight: bold;
-    /* Negrita para destacar */
     margin: 20px 0 10px;
-    /* Espaciado alrededor */
     color: #fff;
-    /* Color del texto */
 }
 
-/* Estilo para los enlaces de sección */
 .sidebar .nav ul li a {
     padding: 10px;
-    /* Espaciado alrededor del texto */
     border-radius: 4px;
-    /* Bordes redondeados más sutiles */
     transition: background-color 0.2s;
-    /* Transición suave */
     color: #fff;
-    /* Color del texto */
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-/* Colores específicos para Admin y Empleado */
 .sidebar .nav ul li a.admin {
     background-color: rgba(255, 0, 0, 0.1);
-    /* Fondo suave rojo para Admin */
 }
 
 .sidebar .nav ul li a.empleado {
     background-color: rgba(0, 255, 0, 0.1);
-    /* Fondo suave verde para Empleado */
 }
 
-/* Cambios de color al pasar el ratón */
 .sidebar .nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    /* Fondo más claro al pasar el ratón */
 }
 
 /* Opcional: Estilo para los iconos de los enlaces */
 .sidebar .nav ul li a::before {
     content: "";
-    /* Aquí puedes añadir un ícono si lo deseas */
     display: inline-block;
-    /* Permite espacio antes del texto */
     margin-right: 8px;
-    /* Espaciado entre el ícono y el texto */
     width: 12px;
-    /* Tamaño del ícono */
     height: 12px;
-    /* Tamaño del ícono */
     background-size: cover;
-    /* Para usar una imagen de fondo si decides agregar íconos */
 }
 
 .sidebar .nav ul li {
     margin: 15px 0;
     display: flex;
-    /* Alinear los íconos y el texto en línea */
     align-items: center;
-    /* Centrar verticalmente */
 }
 
 .sidebar .nav ul li i {
     margin-right: 5.5px;
-    /* Espacio entre el ícono y el texto */
     font-size: 20px;
-    /* Tamaño del ícono */
 }
 
 .sidebar .nav ul li a {
     flex-grow: 1;
-    /* Hacer que el enlace ocupe todo el espacio disponible */
 }
 
 .sidebar .nav ul li .fas.fa-arrow-right {
     margin-left: auto;
-    /* Empujar la flecha a la derecha */
     font-size: 16px;
-    /* Tamaño de la flecha */
     color: #fff;
-    /* Color de la flecha */
+}
+
+
+/*
+----------------------------------
+PERFIL ADMIN
+----------------------------------
+*/
+
+.perfil {
+    margin-top: 5rem;
+    margin-left: 300px;
+
+}
+
+.perfil .contenedor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+}
+.perfil h3 {
+    margin: 5rem auto 3rem auto;
+}
+.datos,
+.empleados {
+    margin: 0 5rem;
+}
+
+.form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+    padding: 30px;
+    width: auto;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+::placeholder {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.form button {
+    align-self: flex-end;
+}
+.form .button-submit {
+    margin: 20px 0 10px 0;
+    background-color: #151717;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    height: 50px;
+    width: auto;
+    padding: 0 2rem;
+    cursor: pointer;
+}
+
+.flex-column > label {
+    color: #151717;
+    font-weight: 600;
+}
+
+.inputForm {
+    border: 1.5px solid #ecedec;
+    border-radius: 10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.input {
+    margin-left: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.inputForm:focus-within {
+    border: 1.5px solid #2d79f3;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.flex-row > div > label {
+    font-size: 14px;
+    color: black;
+    font-weight: 400;
 }
