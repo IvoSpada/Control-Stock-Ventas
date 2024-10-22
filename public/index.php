@@ -24,7 +24,7 @@ $router->post('/admin/dashboard', [AdminController::class, 'admin']);
 
 //Perfil de Admin
 $router->get('/admin/perfil', [AdminController::class, 'perfil']);
-$router->post('/admin/perfil', [AdminController::class, 'prefil']);
+$router->post('/admin/perfil', [AdminController::class, 'perfil']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();
