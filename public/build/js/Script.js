@@ -75,6 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const id = supplierList.rows.length + 1; // Genera un ID basado en el número de filas
         const name = document.getElementById('supplierName').value;
         const contact = document.getElementById('supplierContact').value;
+        const mail = document.getElementById('supplierMail').value;
+        const desc = document.getElementById('supplierDescription').value;
 
         // Lógica para agregar el proveedor a la tabla
         const newRow = supplierList.insertRow();
@@ -82,6 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${id}</td>
             <td>${name}</td>
             <td>${contact}</td>
+            <td>${mail}</td>
+            <td>${desc}</td>
             <td class="actions">
                 <button onclick="editSupplier(this)">Editar</button>
                 <button onclick="deleteSupplier(this)">Eliminar</button>

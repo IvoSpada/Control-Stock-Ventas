@@ -892,6 +892,7 @@ h2 {
 .supplier-table {
     width: 100%;
     border-collapse: collapse;
+    
 }
 
 .supplier-table th, .supplier-table td {
@@ -901,15 +902,15 @@ h2 {
 }
 
 .supplier-table th {
-    background-color: #f2f2f2;
+    background-color: #212121;
 }
 
 .supplier-table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Fondo blanco para filas pares */
+    background-color: #7d7d7d; /* Fondo blanco para filas pares */
 }
 
 .supplier-table tr:nth-child(odd) {
-    background-color: #eeeeee; /* Fondo gris para filas impares */
+    background-color: #424242; /* Fondo gris para filas impares */
 }
 
 .actions {
@@ -929,12 +930,18 @@ h2 {
     background-color: rgba(0,0,0,0.4); /* Fondo semi-transparente */
 }
 
+
 .popup-content {
-    background-color: #fefefe;
-    margin: 15% auto;
+    background-color: #212121;
+    margin: 30% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+}
+@media (min-width: 974px) {
+    .popup-content{
+        margin-top: 20%;
+    }
 }
 
 .close-popup {
@@ -960,7 +967,7 @@ h2 {
     margin-bottom: 5px;
 }
 
-.input-group input {
+.input-group input, .input-group textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
@@ -980,4 +987,16 @@ h2 {
 
 .button-submit:hover {
     background-color: #007bb5;
+}
+@media (min-width: 974px) {
+    .popup{
+        padding-left: 300px;
+    }
+    .popup-content{
+        max-width: 60%;
+        form{
+            width: 75%;
+            margin: 0 auto;
+        }
+    }
 }
