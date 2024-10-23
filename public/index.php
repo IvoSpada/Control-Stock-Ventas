@@ -24,9 +24,13 @@ $router->post('/admin/dashboard', [AdminController::class, 'admin']);
 
 //Perfil de Admin
 $router->get('/admin/perfil', [AdminController::class, 'perfil']);
-$router->post('/admin/perfil', [AdminController::class, 'prefil']);
+$router->post('/admin/perfil', [AdminController::class, 'perfil']);
 
 //Productos Admin
+$router->get('/admin/productos', [AdminController::class, 'productos']);
+$router->post('/admin/productos', [AdminController::class, 'productos']);
+
+//Proveedor Admin
 $router->get('/admin/proveedor', [AdminController::class, 'proveedor']);
 $router->post('/admin/proveedor', [AdminController::class, 'proveedor']);
 

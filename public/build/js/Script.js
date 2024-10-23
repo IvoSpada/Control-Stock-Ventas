@@ -26,8 +26,8 @@ window.onclick = function (event) {
 SE PUEDE VOLVER A ACTIVAR CUANDO SE PONGAN LOS LINKS EN LOS BOTONES */
 
 function toggleSidebar() {
-    const sidebar = document.querySelector(".sidebar");
-    sidebar.classList.toggle("show"); // Añade o quita la clase 'show'
+  const sidebar = document.querySelector(".sidebar");
+  sidebar.classList.toggle("show"); // Añade o quita la clase 'show'
 }
 
 // Cerrar el dropdown si se hace clic fuera de él
@@ -50,49 +50,47 @@ function toggleSidebar() {
 // };
 
 /* CODIGO JS PARA EL POP-UP DE PRODUCTO */
-document.addEventListener('DOMContentLoaded', () => {
-    const addSupplierBtn = document.getElementById('addSupplierBtn');
-    const supplierPopup = document.getElementById('supplierPopup');
-    const supplierForm = document.getElementById('supplierForm');
-    const supplierList = document.getElementById('supplierList');
+document.addEventListener("DOMContentLoaded", () => {
+  const addSupplierBtn = document.getElementById("addSupplierBtn");
+  const supplierPopup = document.getElementById("supplierPopup");
+  const supplierForm = document.getElementById("supplierForm");
+  const supplierList = document.getElementById("supplierList");
 
-    // Abrir el popup
-    addSupplierBtn.addEventListener('click', () => {
-        supplierPopup.style.display = 'block'; // Muestra el popup
-        supplierForm.reset(); // Resetea el formulario
-        console.log("boton apretado");
-    });
+  // Abrir el popup
+  addSupplierBtn.addEventListener("click", () => {
+    supplierPopup.style.display = "block"; // Muestra el popup
+    supplierForm.reset(); // Resetea el formulario
+    console.log("boton apretado");
+  });
 
-    // Cerrar el popup
-    window.closePopup = () => {
-        supplierPopup.style.display = 'none'; // Oculta el popup
-    };
+  // Cerrar el popup
+  window.closePopup = () => {
+    supplierPopup.style.display = "none"; // Oculta el popup
+  };
 
-    // Manejar el envío del formulario
-    supplierForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Previene el comportamiento por defecto
+  // Manejar el envío del formulario
+  supplierForm.addEventListener("submit", (event) => {
+    event.preventDefault(); // Previene el comportamiento por defecto
 
-        const id = supplierList.rows.length + 1; // Genera un ID basado en el número de filas
-        const name = document.getElementById('supplierName').value;
-        const contact = document.getElementById('supplierContact').value;
-        const mail = document.getElementById('supplierMail').value;
-        const desc = document.getElementById('supplierDescription').value;
+    const id = supplierList.rows.length + 1; // Genera un ID basado en el número de filas
+    const name = document.getElementById("supplierName").value;
+    const contact = document.getElementById("supplierContact").value;
+    const mail = document.getElementById("supplierMail").value;
+    const desc = document.getElementById("supplierDescription").value;
 
-        // Lógica para agregar el proveedor a la tabla
-        const newRow = supplierList.insertRow();
-        newRow.innerHTML = `
-            <td>${id}</td>
-            <td>${name}</td>
-            <td>${contact}</td>
-            <td>${mail}</td>
-            <td>${desc}</td>
-            <td class="actions">
-                <button onclick="editSupplier(this)">Editar</button>
-                <button onclick="deleteSupplier(this)">Eliminar</button>
-            </td>
-        `;
-
-        // Cerrar el popup
-        closePopup();
-    });
+          const newRow = supplierList.insertRow();
+          newRow.innerHTML = `
+                    <td>${id}</td>
+                    <td>${name}</td>
+                    <td>${contact}</td>
+                    <td>${mail}</td>
+                    <td class="actions">
+                        <button onclick="editSupplier(this)">Editar</button>
+                        <button onclick="deleteSupplier(this)">Eliminar</button>
+                        <button onclick="deleteSupplier(this)">Descripción</button>
+                    </td>
+                `;
+          // Cerrar el popup
+          closePopup();
+  });
 });

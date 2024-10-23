@@ -74,8 +74,7 @@
                                 <th>Nombre</th>
                                 <th>Telefono</th>
                                 <th>E-mail</th>
-                                <th>Descripcion</th>
-                                <th>Modificar</th>
+                                <th>Detalles</th>
                             </tr>
                         </thead>
                         <tbody id="supplierList">
@@ -94,19 +93,19 @@
                         <input type="hidden" id="supplierId" />
                         <div class="input-group">
                             <label for="supplierName">Nombre:</label>
-                            <input type="text" id="supplierName" required />
+                            <input type="text" id="supplierName" name="proveedorNombre" />
                         </div>
                         <div class="input-group">
                             <label for="supplierContact">Telefono:</label>
-                            <input type="text" id="supplierContact" required />
+                            <input type="text" id="supplierContact" name="proveedorTelefono" />
                         </div>
                         <div class="input-group">
                             <label for="supplierMail">E-mail:</label>
-                            <input type="text" id="supplierMail" required />
+                            <input type="text" id="supplierMail" name="proveedorMail" />
                         </div>
                         <div class="input-group">
                             <label for="supplierDescription">Descripcion:</label>
-                            <textarea id="supplierDescription" required></textarea>
+                            <textarea id="supplierDescription" name="proveedorDesc" ></textarea>
                         </div>
                         <button type="submit" class="button-submit">Guardar</button>
                     </form>
