@@ -6,9 +6,11 @@ function hashearAdmin($contra): string {
     $hash = password_hash($contra, PASSWORD_BCRYPT);
     return $hash;
 }
+
 $nombre = "admin1"; 
 $admin = 1; 
 $contra = "prueba123";
+
 $hash = hashearAdmin($contra);
 
 $query = "INSERT INTO usuarios (nombre, admin, contraseña) VALUES (?, ?, ?)";
