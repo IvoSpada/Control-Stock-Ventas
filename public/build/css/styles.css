@@ -4,22 +4,255 @@ NORMALIZE
 ----------------------------------
 */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:rgba(0,0,0,0)}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}html{font-size:62.5%;box-sizing:border-box;height:100%}body{min-height:100%;display:flex;flex-direction:column;background-color:#1a1b15;color:#fff}*,*:before,*:after{box-sizing:inherit}body{font-family:"Poppins",sans-serif;font-size:1.6rem}.contenedor{width:95%;max-width:1200px;margin:0 auto}a{text-decoration:none}img{max-width:100%}h1,h2,h3{font-family:"Poppins",sans-serif;margin:0 0 2.5rem 0;font-weight:900;color:#fff;text-align:center}h1{font-size:4rem}h2{font-size:3.6rem}h3{font-size:3rem;text-align:center}p{color:#fff;font-size:2rem}/*# sourceMappingURL=app.css.map */
-
-/*
-----------------------------------
-Variables
-----------------------------------
-*/
-:root {
-
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%
 }
 
-/*
-----------------------------------
-Globales
-----------------------------------
-*/
+body {
+    margin: 0
+}
+
+main {
+    display: block
+}
+
+h1 {
+    font-size: 2em;
+    margin: .67em 0
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible
+}
+
+pre {
+    font-family: monospace, monospace;
+    font-size: 1em
+}
+
+a {
+    background-color: rgba(0, 0, 0, 0)
+}
+
+abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted
+}
+
+b,
+strong {
+    font-weight: bolder
+}
+
+code,
+kbd,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em
+}
+
+small {
+    font-size: 80%
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+sub {
+    bottom: -0.25em
+}
+
+sup {
+    top: -0.5em
+}
+
+img {
+    border-style: none
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0
+}
+
+button,
+input {
+    overflow: visible
+}
+
+button,
+select {
+    text-transform: none
+}
+
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+    -webkit-appearance: button
+}
+
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+    border-style: none;
+    padding: 0
+}
+
+button:-moz-focusring,
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+    outline: 1px dotted ButtonText
+}
+
+fieldset {
+    padding: .35em .75em .625em
+}
+
+legend {
+    box-sizing: border-box;
+    color: inherit;
+    display: table;
+    max-width: 100%;
+    padding: 0;
+    white-space: normal
+}
+
+progress {
+    vertical-align: baseline
+}
+
+textarea {
+    overflow: auto
+}
+
+[type=checkbox],
+[type=radio] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+    height: auto
+}
+
+[type=search] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px
+}
+
+[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit
+}
+
+details {
+    display: block
+}
+
+summary {
+    display: list-item
+}
+
+template {
+    display: none
+}
+
+[hidden] {
+    display: none
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    height: 100%
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1b15;
+    color: #fff
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.6rem
+}
+
+.contenedor {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto
+}
+
+a {
+    text-decoration: none
+}
+
+img {
+    max-width: 100%
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Poppins", sans-serif;
+    margin: 0 0 2.5rem 0;
+    font-weight: 900;
+    color: #fff;
+    text-align: center
+}
+
+h1 {
+    font-size: 4rem
+}
+
+h2 {
+    font-size: 3.6rem
+}
+
+h3 {
+    font-size: 3rem;
+    text-align: center
+}
+
+p {
+    color: #fff;
+    font-size: 2rem
+}
+
+
+/* END NORMALIZE */
 
 /*
 ----------------------------------
@@ -29,14 +262,19 @@ ALERTAS
 .alerta {
     display: block;
     margin: 0 auto;
-    width: 50%;
     padding: 1rem;
     border-radius: 5px;
-    background-color: red;
     color: white;
     font-weight: bold;
     text-align: center;
 }
+.error {
+    background-color: red;
+}
+.exito {
+    background-color: rgb(12, 173, 12);
+}
+
 @media (max-width: 500px) {
     .alerta {
         width: 90%;
@@ -52,10 +290,12 @@ SELECT USER - LOGIN
     margin-top: 20rem;
     text-align: center;
 }
+
 .contenedor-user {
     width: 50%;
-    margin:  50px auto;
+    margin: 50px auto;
 }
+
 .usuarios {
     display: flex;
     justify-content: center;
@@ -107,16 +347,19 @@ SELECT USER - LOGIN
 @media (max-width: 500px) {
     .contenedor-user {
         width: 100%;
-        margin:  15px;
+        margin: 15px;
         margin-top: 5rem;
     }
+
     .usuarios {
         flex-direction: column;
         gap: 5rem;
     }
+
     .usuarios button {
         width: 90%;
     }
+
     .usuarios button span {
         width: 100%;
     }
@@ -126,6 +369,7 @@ SELECT USER - LOGIN
     margin-top: 5rem;
     text-align: center;
 }
+
 .login-Admin .botones {
     margin-top: 5rem;
     display: flex;
@@ -147,7 +391,7 @@ DASHBOARD
     color: white;
     padding: 20px;
     height: 100vh;
-    position: fixed; 
+    position: fixed;
     z-index: 99;
 }
 
@@ -183,18 +427,22 @@ DASHBOARD
 
 /* Main Content */
 .main-content {
-    flex-grow: 1;
+    /* flex-grow: 1;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
+    flex-direction: column; */
+    justify-content: space-between;
     margin-left: 250px;
+    margin-left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding-top: 80px;
 }
 
 /* Header */
 .header {
     margin: 0;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
     background-color: #fff;
@@ -230,7 +478,7 @@ DASHBOARD
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -241,13 +489,16 @@ DASHBOARD
     display: block;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
 
-.show {display: block;}
+.show {
+    display: block;
+}
 
-/* Dashboard */
 .dashboard {
-    margin-top: 80px; /* Desplazar contenido debajo del header */
+    margin-top: 80px;
     padding: 20px;
 }
 
@@ -259,7 +510,7 @@ DASHBOARD
 
 .card-container {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 4rem;
 }
 
@@ -269,12 +520,19 @@ DASHBOARD
     }
 }
 
-@media (max-width: 1229px) {
+@media (max-width: 1282px) {
     .card-container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
 @media (max-width: 904px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 670px) {
     .card-container {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -301,7 +559,441 @@ DASHBOARD
     font-size: 16px;
     color: #000000;
 }
-#username{
+
+#username {
     color: rgb(54, 54, 54);
 }
 
+/*
+----------------------------------
+CODIGO PARA EL ASIDE RESPONSIVE A PARTIR DE LOS 904 PX
+----------------------------------
+*/
+/* GLOBALES DEL SIDEBAR */
+.sidebar {
+    ul {
+        padding: 0;
+    }
+
+.sidebar .nav ul li a {
+        display: flex;
+    }
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    z-index: 99;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.header {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 0;
+}
+
+@media (min-width: 974px) {
+    .close-sidebar {
+        display: none;
+    }
+    .main-content {
+        margin-left: 300px;
+    }
+}
+
+@media (max-width: 974px) {
+    .sidebar {
+        position: fixed;
+        left: -300px;
+        transition: left 0.3s ease;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+}
+
+.toggle-sidebar {
+    background-color: rgb(54, 54, 54);
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.toggle-sidebar:hover {
+    color: #ccc;
+}
+
+/* ESTILOS BOTON CRUZ PARA CERRAR SIDEBAR */
+.close-sidebar {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-sidebar:hover {
+    color: #ccc;
+}
+
+/* MEJORAS SIDEBAR */
+
+.sidebar .nav p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    color: #fff;
+}
+
+.sidebar .nav ul li a {
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar .nav ul li a.admin {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.sidebar .nav ul li a.empleado {
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+.sidebar .nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Opcional: Estilo para los iconos de los enlaces */
+.sidebar .nav ul li a::before {
+    content: "";
+    display: inline-block;
+    margin-right: 8px;
+    width: 12px;
+    height: 12px;
+    background-size: cover;
+}
+
+.sidebar .nav ul li {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .nav ul li i {
+    margin-right: 5.5px;
+    font-size: 20px;
+}
+
+.sidebar .nav ul li a {
+    flex-grow: 1;
+}
+
+.sidebar .nav ul li .fas.fa-arrow-right {
+    margin-left: auto;
+    font-size: 16px;
+    color: #fff;
+}
+
+
+/*
+----------------------------------
+PERFIL ADMIN
+----------------------------------
+*/
+
+.perfil {
+    margin-top: 5rem;
+    margin-left: 300px;
+
+}
+
+.perfil .contenedor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+}
+.perfil h3 {
+    margin: 5rem auto 3rem auto;
+}
+.datos,
+.recuperar {
+    margin: 0 5rem;
+}
+
+.form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+    padding: 30px;
+    width: auto;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+::placeholder {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.form button {
+    align-self: flex-end;
+}
+.form .button-submit {
+    margin: 20px 0 10px 0;
+    background-color: #151717;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    height: 50px;
+    width: auto;
+    padding: 0 2rem;
+    cursor: pointer;
+}
+
+.flex-column > label {
+    color: #151717;
+    font-weight: 600;
+}
+
+.inputForm {
+    border: 1.5px solid #ecedec;
+    border-radius: 10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.input {
+    margin-left: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.inputForm:focus-within {
+    border: 1.5px solid #2d79f3;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.flex-row > div > label {
+    font-size: 14px;
+    color: black;
+    font-weight: 400;
+}
+
+/*
+----------------------------------
+PRODUCTOS ADMIN
+----------------------------------
+*/
+/* Estilo para el enlace seleccionado */
+.sidebar .nav ul li a.selected {
+    background-color: #444; /* Color de fondo para el botón seleccionado */
+    color: #fff; /* Color del texto */
+    font-weight: bold; /* Hacer el texto más destacado */
+}
+
+.sidebar .nav ul li a.selected {
+    color: #ffd500; /* Cambiar el color de los íconos del botón seleccionado */
+}
+
+.sidebar .nav ul li a.selected:hover {
+    background-color: #444; /* Mantener el fondo igual al hacer hover en el seleccionado */
+    color: #fff;
+}
+
+/*
+----------------------------------
+CSS PARA POP-UP DE PRODUCTOS
+----------------------------------
+*/
+.container {
+    display: flex;
+}
+
+.header, .sidebar, .main-content {
+    flex: 1; /* Ocupa el espacio proporcional */
+}
+
+.supplier-container {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.button-add {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.button-add:hover {
+    background-color: #45a049;
+}
+
+.supplier-table {
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+.supplier-table th, .supplier-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.supplier-table th {
+    background-color: #212121;
+}
+
+.supplier-table tr:nth-child(even) {
+    background-color: #7d7d7d; /* Fondo blanco para filas pares */
+}
+
+.supplier-table tr:nth-child(odd) {
+    background-color: #424242; /* Fondo gris para filas impares */
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+@media (max-width: 700px) {
+    .actions{
+        flex-direction: column;
+    }
+}
+
+.popup {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Fondo semi-transparente */
+}
+
+
+.popup-content {
+    background-color: #212121;
+    margin: 30% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+@media (min-width: 974px) {
+    .popup-content{
+        margin-top: 20%;
+    }
+}
+
+.close-popup {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-popup:hover,
+.close-popup:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: black; /* Color del texto negro */
+    background-color: white; /* Fondo blanco */
+}
+
+.button-submit {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-submit:hover {
+    background-color: #007bb5;
+}
+@media (min-width: 974px) {
+    .popup{
+        padding-left: 300px;
+    }
+    .popup-content{
+        max-width: 60%;
+        form{
+            width: 75%;
+            margin: 0 auto;
+        }
+    }
+}
