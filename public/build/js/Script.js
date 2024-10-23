@@ -1,3 +1,15 @@
+setTimeout(function() {
+  var alertas = document.querySelectorAll('.alerta');
+  alertas.forEach(function(alerta) {
+      alerta.style.transition = 'opacity 0.5s';
+      alerta.style.opacity = '0'; 
+      setTimeout(function() {
+          alerta.remove();  
+      }, 500); 
+  });
+}, 5000);  //  5 segundos
+
+
 function toggleDropdown() {
   const dropdown = document.getElementById("dropdownMenu");
   dropdown.classList.toggle("show");
@@ -49,6 +61,7 @@ function toggleSidebar() {
 //     }
 // };
 
+
 /* CODIGO JS PARA EL POP-UP DE PRODUCTO */
 document.addEventListener("DOMContentLoaded", () => {
   const addSupplierBtn = document.getElementById("addSupplierBtn");
@@ -94,3 +107,4 @@ document.addEventListener("DOMContentLoaded", () => {
           closePopup();
   });
 });
+
