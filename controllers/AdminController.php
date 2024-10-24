@@ -30,6 +30,7 @@ class AdminController {
             
             if ($_POST['formulario'] === 'recuperar_mail') {
 
+
             } elseif ($_POST['formulario'] === 'cambiar_contraseña') {
 
                 $alertas = $auth->validarLogin();
@@ -45,11 +46,9 @@ class AdminController {
                             // Verificar que las contraseñas coincidan
                             if(!empty($contraseñaNueva) && !empty($repetirContraseña)) {
                                 if ($contraseñaNueva === $repetirContraseña) {
-
                                     $usuario->contraseña = password_hash($contraseñaNueva, PASSWORD_BCRYPT);
                                     $usuario->guardar(); // Guardar la nueva contraseña en la base de datos
                                     Usuario::setAlerta('exito', 'Contraseña actualizada correctamente');
-
                                 } else {
                                     Usuario::setAlerta('error', 'Las contraseñas no coinciden');
                                 }
@@ -62,10 +61,6 @@ class AdminController {
                         }
                     }
                 }
-                // Código para procesar el formulario de cambio de contraseña
-
-                // debuguear($usuario);
-                // Procesar el cambio de contraseña...
             }
             
         }
@@ -75,6 +70,7 @@ class AdminController {
             'alertas'=>$alertas
         ]);
     }
+
     public static function proveedor(Router $router){
         // Verificar sesión antes de ejecutar la lógica de esta acción
         LoginController::verificarAutenticacion();
@@ -82,11 +78,44 @@ class AdminController {
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/proveedor');
     }
+
     public static function productos(Router $router){
         // Verificar sesión antes de ejecutar la lógica de esta acción
         LoginController::verificarAutenticacion();
 
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/producto');
+    }
+
+    public static function stock(Router $router){
+        // Verificar sesión antes de ejecutar la lógica de esta acción
+        LoginController::verificarAutenticacion();
+
+        //renderizar una vista. una ruta y paramentros
+        $router->render('admin/stock');
+    }
+
+    public static function categorias(Router $router){
+        // Verificar sesión antes de ejecutar la lógica de esta acción
+        LoginController::verificarAutenticacion();
+
+        //renderizar una vista. una ruta y paramentros
+        $router->render('admin/categorias');
+    }
+
+    public static function empleados(Router $router){
+        // Verificar sesión antes de ejecutar la lógica de esta acción
+        LoginController::verificarAutenticacion();
+
+        //renderizar una vista. una ruta y paramentros
+        $router->render('admin/empleados');
+    }
+
+    public static function historialCajas(Router $router){
+        // Verificar sesión antes de ejecutar la lógica de esta acción
+        LoginController::verificarAutenticacion();
+
+        //renderizar una vista. una ruta y paramentros
+        $router->render('admin/historialCajas');
     }
 }

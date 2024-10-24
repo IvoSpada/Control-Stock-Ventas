@@ -37,7 +37,6 @@ class LoginController {
                     //si existe verifica la contraseña
                     if ($usuario->comprobarPassword($auth->contraseña)) {
                         
-                        session_start();
                         $_SESSION['id'] = $usuario->id;
                         $_SESSION['nombre'] = $usuario->nombre;
                         $_SESSION['admin'] = $usuario->admin;
