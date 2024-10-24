@@ -8,17 +8,13 @@ use Model\Usuario;
 class AdminController {
 
     public static function admin(Router $router){
-        // Verificar sesión antes de ejecutar la lógica de esta acción
-        LoginController::verificarAutenticacion();
-
+        isAdmin();
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/index');
     }
 
     public static function perfil(Router $router) {
-        // Verificar sesión antes de ejecutar la lógica de esta acción
-        LoginController::verificarAutenticacion();
-
+        isAdmin();
         $alertas = [];
 
         //si es POST...
@@ -72,49 +68,37 @@ class AdminController {
     }
 
     public static function proveedor(Router $router){
-        // Verificar sesión antes de ejecutar la lógica de esta acción
-        LoginController::verificarAutenticacion();
-
+        isAdmin();
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/proveedor');
     }
 
     public static function productos(Router $router){
-        // Verificar sesión antes de ejecutar la lógica de esta acción
-        LoginController::verificarAutenticacion();
-
+        isAdmin();
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/producto');
     }
 
     public static function stock(Router $router){
-        // Verificar sesión antes de ejecutar la lógica de esta acción
-        LoginController::verificarAutenticacion();
-
+        isAdmin();
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/stock');
     }
 
     public static function categorias(Router $router){
-        // Verificar sesión antes de ejecutar la lógica de esta acción
-        LoginController::verificarAutenticacion();
-
+        isAdmin();
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/categorias');
     }
 
     public static function empleados(Router $router){
-        // Verificar sesión antes de ejecutar la lógica de esta acción
-        LoginController::verificarAutenticacion();
-
+        isAdmin();
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/empleados');
     }
 
     public static function historialCajas(Router $router){
-        // Verificar sesión antes de ejecutar la lógica de esta acción
-        LoginController::verificarAutenticacion();
-
+        isAdmin();
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/historialCajas');
     }

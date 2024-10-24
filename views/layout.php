@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-<?php if ($_SERVER['REQUEST_URI'] !== '/' && $_SERVER['REQUEST_URI'] !== '/login'): ?>
+<?php if ($_SERVER['REQUEST_URI'] !== '/' && strpos($_SERVER['REQUEST_URI'], '/login') === false): ?>
 <div class="container">
     <!-- Header -->
     <header class="header">
@@ -74,7 +74,7 @@
 
     <?php echo $contenido; ?>
 
-    <?php if ($_SERVER['REQUEST_URI'] !== '/' && $_SERVER['REQUEST_URI'] !== '/login'): ?>
+    <?php if ($_SERVER['REQUEST_URI'] !== '/' && strpos($_SERVER['REQUEST_URI'], '/login') === false): ?>
 </div>
     <?php endif; ?>
 </body>

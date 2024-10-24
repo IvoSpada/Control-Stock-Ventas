@@ -17,6 +17,7 @@ LOGIN CONTROLLER
 
 //Seleccion de usuarios
 $router->get('/', [LoginController::class, 'SelectUser']);
+$router->post('/', [LoginController::class, 'SelectUser']);
 
 //Login de Admin
 $router->get('/login', [LoginController::class, 'login']);
