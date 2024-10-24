@@ -31,8 +31,6 @@ window.onclick = function (event) {
 };
 
 /* CODIGO PARA EL ASIDE RESPONSIVE EN MOBILE */
-/* EL CODIGO COMENTADO ES UNA FUNCIONALIDAD EN DESAROLLO PERO AHORA MISMO IMPOSIBLE DE TESTEAR, 
-SE PUEDE VOLVER A ACTIVAR CUANDO SE PONGAN LOS LINKS EN LOS BOTONES */
 
 function toggleSidebar() {
   const sidebar = document.querySelector(".sidebar");
@@ -42,7 +40,7 @@ function toggleSidebar() {
 // Cerrar el dropdown si se hace clic fuera de él
 
 /*---------------------------------------------
----CODIGO JS PARA EL POP-UP DE PRODUCTO----
+---CODIGO JS PARA EL POP-UP DE PROVEEDOR----
 -----------------------------------------------*/
 document.addEventListener("DOMContentLoaded", () => {
   const addSupplierBtn = document.getElementById("addSupplierBtn");
@@ -78,11 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     <td>${name}</td>
                     <td>${contact}</td>
                     <td>${mail}</td>
-                    <td class="actions">
-                        <button onclick="editSupplier(this)">Editar</button>
-                        <button onclick="deleteSupplier(this)">Eliminar</button>
-                        <button onclick="deleteSupplier(this)">Descripción</button>
-                    </td>
                     <td>${descr}</td>
                 `;
     // Cerrar el popup
@@ -104,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const name = row.cells[1].innerText;
       const contact = row.cells[2] ? row.cells[2].innerText : "N/A";
       const mail = row.cells[3] ? row.cells[3].innerText : "N/A";
-      const descr = row.cells[5] ? row.cells[5].innerText : "N/A";
+      const descr = row.cells[4] ? row.cells[4].innerText : "N/A";
 
       // Mostrar los detalles en el popup
       showSupplierDetails(id, name, contact, mail, descr);
