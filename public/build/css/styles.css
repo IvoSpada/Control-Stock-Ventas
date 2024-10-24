@@ -461,6 +461,7 @@ DASHBOARD
     height: 100vh;
     overflow-y: auto;
     padding-top: 80px;
+    margin-top: 40px;
 }
 
 /* Header */
@@ -864,9 +865,6 @@ PROVEEDORES ADMIN
 .sidebar .nav ul li a.selected {
     color: #ffd500; 
 }
-.main-content-proveedores{
-    margin-top: 40px;
-}
 
 /*
 ----------------------------------
@@ -881,13 +879,12 @@ CSS PARA POP-UP DE PROVEEDORES
     flex: 1; /* Ocupa el espacio proporcional */
 }
 
-.supplier-container {
+.supplier-container, .category-container {
     padding: 20px;
-}
-
-h2 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
 }
 
 .button-add {
@@ -904,27 +901,26 @@ h2 {
     background-color: #45a049;
 }
 
-.supplier-table {
+.default-table {
     width: 100%;
     border-collapse: collapse;
-    
 }
 
-.supplier-table th, .supplier-table td {
+.default-table th, .default-table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
 }
 
-.supplier-table th {
+.default-table th {
     background-color: #212121;
 }
 
-.supplier-table tr:nth-child(even) {
+.default-table tr:nth-child(even) {
     background-color: #7d7d7d; /* Fondo blanco para filas pares */
 }
 
-.supplier-table tr:nth-child(odd) {
+.default-table tr:nth-child(odd) {
     background-color: #424242; /* Fondo gris para filas impares */
 }
 
@@ -1052,42 +1048,43 @@ button {
 
 /* Media query para dispositivos móviles */
 /* Estilos para pantallas pequeñas */
-.supplier-table th:nth-child(5),
-.supplier-table td:nth-child(5)
+.default-table th:nth-child(5),
+.default-table td:nth-child(5)
 ,
-    .supplier-table td:nth-child(6)
+    .default-table td:nth-child(6)
     {
         display: none;
     }
 @media screen and (max-width: 700px) {
     /* Ocultar columnas 3 (Contacto), 4 (Correo) y 5 (Descripción) */
-    .supplier-table th:nth-child(3),
-    .supplier-table th:nth-child(4),
-    .supplier-table th:nth-child(5),
-    .supplier-table th:nth-child(6),
-    .supplier-table td:nth-child(3),
-    .supplier-table td:nth-child(4),
-    .supplier-table td:nth-child(5),
-    .supplier-table td:nth-child(6) {
+    .default-table th:nth-child(3),
+    .default-table th:nth-child(4),
+    .default-table th:nth-child(5),
+    .default-table th:nth-child(6),
+    .default-table td:nth-child(3),
+    .default-table td:nth-child(4),
+    .default-table td:nth-child(5),
+    .default-table td:nth-child(6) {
         display: none;
     }
     
     /* Ajustar el ancho de las columnas visibles */
-    .supplier-table th:nth-child(1),
-    .supplier-table td:nth-child(1),
-    .supplier-table th:nth-child(2),
-    .supplier-table td:nth-child(2) {
+    .default-table th:nth-child(1),
+    .default-table td:nth-child(1),
+    .default-table th:nth-child(2),
+    .default-table td:nth-child(2) {
         width: 50%;
     }
-    .supplier-table th:nth-child(5),
-    .supplier-table td:nth-child(5) {
+    .default-table th:nth-child(5),
+    .default-table td:nth-child(5) {
         display: none;
     }
     /* Hacer que las filas sean clicables */
-    .supplier-table tbody tr {
+    .default-table tbody tr {
         cursor: pointer;
     }
 }
+
 
 /* Ajustar el popup para dispositivos móviles */
 @media screen and (max-width: 768px) {
