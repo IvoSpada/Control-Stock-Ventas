@@ -105,12 +105,17 @@ class ActiveRecord {
         return $sanitizado;
     }
 
+    // Función que sanitiza cualquier dato
+    public static function sanitizarDato($dato) {
+        return htmlspecialchars(strip_tags($dato));
+    }
+
     // Sincroniza BD con Objetos en memoria
     public function sincronizar($args=[]) { 
         foreach($args as $key => $value) {
-          if(property_exists($this, $key) && !is_null($value)) {
-            $this->$key = $value;
-          }
+            if(property_exists($this, $key) && !is_null($value)) {
+                $this->$key = $value;
+            }
         }
     }
 

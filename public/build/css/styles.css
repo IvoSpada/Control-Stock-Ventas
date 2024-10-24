@@ -251,20 +251,8 @@ p {
     font-size: 2rem
 }
 
-/*# sourceMappingURL=app.css.map */
 
-/*
-----------------------------------
-Variables
-----------------------------------
-*/
-:root {}
-
-/*
-----------------------------------
-Globales
-----------------------------------
-*/
+/* END NORMALIZE */
 
 .popup {
     display: none; /* Oculto por defecto */
@@ -294,18 +282,22 @@ Globales
 /*
 ----------------------------------
 ALERTAS
-----------------------------------a
+----------------------------------
 */
 .alerta {
     display: block;
     margin: 0 auto;
-    width: 50%;
     padding: 1rem;
     border-radius: 5px;
-    background-color: red;
     color: white;
     font-weight: bold;
     text-align: center;
+}
+.error {
+    background-color: red;
+}
+.exito {
+    background-color: rgb(12, 173, 12);
 }
 
 @media (max-width: 500px) {
@@ -775,7 +767,7 @@ PERFIL ADMIN
     margin: 5rem auto 3rem auto;
 }
 .datos,
-.empleados {
+.recuperar {
     margin: 0 5rem;
 }
 
