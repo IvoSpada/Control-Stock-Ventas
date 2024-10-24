@@ -65,7 +65,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Aquí se agregarán dinámicamente las filas -->
+                    <!-- Aquí se agregarán dinámicamente las filas via JS -->
                 </tbody>
             </table>
 
@@ -93,7 +93,7 @@
 
         <!-- Popup para agregar proveedor -->
         <div id="supplierPopup" class="popup">
-            <div class="popup-content">
+            <div class="popup-content" id="popup-content-add-supplier">
                 <span class="close-popup" onclick="closePopup()">&times;</span>
                 <h3 id="popupTitle">Agregar Proveedor</h3>
                 <form id="supplierForm">
