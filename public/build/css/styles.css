@@ -831,18 +831,13 @@ PRODUCTOS ADMIN
 */
 /* Estilo para el enlace seleccionado */
 .sidebar .nav ul li a.selected {
-    background-color: #444; /* Color de fondo para el botón seleccionado */
-    color: #fff; /* Color del texto */
-    font-weight: bold; /* Hacer el texto más destacado */
+    background-color: #444; 
+    color: #fff; 
+    font-weight: bold; 
 }
 
 .sidebar .nav ul li a.selected {
-    color: #ffd500; /* Cambiar el color de los íconos del botón seleccionado */
-}
-
-.sidebar .nav ul li a.selected:hover {
-    background-color: #444; /* Mantener el fondo igual al hacer hover en el seleccionado */
-    color: #fff;
+    color: #ffd500; 
 }
 
 /*
