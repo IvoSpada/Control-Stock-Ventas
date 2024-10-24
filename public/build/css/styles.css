@@ -254,6 +254,31 @@ p {
 
 /* END NORMALIZE */
 
+.popup {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    background-color: #212121;
+    margin: 30% auto;
+    border: 1px solid #888;
+    padding: 20px;
+    margin: 10% auto;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    position: relative;
+    text-align: left;
+}
+
 /*
 ----------------------------------
 ALERTAS
@@ -826,7 +851,7 @@ PERFIL ADMIN
 
 /*
 ----------------------------------
-PRODUCTOS ADMIN
+PROVEEDORES ADMIN
 ----------------------------------
 */
 /* Estilo para el enlace seleccionado */
@@ -839,10 +864,13 @@ PRODUCTOS ADMIN
 .sidebar .nav ul li a.selected {
     color: #ffd500; 
 }
+.main-content-proveedores{
+    margin-top: 40px;
+}
 
 /*
 ----------------------------------
-CSS PARA POP-UP DE PRODUCTOS
+CSS PARA POP-UP DE PROVEEDORES
 ----------------------------------
 */
 .container {
@@ -907,28 +935,17 @@ h2 {
 @media (max-width: 700px) {
     .actions{
         flex-direction: column;
+        button{
+            width: 70%;
+        }
+        align-items: center;
+        
     }
 }
 
-.popup {
-    display: none; /* Oculto por defecto */
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4); /* Fondo semi-transparente */
-}
 
-
-.popup-content {
+#popup-content-add-supplier{
     background-color: #212121;
-    margin: 30% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
 }
 @media (min-width: 974px) {
     .popup-content{
@@ -990,5 +1007,91 @@ h2 {
             width: 75%;
             margin: 0 auto;
         }
+    }
+}
+/*---------------------------------------------
+---RESPONSIVE PARA CELULARES DE PROVEEDORES----
+-----------------------------------------------*/
+
+/* Estilos generales para el popup */
+
+
+.popup-content .close {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.popup-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Media query para dispositivos móviles */
+/* Estilos para pantallas pequeñas */
+.supplier-table th:nth-child(5),
+.supplier-table td:nth-child(5)
+,
+    .supplier-table td:nth-child(6)
+    {
+        display: none;
+    }
+@media screen and (max-width: 700px) {
+    /* Ocultar columnas 3 (Contacto), 4 (Correo) y 5 (Descripción) */
+    .supplier-table th:nth-child(3),
+    .supplier-table th:nth-child(4),
+    .supplier-table th:nth-child(5),
+    .supplier-table th:nth-child(6),
+    .supplier-table td:nth-child(3),
+    .supplier-table td:nth-child(4),
+    .supplier-table td:nth-child(5),
+    .supplier-table td:nth-child(6) {
+        display: none;
+    }
+    
+    /* Ajustar el ancho de las columnas visibles */
+    .supplier-table th:nth-child(1),
+    .supplier-table td:nth-child(1),
+    .supplier-table th:nth-child(2),
+    .supplier-table td:nth-child(2) {
+        width: 50%;
+    }
+    .supplier-table th:nth-child(5),
+    .supplier-table td:nth-child(5) {
+        display: none;
+    }
+    /* Hacer que las filas sean clicables */
+    .supplier-table tbody tr {
+        cursor: pointer;
+    }
+}
+
+/* Ajustar el popup para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .popup-content {
+        width: 90%;
     }
 }
