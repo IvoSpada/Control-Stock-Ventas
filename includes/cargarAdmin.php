@@ -6,19 +6,19 @@ function hashearAdmin($contra): string {
     $hash = password_hash($contra, PASSWORD_BCRYPT);
     return $hash;
 }
-
-$nombre = "admin1"; 
+$dni = "46234790";
+$nombre = "administrador"; 
 $admin = 1; 
 $contra = "prueba123";
 
 $hash = hashearAdmin($contra);
 
-$query = "INSERT INTO usuarios (nombre, admin, contraseña) VALUES (?, ?, ?)";
+$query = "INSERT INTO usuarios (dni, nombre, admin, contraseña) VALUES (?, ?, ?, ?)";
 
 $stmt = mysqli_prepare($db, $query);
 
 if ($stmt) {
-    mysqli_stmt_bind_param($stmt, "sis", $nombre, $admin, $hash);
+    mysqli_stmt_bind_param($stmt, "isis", $dni , $nombre, $admin, $hash);
     if (mysqli_stmt_execute($stmt)) {
         echo "Usuario insertado correctamente";
     } else {

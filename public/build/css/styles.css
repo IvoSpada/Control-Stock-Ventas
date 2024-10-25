@@ -315,79 +315,70 @@ SELECT USER - LOGIN
     margin-top: 20rem;
     text-align: center;
 }
-
-.contenedor-user {
-    width: 50%;
-    margin: 50px auto;
-}
-
 .usuarios {
-    display: flex;
+    width: 100%;
+    max-width: 600px; 
+    margin: 50px auto; 
+    padding: 0 1rem; 
+}
+
+.usuarios form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-content: center;
-    gap: 2rem;
-
+    gap: 1rem;
 }
 
-.login-Admin button,
-.usuarios button {
-    padding: 0.1em 0.25em;
-    width: 13em;
-    height: 4.2em;
-    background-color: #212121;
-    border: 0.08em solid #fff;
-    border-radius: 0.3em;
-    font-size: 12px;
-    cursor: pointer;
-}
 
-.login-Admin button span,
-.usuarios button span {
+.ov-btn-slide-top {
+    background: #1A1B15; 
+    color: white; 
+    border: 1px solid gray;
+    padding: 16px 20px;
+    border-radius: 3px; 
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    bottom: 0.4em;
-    width: 8.25em;
-    height: 2.5em;
-    background-color: #212121;
-    border-radius: 0.2em;
-    font-size: 1.5em;
-    color: #fff;
-    border: 0.08em solid #fff;
-    box-shadow: 0 0.4em 0.1em 0.019em #fff;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+    text-decoration: none; 
+    font-family: inherit; 
+    cursor: pointer; 
 }
-
-.login-Admin button span:hover,
-.usuarios button span:hover {
-    transition: all 0.5s;
-    transform: translate(0, 0.4em);
-    box-shadow: 0 0 0 0 #fff;
+.ov-btn-slide-top a {
+    color: white;
 }
-
-.usuarios button span:not(hover) {
-    transition: all 1s;
+.ov-btn-slide-top a:hover {
+    color: #c9aa10; 
 }
 
 
-@media (max-width: 500px) {
-    .contenedor-user {
-        width: 100%;
-        margin: 15px;
-        margin-top: 5rem;
-    }
+.ov-btn-slide-top:hover {
+    color: #c9aa10; 
+    font-weight: bold;
+}
 
-    .usuarios {
-        flex-direction: column;
-        gap: 5rem;
-    }
+.ov-btn-slide-top::after {
+    content: "";
+    background:  rgb(41, 41, 41); 
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    left: 0;
+    right: 0;
+    top: -100%;
+    bottom: 100%;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+}
 
-    .usuarios button {
-        width: 90%;
-    }
-
-    .usuarios button span {
-        width: 100%;
-    }
+.ov-btn-slide-top:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
 }
 
 .login-Admin {
@@ -400,6 +391,28 @@ SELECT USER - LOGIN
     display: flex;
     justify-content: center;
     gap: 2rem;
+}
+
+.btn-limitar-texto {
+    width: 150px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+
+@media (max-width: 480px) {
+    .usuarios form {
+        grid-template-columns: 1fr; 
+        gap: 1.5rem; 
+    }
+    .usuarios button {
+        width: 90%;
+    }
+
+    .usuarios button span {
+        width: 100%;
+    }
 }
 
 /*

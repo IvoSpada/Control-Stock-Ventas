@@ -12,3 +12,10 @@ function s($html) : string {
     $s = htmlspecialchars($html);
     return $s;
 }
+
+//funcion para ver si es admin
+function isAdmin() : void {
+    if(!isset($_SESSION['admin'])) {
+        header('Location: /');
+    }
+}
