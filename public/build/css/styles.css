@@ -892,10 +892,10 @@ CSS PARA POP-UP DE PROVEEDORES
     flex: 1; /* Ocupa el espacio proporcional */
 }
 
-.supplier-container, .category-container {
+.supplier-container, .category-container, .employee-container {
     padding: 20px;
     h2 {
-        font-size: 2rem;
+        font-size: 3rem;
         margin-bottom: 20px;
     }
 }
@@ -1048,7 +1048,9 @@ button {
     border: none;
     cursor: pointer;
 }
-
+.edit-button, .delete-button, .change-password-button{
+    font-weight: bolder;
+}
 .edit-button {
     background-color: #4CAF50;
     color: white;
@@ -1056,6 +1058,10 @@ button {
 
 .delete-button {
     background-color: #f44336;
+    color: white;
+}
+.change-password-button{
+    background-color: #b79900;
     color: white;
 }
 
