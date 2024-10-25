@@ -52,7 +52,7 @@
                     <i class="fas fa-warehouse"></i> Stock <i class="fas fa-arrow-right"></i>
                 </a></li>
                 <li><a href="/admin/proveedor" class="<?= ($_SERVER['REQUEST_URI'] === '/admin/proveedor') ? 'selected' : ''; ?>">
-                    <i class="fas fa-box"></i> Proveedor <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-truck"></i> Proveedor <i class="fas fa-arrow-right"></i>
                 </a></li>
                 <li><a href="/admin/productos" class="<?= ($_SERVER['REQUEST_URI'] === '/admin/productos') ? 'selected' : ''; ?>">
                     <i class="fas fa-box"></i> Productos <i class="fas fa-arrow-right"></i>

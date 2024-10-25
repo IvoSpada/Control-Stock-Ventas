@@ -1,17 +1,16 @@
 <!-- Main Content -->
-<div class="main-content main-content-proveedores">
+<div class="main-content">
     <h1>Proveedores</h1>
     <div class="supplier-container">
-        <h2>Manage Supplier List</h2>
+        <h2>Administrar Lista de Proveedores</h2>
         <button id="addSupplierBtn" class="button-add">Agregar Proveedor</button>
-        <table id="supplierList" class="supplier-table">
+        <table id="supplierList" class="default-table">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Contacto</th>
                     <th>Correo</th>
-                    <th>Acciones</th>
                     <th style="display: none;">Descripción</th> <!-- Columna oculta -->
                 </tr>
             </thead>
