@@ -909,7 +909,7 @@ CSS PARA POP-UP DE PROVEEDORES
     flex: 1; /* Ocupa el espacio proporcional */
 }
 
-.supplier-container, .category-container, .employee-container {
+.supplier-container, .category-container, .employee-container, .product-container {
     padding: 20px;
     h2 {
         font-size: 3rem;
