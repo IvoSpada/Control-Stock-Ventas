@@ -18,6 +18,8 @@
             <!-- <button type="submit"><span>Ingresar</span></button> -->
             <button class="ov-btn-slide-top" type='submit'>Ingresar</button>
         </div>
-        
     </form>
+    <?php if (urlencode($nombreUsuario) === 'Administrador'): ?>
+    <a href="/recuperar">¿Olvidaste la Contraseña? </a>
+    <?php endif; ?>
 </div>

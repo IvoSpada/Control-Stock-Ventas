@@ -4,9 +4,10 @@ namespace Model;
 class Usuario extends ActiveRecord {
     //Base de datos
     protected static $tabla = 'usuarios';
-    protected static $columnasDB = ['dni','nombre','admin','contraseña','email','token'];
+    protected static $columnasDB = ['id','dni','nombre','admin','contraseña','email','token'];
 
     public $id;
+    public $dni;
     public $nombre;
     public $admin;
     public $contraseña;
@@ -14,7 +15,8 @@ class Usuario extends ActiveRecord {
     public $token;
 
     public function __construct($args=[]) {
-        $this->id = $args['dni'] ?? NULL;
+        $this->dni = $args['id'] ?? NULL;
+        $this->dni = $args['dni'] ?? '';
         $this->nombre = $args['nombre'] ?? '';
         $this->admin = $args['admin'] ?? 0;
         $this->contraseña = $args['contraseña'] ?? '';
@@ -40,7 +42,16 @@ class Usuario extends ActiveRecord {
         }
     }
 
+    public function validarEmail () {
+        if (!$this->email) {
+            self::$alertas['error'][] = 'El email es obligatorio';
+        } 
+        return self::$alertas;
+    }
     
+    public function CrearToken() {
+        $this->token = uniqid();
+    }
 }
 
 
