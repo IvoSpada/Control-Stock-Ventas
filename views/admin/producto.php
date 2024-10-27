@@ -1,6 +1,6 @@
 <!-- Main Content -->
 <div class="main-content">
-    <h1>Productos</h1>
+    <h1>Productos (falta seguir haciendo)</h1>
     <div class="supplier-container">
         <h2>Administrar Lista de Productos</h2>
         <button id="addSupplierBtn" class="button-add">Agregar Proveedor</button>
