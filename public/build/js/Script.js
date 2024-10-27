@@ -288,3 +288,87 @@ document.addEventListener("DOMContentLoaded", () => {
     popup.style.display = "block";
   }
 });
+
+
+/*---------------------------------------------
+---CODIGO JS PARA EL POP-UP DE PRODUCTOS----
+-----------------------------------------------*/
+document.addEventListener("DOMContentLoaded", () => {
+    const addProductBtn = document.getElementById("addProductBtn");
+    const productPopup = document.getElementById("productPopup");
+    const productForm = document.getElementById("productForm");
+    const productList = document.getElementById("productList");
+
+    // Abrir el popup
+    addProductBtn.addEventListener("click", () => {
+        productPopup.style.display = "block"; // Muestra el popup
+        productForm.reset(); // Resetea el formulario
+        console.log("boton apretado");
+    });
+
+    // Cerrar el popup
+    window.closePopup = () => {
+        productPopup.style.display = "none"; // Oculta el popup
+    };
+
+    // Manejar el envío del formulario
+    productForm.addEventListener("submit", (event) => {
+        event.preventDefault(); // Previene el comportamiento por defecto
+
+        const id = productList.rows.length; // Genera un ID basado en el número de filas
+        const name = document.getElementById("productName").value;
+        const brand = document.getElementById("productBrand").value;
+        const categoryId = document.getElementById("productCategoryId").value;
+        const descr = document.getElementById("productDescription").value;
+
+        const newRow = productList.insertRow();
+        newRow.innerHTML = `
+            <td>${id}</td>
+            <td>${name}</td>
+            <td>${brand}</td>
+            <td style="display: none;">${categoryId}</td> <!-- ID Categoría oculto -->
+            <td>${descr}</td>
+        `;
+
+        // Cerrar el popup
+        closePopup();
+    });
+});
+
+/*---------------------------------------------
+---RESPONSIVE PARA CELULARES DE PRODUCTOS----
+-----------------------------------------------*/
+document.addEventListener("DOMContentLoaded", () => {
+    const productList = document.getElementById("productList");
+    const productDetailPopup = document.getElementById("productDetailPopup");
+
+    // Manejar el click en las filas para abrir el popup con más detalles
+    productList.addEventListener("click", (event) => {
+        if (event.target && event.target.nodeName === "TD") {
+            const row = event.target.parentNode;
+            const id = row.cells[0].innerText;
+            const name = row.cells[1].innerText;
+            const brand = row.cells[2].innerText;
+            const categoryId = row.cells[3] ? row.cells[3].innerText : "N/A"; // ID Categoría oculto
+            const descr = row.cells[4].innerText;
+
+            showProductDetails(id, name, brand, categoryId, descr);
+        }
+    });
+
+    // Función para cerrar el popup
+    window.closeDetailPopup = () => {
+        productDetailPopup.style.display = "none";
+    };
+
+    // Función para abrir el popup de detalles con la información correcta
+    function showProductDetails(id, name, brand, categoryId, descr) {
+        document.getElementById("popupId").textContent = `ID: ${id}`;
+        document.getElementById("popupName").textContent = `Nombre: ${name}`;
+        document.getElementById("popupBrand").textContent = `Marca: ${brand}`;
+        document.getElementById("popupCategoryId").textContent = `ID Categoría: ${categoryId}`;
+        document.getElementById("popupDescr").textContent = `Descripción: ${descr}`;
+
+        productDetailPopup.style.display = "block";
+    }
+});
