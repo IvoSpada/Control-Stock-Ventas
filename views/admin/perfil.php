@@ -3,8 +3,8 @@
 <div class="main-content">
     <h1>Información Perfil</h1>
         <div class="recuperar">
-            <h3>Mail de recuperación</h3>
             <form action="/admin/perfil" class="form" method="POST">
+                <h3>Mail de recuperación</h3>
                 <div class="flex-column">
                     <label>Email</label>
                 </div>
@@ -13,12 +13,12 @@
                     <input placeholder="Ingrese mail de recuperación" class="input" type="text" value="" name="email">
                 </div>
                 <input type="hidden" name="formulario" value="recuperar_mail">
-                <button class="button-submit">Confirmar</button>
+                <button class="ov-btn-slide-top" type='submit'>Confirmar</button>
             </form>
         </div>
         <div class="datos">
-            <h3>Cambiar Contraseña</h2>
             <form action="/admin/perfil" class="form" method="POST">
+                <h3>Cambiar Contraseña</h2>
                 <?php include_once __DIR__ . "/../templates/alertas.php"?>
                 <div class="flex-column">
                     <label>Contraseña Actual</label>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="inputForm">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="-64 0 512 512" height="20"><path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path><path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"></path></svg>        
-                    <input placeholder="Enter your Password" class="input" type="password" name="contraseñaNueva">
+                    <input placeholder="ingresa tu nueva contraseña" class="input" type="password" name="contraseñaNueva">
                 </div>
                 <div class="flex-column">
                     <label>Repetir contraseña</label>
@@ -42,7 +42,7 @@
                     <input placeholder="Repita la contraseña nueva" class="input" type="password" name="repetirContraseña">
                 </div>
                 <input type="hidden" name="formulario" value="cambiar_contraseña">
-                <button class="button-submit">Aplicar</button>
+                <button class="ov-btn-slide-top" type='submit'>Aplicar</button>
             </form>
         </div>
 </div>

@@ -6,7 +6,7 @@ class Usuario extends ActiveRecord {
     protected static $tabla = 'usuarios';
     protected static $columnasDB = ['dni','nombre','admin','contraseña','email','token'];
 
-    public $dni;
+    public $id;
     public $nombre;
     public $admin;
     public $contraseña;
@@ -14,7 +14,7 @@ class Usuario extends ActiveRecord {
     public $token;
 
     public function __construct($args=[]) {
-        $this->dni = $args['dni'] ?? NULL;
+        $this->id = $args['dni'] ?? NULL;
         $this->nombre = $args['nombre'] ?? '';
         $this->admin = $args['admin'] ?? 0;
         $this->contraseña = $args['contraseña'] ?? '';

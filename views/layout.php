@@ -18,11 +18,12 @@
         <div class="user-menu">
             <span id="username">Administrador</span>
             <div class="dropdown">
-                <button class="dropdown-button" onclick="toggleDropdown()">Cambiar Usuario</button>
-                <div id="dropdownContent" class="dropdown-content">
+                <button class="ov-btn-slide-top"><a href="/logout">Cerrar Sesión</a></button>
+                <!-- <button class="dropdown-button" onclick="toggleDropdown()">Cambiar Usuario</button> -->
+                <!-- <div id="dropdownContent" class="dropdown-content">
                     <a href="/admin/perfil">Perfil</a>
                     <a href="/logout">Cerrar Sesión</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </header>
@@ -65,6 +66,9 @@
                 </a></li>
                 <li><a href="/admin/empleados" class="<?= ($_SERVER['REQUEST_URI'] === '/admin/empleados') ? 'selected' : ''; ?>">
                     <i class="fa-solid fa-user"></i> Empleados <i class="fas fa-arrow-right"></i>
+                </a></li>
+                <li><a href="/admin/perfil" class="<?= ($_SERVER['REQUEST_URI'] === '/admin/perfil') ? 'selected' : ''; ?>">
+                    <i class="fa-solid fa-gear"></i> Configuración <i class="fas fa-arrow-right"></i>
                 </a></li>
             </ul>
         </nav>
