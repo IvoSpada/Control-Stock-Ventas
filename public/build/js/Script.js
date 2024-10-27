@@ -1,12 +1,14 @@
-// function toggleDropdown() {
-//   const dropdown = document.getElementById("dropdownMenu");
-//   dropdown.classList.toggle("show");
-// }
 
-// function toggleDropdown() {
-//   var dropdownContent = document.getElementById("dropdownContent");
-//   dropdownContent.classList.toggle("show");
-// }
+/*--------------------------------------------------
+---CÓDIGO JS PARA BORRAR ALERTA A LOS 4 SEGUNDOS----
+----------------------------------------------------*/
+const alertas = document.querySelectorAll('.alerta');
+alertas.forEach(alerta => {
+    setTimeout(() => {
+        alerta.remove();
+    }, 4000);
+});
+
 
 // Cerrar el dropdown si se hace clic fuera de él
 window.onclick = function (event) {

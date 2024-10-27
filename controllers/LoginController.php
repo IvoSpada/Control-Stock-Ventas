@@ -48,7 +48,7 @@ class LoginController {
                         if (session_status() === PHP_SESSION_NONE) {
                             session_start();
                         }
-                        $_SESSION['dni'] = $usuario->dni;
+                        $_SESSION['id'] = $usuario->id;
                         $_SESSION['nombre'] = $usuario->nombre;
                         $_SESSION['login'] = true;
 
@@ -85,4 +85,33 @@ class LoginController {
         header('Location: /');
     }
 
+    public static function confirmar(Router $router) {
+        $alertas = [];
+        $token = s($_GET['token']);
+
+        $usuario = Usuario::where('token',$token);
+
+        if (empty($usuario)) {
+            //mostrar mensaje de error 
+            Usuario::setAlerta('error', 'Token no válido');
+            $admin = Usuario::where('admin',1);
+            if ($admin) {
+                $admin->email = '';
+                $admin->guardar();
+            }
+            
+        } else {
+            //sacar el token
+            $usuario->token =null;
+            $usuario->guardar();
+            Usuario::setAlerta('exito', 'Token válido, Confirmando mail...');
+        }
+        //obtener alertas
+        $alertas = Usuario::getAlertas();
+
+        //enviar alertas a vista
+        $router->render('auth/confirmar-mail',[
+            'alertas'=>$alertas
+        ]);
+    }
 } 

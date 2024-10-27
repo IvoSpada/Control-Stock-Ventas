@@ -4,6 +4,7 @@ namespace Controllers;
 
 use MVC\Router;
 use Model\Usuario;
+use Classes\Email;
 
 class AdminController {
 
@@ -16,21 +17,50 @@ class AdminController {
     public static function perfil(Router $router) {
         isAdmin();
         $alertas = [];
+        $cambiarcontraseña = false;
+        $confirmarMail = false;
+        //Mostrar el mail
+        $usuario = Usuario::where('admin', 1);
+        if($usuario) {
+            $mail = $usuario->email;
+        }
 
         //si es POST...
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             //crear instancia usuario y  pasarle post
             $auth = new Usuario($_POST);
             $auth->sanitizarAtributos();
             
             if ($_POST['formulario'] === 'recuperar_mail') {
+                $confirmarMail = true;
+                $alertas = $auth->validarEmail();
 
+                if (empty($alertas)) {
+                    $usuario = Usuario::where('admin', 1);
 
-            } elseif ($_POST['formulario'] === 'cambiar_contraseña') {
+                    if ($usuario) {
+                        //guardar el mail
+                        $usuario->email = $auth->email;
+                        //crear token y guardar
+                        $usuario->crearToken(); //model
+                        $usuario->guardar();    //activeRecord
 
+                        //Enviar Email
+                        $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
+                        $email->enviarConfirmacion();
+
+                        //enviar Alerta
+                        Usuario::setAlerta('exito','Instrucciones enviadas al Email');
+                    } else {
+                        Usuario::setAlerta('error','El usuario no existe o No esta confirmado');
+                    }
+                }
+
+            }
+
+            if ($_POST['formulario'] === 'cambiar_contraseña') {
+                $cambiarcontraseña = True;
                 $alertas = $auth->validarLogin();
-
                 if (empty($alertas)) {
                     //comprar el admin
                     $usuario = Usuario::where('admin', 1);
@@ -60,10 +90,15 @@ class AdminController {
             }
             
         }
+
         $alertas = Usuario::getAlertas();
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/perfil', [
-            'alertas'=>$alertas
+            'alertas'=>$alertas,
+            'email'=>$mail,
+            'cambiarcontraseña'=>$cambiarcontraseña,
+            'confirmarMail'=>$confirmarMail
+
         ]);
     }
 
