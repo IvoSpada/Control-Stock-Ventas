@@ -14,8 +14,71 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Aquí se agregarán dinámicamente las filas via JS -->
+                <tr>
+                    <td>1</td>
+                    <td>Ana López</td>
+                    <td>123-456-789</td>
+                    <td>ana.lopez@example.com</td>
+                    <td style="display: none;">Gerente de ventas con 5 años de experiencia</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Carlos Pérez</td>
+                    <td>987-654-321</td>
+                    <td>carlos.perez@example.com</td>
+                    <td style="display: none;">Especialista en logística y transporte</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Lucía García</td>
+                    <td>456-789-123</td>
+                    <td>lucia.garcia@example.com</td>
+                    <td style="display: none;">Asistente administrativa bilingüe</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Servicios Gráficos Luna</td>
+                    <td>555-4321</td>
+                    <td>info@graficosluna.com</td>
+                    <td style="display: none;">Impresión y diseño gráfico para empresas</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Ana Torres</td>
+                    <td>123456789</td>
+                    <td>ana.torres@email.com</td>
+                    <td style="display: none;">Encargada de Recursos Humanos</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Martín López</td>
+                    <td>987654321</td>
+                    <td>martin.lopez@email.com</td>
+                    <td style="display: none;">Supervisor de Producción</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Elena García</td>
+                    <td>456789123</td>
+                    <td>elena.garcia@email.com</td>
+                    <td style="display: none;">Analista de Finanzas</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Carlos Ruiz</td>
+                    <td>789123456</td>
+                    <td>carlos.ruiz@email.com</td>
+                    <td style="display: none;">Asistente Administrativo</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Valeria Martínez</td>
+                    <td>321456789</td>
+                    <td>valeria.martinez@email.com</td>
+                    <td style="display: none;">Especialista en Logística</td> <!-- Columna oculta -->
+                </tr>
             </tbody>
+
         </table>
 
         <!-- Popup para mostrar detalles del empleado -->
@@ -31,7 +94,8 @@
                 <p id="popupMail"></p>
                 <div class="popup-footer">
                     <button class="edit-button" onclick="editEmployee()">Editar</button>
-                    <button class="change-password-button">Cambiar Contraseña</button> <!-- Botón extra para cambiar contraseña -->
+                    <button class="change-password-button">Cambiar Contraseña</button>
+                    <!-- Botón extra para cambiar contraseña -->
                     <button class="delete-button" onclick="deleteEmployee()">Eliminar</button>
                 </div>
             </div>

@@ -13,8 +13,26 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Aquí se agregarán dinámicamente las filas via JS -->
+                <tr>
+                    <td>1</td>
+                    <td>Papelería Escolar</td>
+                    <td>Proveedor de artículos para escuelas y oficinas</td>
+                    <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Materiales de Construcción Gómez</td>
+                    <td>Distribuidor de cemento, arena y materiales para construcción</td>
+                    <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Frutas y Verduras Selectas</td>
+                    <td>Proveedor de productos agrícolas frescos para supermercados</td>
+                    <!-- Columna oculta -->
+                </tr>
             </tbody>
+
         </table>
 
         <!-- Popup para mostrar detalles de la categoria -->
