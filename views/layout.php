@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-<?php if ($_SERVER['REQUEST_URI'] !== '/' && $_SERVER['REQUEST_URI'] !== '/login'): ?>
+<?php if ($_SERVER['REQUEST_URI'] !== '/' && strpos($_SERVER['REQUEST_URI'], '/login') === false && strpos($_SERVER['REQUEST_URI'], '/confirmar') === false): ?>
 <div class="container">
     <!-- Header -->
     <header class="header">
@@ -18,11 +18,12 @@
         <div class="user-menu">
             <span id="username">Administrador</span>
             <div class="dropdown">
-                <button class="dropdown-button" onclick="toggleDropdown()">Cambiar Usuario</button>
-                <div id="dropdownContent" class="dropdown-content">
+                <button class="ov-btn-slide-top"><a href="/logout">Cerrar Sesión</a></button>
+                <!-- <button class="dropdown-button" onclick="toggleDropdown()">Cambiar Usuario</button> -->
+                <!-- <div id="dropdownContent" class="dropdown-content">
                     <a href="/admin/perfil">Perfil</a>
                     <a href="/logout">Cerrar Sesión</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </header>
@@ -52,7 +53,7 @@
                     <i class="fas fa-warehouse"></i> Stock <i class="fas fa-arrow-right"></i>
                 </a></li>
                 <li><a href="/admin/proveedor" class="<?= ($_SERVER['REQUEST_URI'] === '/admin/proveedor') ? 'selected' : ''; ?>">
-                    <i class="fas fa-box"></i> Proveedor <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-truck"></i> Proveedor <i class="fas fa-arrow-right"></i>
                 </a></li>
                 <li><a href="/admin/productos" class="<?= ($_SERVER['REQUEST_URI'] === '/admin/productos') ? 'selected' : ''; ?>">
                     <i class="fas fa-box"></i> Productos <i class="fas fa-arrow-right"></i>
@@ -66,6 +67,9 @@
                 <li><a href="/admin/empleados" class="<?= ($_SERVER['REQUEST_URI'] === '/admin/empleados') ? 'selected' : ''; ?>">
                     <i class="fa-solid fa-user"></i> Empleados <i class="fas fa-arrow-right"></i>
                 </a></li>
+                <li><a href="/admin/perfil" class="<?= ($_SERVER['REQUEST_URI'] === '/admin/perfil') ? 'selected' : ''; ?>">
+                    <i class="fa-solid fa-gear"></i> Configuración <i class="fas fa-arrow-right"></i>
+                </a></li>
             </ul>
         </nav>
     </aside>
@@ -74,7 +78,7 @@
 
     <?php echo $contenido; ?>
 
-    <?php if ($_SERVER['REQUEST_URI'] !== '/' && $_SERVER['REQUEST_URI'] !== '/login'): ?>
+    <?php if ($_SERVER['REQUEST_URI'] !== '/' && strpos($_SERVER['REQUEST_URI'], '/login') === false && strpos($_SERVER['REQUEST_URI'], '/confirmar') === false): ?>
 </div>
     <?php endif; ?>
 </body>

@@ -17,10 +17,15 @@ LOGIN CONTROLLER
 
 //Seleccion de usuarios
 $router->get('/', [LoginController::class, 'SelectUser']);
+$router->post('/', [LoginController::class, 'SelectUser']);
 
 //Login de Admin
 $router->get('/login', [LoginController::class, 'login']);
 $router->post('/login', [LoginController::class, 'login']);
+
+//confirmar Mail de admin
+$router->get('/confirmar', [LoginController::class, 'confirmar']);
+$router->post('/confirmar', [LoginController::class, 'confirmar']);
 
 //logout
 $router->get('/logout', [LoginController::class, 'logout']);

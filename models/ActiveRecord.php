@@ -148,9 +148,15 @@ class ActiveRecord {
 
     // Buscar un registro por una columna y condicion
     public static function where($columna, $valor) {
-        $query = "SELECT * FROM " . static::$tabla  ." WHERE {$columna} = {$valor}";
+        $query = "SELECT * FROM " . static::$tabla  ." WHERE {$columna} = '{$valor}'";
         $resultado = self::consultarSQL($query);
-        return array_shift( $resultado ) ;
+
+        if (is_array($resultado) && !empty($resultado)) {
+            return array_shift($resultado);
+        } else {
+            return null; 
+        }
+
     }
     
     // Obtener Registros con cierta cantidad
@@ -175,8 +181,8 @@ class ActiveRecord {
         // Resultado de la consulta
         $resultado = self::$db->query($query);
         return [
-           'resultado' =>  $resultado,
-           'id' => self::$db->insert_id
+            'resultado' =>  $resultado,
+            'id' => self::$db->insert_id
         ];
     }
 
