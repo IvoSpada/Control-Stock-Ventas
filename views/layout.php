@@ -9,8 +9,16 @@
     <link rel="stylesheet" href="/build/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+<?php
+// Lista de rutas excluidas
+$rutas_excluidas = ['/', '/login', '/confirmar', '/recuperar', '/nueva-contraseña', '/olvide', '/recuperar', '/cambio-contraseña'];
+
+// Obtener solo el path de la URL actual
+$ruta_actual = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+// Verificar si la ruta actual está en la lista de exclusión
+if (!in_array($ruta_actual, $rutas_excluidas)): ?>
 <body>
-<?php if ($_SERVER['REQUEST_URI'] !== '/' && strpos($_SERVER['REQUEST_URI'], '/login') === false && strpos($_SERVER['REQUEST_URI'], '/confirmar') === false): ?>
 <div class="container">
     <!-- Header -->
     <header class="header">
@@ -19,11 +27,6 @@
             <span id="username">Administrador</span>
             <div class="dropdown">
                 <button class="ov-btn-slide-top"><a href="/logout">Cerrar Sesión</a></button>
-                <!-- <button class="dropdown-button" onclick="toggleDropdown()">Cambiar Usuario</button> -->
-                <!-- <div id="dropdownContent" class="dropdown-content">
-                    <a href="/admin/perfil">Perfil</a>
-                    <a href="/logout">Cerrar Sesión</a>
-                </div> -->
             </div>
         </div>
     </header>
@@ -73,12 +76,11 @@
             </ul>
         </nav>
     </aside>
-
     <?php endif; ?>
 
     <?php echo $contenido; ?>
 
-    <?php if ($_SERVER['REQUEST_URI'] !== '/' && strpos($_SERVER['REQUEST_URI'], '/login') === false && strpos($_SERVER['REQUEST_URI'], '/confirmar') === false): ?>
+    <?php if (!in_array($ruta_actual, $rutas_excluidas)): ?>
 </div>
     <?php endif; ?>
 </body>

@@ -7,7 +7,7 @@ function hashearAdmin($contra): string {
     return $hash;
 }
 $dni = "46234790";
-$nombre = "administrador"; 
+$nombre = "Administrador"; 
 $admin = 1; 
 $contra = "prueba123";
 

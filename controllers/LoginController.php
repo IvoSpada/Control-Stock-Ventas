@@ -4,6 +4,7 @@ namespace Controllers;
 
 use MVC\Router;
 use Model\Usuario;
+use Classes\Email;
 
 
 class LoginController {
@@ -30,6 +31,11 @@ class LoginController {
     public static function login(Router $router) {
         $alertas = [];
         $auth = new Usuario($_POST);
+        $mail = null;
+        $usuario = Usuario::where('admin', 1);
+        if($usuario) {
+            $mail = $usuario->email;
+        }
 
         // Obtener el nombre de usuario de la URL
         $nombreUsuario = isset($_GET['user']) ? $_GET['user'] : '';
@@ -72,17 +78,95 @@ class LoginController {
         $alertas = Usuario::getAlertas();
         $router->render('auth/login', [
             'alertas' => $alertas,
-            'nombreUsuario' => $nombreUsuario  // Pasar el nombre del usuario a la vista
+            'nombreUsuario' => $nombreUsuario,  // Pasar el nombre del usuario a la vista
+            'email'=>$mail //pasar el mail, puede ser null o no
         ]);
     }
 
+    public static function olvide(Router $router) {
+        $alertas = [];
+        $enviando = false;
 
-    public static function logout() {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $auth = new Usuario($_POST);
+            $alertas = $auth->validarEmail();
+
+            if (empty($alertas)) {
+                $usuario = Usuario::where('email', $auth->email);
+
+                if ($usuario) {
+                    $enviando = true;
+                    //crear token y guardar
+                    $usuario->crearToken(); //model
+                    $usuario->guardar();    //activeRecord
+                    //Enviar Email
+                    $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
+                    $email->enviarInstrucciones();
+
+                    //enviar Alerta
+                    Usuario::setAlerta('exito','Instrucciones enviadas al Email');
+                } else {
+                    Usuario::setAlerta('error','El usuario no existe');
+
+                }
+            }
         }
-        $_SESSION = [];
-        header('Location: /');
+        $alertas = Usuario::getAlertas();
+        $router->render('auth/olvide', [
+            'alertas'=>$alertas,
+            'enviando'=>$enviando
+        ]);
+    }
+
+    public static function recuperar(Router $router) {
+        $alertas = [];
+        $error = false;
+        $token = isset($_GET['token']) ? s($_GET['token']) : null;
+
+        //buscar usuario por su token
+        $usuario = Usuario::where('token',$token);
+
+        if ($usuario === null) {
+            Usuario::setAlerta('error','Token no valido');
+            $error = true;
+        }
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //sanitizar la entrada de datos
+            $datos_sanitizados = Usuario::sanitizarDatos($_POST);
+            $repContraseña = $datos_sanitizados['repContraseña'] ?? null;
+
+            //asignar contraseña a la instancia usuario recién creada
+            $contraseña = new Usuario($_POST);
+            
+            //validar los campos
+            $alertas = $contraseña->validarCambioContraseña($repContraseña);
+            if (empty($alertas)) {
+                //usuario password = null
+                $usuario->contraseña = '';
+                $usuario->token = NULL;
+                $token = NULL;
+                //reasignamos la contraseña por la que puso el usuario
+                $usuario->contraseña = $contraseña->contraseña;
+                //hashear
+                $usuario->hashPassword();
+
+                //guardar la catualizacion (activeRecord)
+                $resultado = $usuario->guardar();
+
+                //si se ejecuta bien entonces...
+                if($resultado) {
+                    //redireccionamos
+                    header('Location: /');
+                }
+            }
+        }
+
+        $alertas = Usuario::getAlertas();
+        $router->render('auth/recuperar', [
+            'alertas'=>$alertas,
+            'error'=>$error,
+            'token'=>$token
+        ]);
     }
 
     public static function confirmar(Router $router) {
@@ -113,5 +197,13 @@ class LoginController {
         $router->render('auth/confirmar-mail',[
             'alertas'=>$alertas
         ]);
+    }
+
+    public static function logout() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $_SESSION = [];
+        header('Location: /');
     }
 } 
