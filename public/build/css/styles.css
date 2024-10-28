@@ -255,7 +255,8 @@ p {
 /* END NORMALIZE */
 
 .popup {
-    display: none; /* Oculto por defecto */
+    display: none;
+    /* Oculto por defecto */
     position: fixed;
     z-index: 1;
     left: 0;
@@ -264,6 +265,9 @@ p {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+
 }
 
 .popup-content {
@@ -294,9 +298,11 @@ ALERTAS
     text-align: center;
     width: 100%;
 }
+
 .error {
     background-color: red;
 }
+
 .exito {
     background-color: rgb(12, 173, 12);
 }
@@ -316,11 +322,12 @@ SELECT USER - LOGIN
     margin-top: 20rem;
     text-align: center;
 }
+
 .usuarios {
     width: 100%;
-    max-width: 600px; 
-    margin: 50px auto; 
-    padding: 0 1rem; 
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 0 1rem;
 }
 
 .usuarios form {
@@ -332,35 +339,37 @@ SELECT USER - LOGIN
 
 
 .ov-btn-slide-top {
-    background: #1A1B15; 
-    color: white; 
+    background: #1A1B15;
+    color: white;
     border: 1px solid gray;
     padding: 16px 20px;
-    border-radius: 3px; 
+    border-radius: 3px;
     position: relative;
     z-index: 1;
     overflow: hidden;
     display: inline-block;
-    text-decoration: none; 
-    font-family: inherit; 
-    cursor: pointer; 
+    text-decoration: none;
+    font-family: inherit;
+    cursor: pointer;
 }
+
 .ov-btn-slide-top a {
     color: white;
 }
+
 .ov-btn-slide-top a:hover {
-    color: #e2c11c; 
+    color: #e2c11c;
 }
 
 
 .ov-btn-slide-top:hover {
-    color: #e2c11c; 
+    color: #e2c11c;
     font-weight: bold;
 }
 
 .ov-btn-slide-top::after {
     content: "";
-    background:  rgb(41, 41, 41); 
+    background: rgb(41, 41, 41);
     position: absolute;
     z-index: -1;
     padding: 16px 20px;
@@ -413,6 +422,7 @@ SELECT USER - LOGIN
     align-items: center;
 }
 
+
 .input-login  {
     width: 100%;
     height: 44px;
@@ -421,7 +431,7 @@ SELECT USER - LOGIN
     padding: 0 1rem;
     border: 2px solid transparent;
     font-size: 2rem;
-    transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
+    transition: border-color .3s cubic-bezier(.25, .01, .25, 1) 0s, color .3s cubic-bezier(.25, .01, .25, 1) 0s, background .2s cubic-bezier(.25, .01, .25, 1) 0s;
 }
 
 .label-login {
@@ -432,22 +442,23 @@ SELECT USER - LOGIN
     color: #ffffff;
     text-align: left;
     margin: 15px;
-    transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
+    transition: color .3s cubic-bezier(.25, .01, .25, 1) 0s;
 }
 
 .btn-limitar-texto {
     width: 150px;
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
 @media (max-width: 480px) {
     .usuarios form {
-        grid-template-columns: 1fr; 
-        gap: 1.5rem; 
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
+
     .usuarios button {
         width: 90%;
     }
@@ -620,14 +631,18 @@ DASHBOARD
 }
 
 .card {
-    height: 12rem;
+    min-height: fit-content;
     width: 18em;
     margin: 0 auto;
     background-color: white;
-    padding: 20px;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
+}
+
+.card:hover {
+    cursor: pointer;
 }
 
 .card h3 {
@@ -656,7 +671,7 @@ ASIDE RESPONSIVE A PARTIR DE LOS 974 PX
         padding: 0;
     }
 
-.sidebar .nav ul li a {
+    .sidebar .nav ul li a {
         display: flex;
     }
 }
@@ -691,6 +706,7 @@ ASIDE RESPONSIVE A PARTIR DE LOS 974 PX
     .close-sidebar {
         display: none;
     }
+
     .main-content {
         margin-left: 300px;
     }
@@ -832,9 +848,11 @@ PERFIL ADMIN
 .form button {
     align-self: flex-end;
 }
+
 .form .button-submit:hover {
     background-color: #ffd500;
 }
+
 .form .button-submit {
     margin: 20px 0 10px 0;
     background-color: #151717;
@@ -849,7 +867,7 @@ PERFIL ADMIN
     cursor: pointer;
 }
 
-.flex-column > label {
+.flex-column>label {
     color: #ffffff;
     font-weight: 600;
 }
@@ -889,7 +907,7 @@ PERFIL ADMIN
     justify-content: space-between;
 }
 
-.flex-row > div > label {
+.flex-row>div>label {
     font-size: 14px;
     color: black;
     font-weight: 400;
@@ -902,13 +920,13 @@ PROVEEDORES ADMIN
 */
 /* Estilo para el enlace seleccionado */
 .sidebar .nav ul li a.selected {
-    background-color: #444; 
-    color: #fff; 
-    font-weight: bold; 
+    background-color: #444;
+    color: #fff;
+    font-weight: bold;
 }
 
 .sidebar .nav ul li a.selected {
-    color: #ffd500; 
+    color: #ffd500;
 }
 
 /*
@@ -920,12 +938,19 @@ CSS PARA POP-UP DE PROVEEDORES
     display: flex;
 }
 
-.header, .sidebar, .main-content {
-    flex: 1; /* Ocupa el espacio proporcional */
+.header,
+.sidebar,
+.main-content {
+    flex: 1;
+    /* Ocupa el espacio proporcional */
 }
 
-.supplier-container, .category-container, .employee-container, .product-container {
+.supplier-container,
+.category-container,
+.employee-container,
+.product-container {
     padding: 20px;
+
     h2 {
         font-size: 3rem;
         margin-bottom: 20px;
@@ -951,7 +976,8 @@ CSS PARA POP-UP DE PROVEEDORES
     border-collapse: collapse;
 }
 
-.default-table th, .default-table td {
+.default-table th,
+.default-table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
@@ -962,34 +988,40 @@ CSS PARA POP-UP DE PROVEEDORES
 }
 
 .default-table tr:nth-child(even) {
-    background-color: #7d7d7d; /* Fondo blanco para filas pares */
+    background-color: #7d7d7d;
+    /* Fondo blanco para filas pares */
 }
 
 .default-table tr:nth-child(odd) {
-    background-color: #424242; /* Fondo gris para filas impares */
+    background-color: #424242;
+    /* Fondo gris para filas impares */
 }
 
 .actions {
     display: flex;
     gap: 10px;
 }
+
 @media (max-width: 700px) {
-    .actions{
+    .actions {
         flex-direction: column;
-        button{
+
+        button {
             width: 70%;
         }
+
         align-items: center;
-        
+
     }
 }
 
 
-#popup-content-add-supplier{
+#popup-content-add-supplier {
     background-color: #212121;
 }
+
 @media (min-width: 974px) {
-    .popup-content{
+    .popup-content {
         margin-top: 20%;
     }
 }
@@ -1017,13 +1049,16 @@ CSS PARA POP-UP DE PROVEEDORES
     margin-bottom: 5px;
 }
 
-.input-group input, .input-group textarea {
+.input-group input,
+.input-group textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    color: black; /* Color del texto negro */
-    background-color: white; /* Fondo blanco */
+    color: black;
+    /* Color del texto negro */
+    background-color: white;
+    /* Fondo blanco */
 }
 
 .button-submit {
@@ -1038,18 +1073,22 @@ CSS PARA POP-UP DE PROVEEDORES
 .button-submit:hover {
     background-color: #007bb5;
 }
+
 @media (min-width: 974px) {
-    .popup{
+    .popup {
         padding-left: 300px;
     }
-    .popup-content{
+
+    .popup-content {
         max-width: 60%;
-        form{
+
+        form {
             width: 75%;
             margin: 0 auto;
         }
     }
 }
+
 /*---------------------------------------------
 ---RESPONSIVE PARA CELULARES DE PROVEEDORES----
 -----------------------------------------------*/
@@ -1080,9 +1119,13 @@ button {
     border: none;
     cursor: pointer;
 }
-.edit-button, .delete-button, .change-password-button{
+
+.edit-button,
+.delete-button,
+.change-password-button {
     font-weight: bolder;
 }
+
 .edit-button {
     background-color: #4CAF50;
     color: white;
@@ -1092,7 +1135,8 @@ button {
     background-color: #f44336;
     color: white;
 }
-.change-password-button{
+
+.change-password-button {
     background-color: #b79900;
     color: white;
 }
@@ -1100,13 +1144,13 @@ button {
 /* Media query para dispositivos móviles */
 /* Estilos para pantallas pequeñas */
 .default-table th:nth-child(5),
-.default-table td:nth-child(5)
-,
-    .default-table td:nth-child(6)
-    {
-        display: none;
-    }
+.default-table td:nth-child(5),
+.default-table td:nth-child(6) {
+    display: none;
+}
+
 @media screen and (max-width: 700px) {
+
     /* Ocultar columnas 3 (Contacto), 4 (Correo) y 5 (Descripción) */
     .default-table th:nth-child(3),
     .default-table th:nth-child(4),
@@ -1118,7 +1162,7 @@ button {
     .default-table td:nth-child(6) {
         display: none;
     }
-    
+
     /* Ajustar el ancho de las columnas visibles */
     .default-table th:nth-child(1),
     .default-table td:nth-child(1),
@@ -1126,10 +1170,12 @@ button {
     .default-table td:nth-child(2) {
         width: 50%;
     }
+
     .default-table th:nth-child(5),
     .default-table td:nth-child(5) {
         display: none;
     }
+
     /* Hacer que las filas sean clicables */
     .default-table tbody tr {
         cursor: pointer;
@@ -1142,4 +1188,75 @@ button {
     .popup-content {
         width: 90%;
     }
+}
+
+/*--------------------------------------------------
+----------CLASES PARA EL DASHBOARD DE STOCK---------
+----------------------------------------------------*/
+.stock-card-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3.25rem;
+}
+
+@media (max-width: 1559px) {
+    .stock-card-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1300px) {
+    .stock-card-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1072px) {
+    .stock-card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 974px) {
+    .stock-card-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 785px) {
+    .stock-card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 520px) {
+    .stock-card-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+.stock-card {
+    min-height: fit-content;
+    width: 13em;
+    margin: 0 auto;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+/* Colores según el stock */
+.low-stock {
+    background-color: #f8d7da;
+    /* Rojo claro */
+    color: #721c24;
+}
+
+.medium-stock {
+    background-color: #fff3cd;
+    /* Amarillo claro */
+    color: #856404;
+}
+
+.high-stock {
+    background-color: #d4edda;
+    /* Verde claro */
+    color: #155724;
 }
