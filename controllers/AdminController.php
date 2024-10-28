@@ -19,6 +19,7 @@ class AdminController {
         $alertas = [];
         $cambiarcontraseña = false;
         $confirmarMail = false;
+        $mail = null;
         //Mostrar el mail
         $usuario = Usuario::where('admin', 1);
         if($usuario) {
@@ -55,10 +56,7 @@ class AdminController {
                         Usuario::setAlerta('error','El usuario no existe o No esta confirmado');
                     }
                 }
-
-            }
-
-            if ($_POST['formulario'] === 'cambiar_contraseña') {
+            } elseif ($_POST['formulario'] === 'cambiar_contraseña') {
                 $cambiarcontraseña = True;
                 $alertas = $auth->validarLogin();
                 if (empty($alertas)) {
