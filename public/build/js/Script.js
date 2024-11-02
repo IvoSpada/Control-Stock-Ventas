@@ -410,7 +410,7 @@ document.querySelectorAll(".card").forEach((card) => {
     card.classList.add("low-stock");
   } else if (stock >= 10 && stock <= 20) {
     card.classList.add("medium-stock");
-  } else if(stock > 20) {
+  } else if (stock > 20) {
     card.classList.add("high-stock");
   }
 });
