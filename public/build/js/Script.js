@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+
+=======
 /*--------------------------------------------------
 ---CÓDIGO JS PARA BORRAR ALERTA A LOS 4 SEGUNDOS----
 ----------------------------------------------------*/
@@ -7,6 +11,7 @@ alertas.forEach((alerta) => {
     alerta.remove();
   }, 4000);
 });
+>>>>>>> 3e2505d544e5e2eab552f4355c9eb8f9abef2558
 
 // Cerrar el dropdown si se hace clic fuera de él
 window.onclick = function (event) {

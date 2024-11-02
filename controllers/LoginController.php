@@ -90,10 +90,8 @@ class LoginController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $auth = new Usuario($_POST);
             $alertas = $auth->validarEmail();
-
             if (empty($alertas)) {
                 $usuario = Usuario::where('email', $auth->email);
-
                 if ($usuario) {
                     $enviando = true;
                     //crear token y guardar
@@ -102,12 +100,10 @@ class LoginController {
                     //Enviar Email
                     $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
                     $email->enviarInstrucciones();
-
                     //enviar Alerta
                     Usuario::setAlerta('exito','Instrucciones enviadas al Email');
                 } else {
-                    Usuario::setAlerta('error','El usuario no existe');
-
+                    Usuario::setAlerta('error','El mail no coincide con el de recuperación');
                 }
             }
         }
@@ -117,7 +113,6 @@ class LoginController {
             'enviando'=>$enviando
         ]);
     }
-
     public static function recuperar(Router $router) {
         $alertas = [];
         $error = false;

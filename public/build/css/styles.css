@@ -416,10 +416,13 @@ SELECT USER - LOGIN
 .login-Admin a {
     color: white;
 }
-.acciones-olvide {
+.acciones {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.acciones a {
+    margin-left: 15px;
 }
 
 
