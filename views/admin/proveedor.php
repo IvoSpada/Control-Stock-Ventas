@@ -95,3 +95,5 @@
 
 <footer class="footer"></footer>
 <script src="/build/js/script.js"></script>
+<script src="/build/js/popUps.js"></script>
+<script src="/build/js/responsivesTablas.js"></script>

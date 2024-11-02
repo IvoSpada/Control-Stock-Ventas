@@ -25,7 +25,14 @@ $router->post('/login', [LoginController::class, 'login']);
 
 //confirmar Mail de admin
 $router->get('/confirmar', [LoginController::class, 'confirmar']);
-$router->post('/confirmar', [LoginController::class, 'confirmar']);
+
+//Enviar Mail para restablecer la contraseña
+$router->get('/olvide', [LoginController::class, 'olvide']);
+$router->post('/olvide', [LoginController::class, 'olvide']);
+
+//restablecer contraseña
+$router->get('/recuperar', [LoginController::class, 'recuperar']);
+$router->post('/recuperar', [LoginController::class, 'recuperar']);
 
 //logout
 $router->get('/logout', [LoginController::class, 'logout']);

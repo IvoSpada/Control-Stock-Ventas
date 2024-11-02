@@ -1,5 +1,3 @@
-
-
 <!-- Main Content -->
 <div class="main-content">
     <!-- Dashboard -->
@@ -43,3 +41,5 @@
 </div>
 
 <script src="/build/js/script.js"></script>
+<script src="/build/js/popUps.js"></script>
+<script src="/build/js/responsivesTablas.js"></script>

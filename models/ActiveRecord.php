@@ -215,4 +215,12 @@ class ActiveRecord {
         return $resultado;
     }
 
+    public static function sanitizarDatos(array $datos) {
+        $datos_sanitizados = [];
+        foreach ($datos as $key => $value) {
+            // Sanitizar cada valor y agregarlo al array de salida
+            $datos_sanitizados[$key] = htmlspecialchars(trim($value), ENT_QUOTES, 'UTF-8');
+        }
+        return $datos_sanitizados;
+    }
 }
