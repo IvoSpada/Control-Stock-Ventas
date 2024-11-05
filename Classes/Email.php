@@ -26,8 +26,8 @@ class Email {
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'tls';
         $mail->Port = 2525;
-        $mail->Username = 'ae4e91053a619f';
-        $mail->Password = '4a6172ded3b72c';
+        $mail->Username = '7296ff58b72e1e';
+        $mail->Password = '5e2fd179f181c5';
 
         $mail->setFrom('cuentas@hbtech.com', 'HB Technologies');
         $mail->addAddress('cuentas@hbtech.com', 'HB-Technologies.com');

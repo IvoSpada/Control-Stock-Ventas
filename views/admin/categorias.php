@@ -4,36 +4,49 @@
     <div class="category-container">
         <h2>Administrar Lista de Categorías</h2>
         <button id="addCategoryBtn" class="button-add">Agregar Categoría</button>
-        <table id="categoryList" class="default-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Descripción</th> <!-- Columna oculta -->
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Papelería Escolar</td>
-                    <td>Proveedor de artículos para escuelas y oficinas</td>
-                    <!-- Columna oculta -->
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Materiales de Construcción Gómez</td>
-                    <td>Distribuidor de cemento, arena y materiales para construcción</td>
-                    <!-- Columna oculta -->
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Frutas y Verduras Selectas</td>
-                    <td>Proveedor de productos agrícolas frescos para supermercados</td>
-                    <!-- Columna oculta -->
-                </tr>
-            </tbody>
+        <table id="categoryList" class="default-table" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th> <!-- Columna que podemos ocultar si es necesario -->
+            </tr>
+        </thead>
+        <tbody id="categoria-table-body">
+            <!-- Las filas se generarán aquí con JavaScript -->
+        </tbody>
+    </table>
 
-        </table>
+    <script>
+        // Función para obtener categorías y actualizar la tabla
+        async function cargarCategorias() {
+            try {
+                const response = await fetch('/api/categorias');
+                if (!response.ok) throw new Error('Error en la consulta a la API');
+
+                const categorias = await response.json();
+                const tableBody = document.getElementById('categoria-table-body');
+                tableBody.innerHTML = ''; // Limpiar el contenido existente
+
+                categorias.forEach(categoria => {
+                    const row = document.createElement('tr');
+                    
+                    row.innerHTML = `
+                        <td>${categoria.id}</td>
+                        <td>${categoria.nombre}</td>
+                        <td>${categoria.descripcion}</td>
+                    `;
+                    
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error al cargar las categorías:', error);
+            }
+        }
+
+        // Llama a la función al cargar la página
+        cargarCategorias();
+    </script>
 
         <!-- Popup para mostrar detalles de la categoria -->
         <div id="categoryDetailPopup" class="popup">

@@ -19,11 +19,10 @@ class AdminController {
         $alertas = [];
         $cambiarcontraseña = false;
         $confirmarMail = false;
-        $mail = null;
-        //Mostrar el mail
-        $usuario = Usuario::where('admin', 1);
-        if($usuario) {
-            $mail = $usuario->email;
+        $mail = false;
+        $info = Usuario::where('id', $_SESSION['id']);
+        if ($info->email && $info->admin == '1') {
+            $admin = true;
         }
 
         //si es POST...
@@ -37,7 +36,7 @@ class AdminController {
                 $alertas = $auth->validarEmail();
 
                 if (empty($alertas)) {
-                    $usuario = Usuario::where('admin', 1);
+                    $usuario = Usuario::where('id', $_SESSION['id']);
 
                     if ($usuario) {
                         //guardar el mail

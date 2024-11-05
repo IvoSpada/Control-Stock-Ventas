@@ -11,7 +11,7 @@
 </head>
 <?php
 // Lista de rutas excluidas
-$rutas_excluidas = ['/', '/login', '/confirmar', '/recuperar', '/nueva-contraseña', '/olvide', '/recuperar', '/cambio-contraseña'];
+$rutas_excluidas = ['/', '/login', '/confirmar', '/recuperar', '/nueva-contraseña', '/olvide', '/recuperar', '/cambio-contraseña', '/mensaje'];
 
 // Obtener solo el path de la URL actual
 $ruta_actual = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

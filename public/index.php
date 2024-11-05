@@ -7,6 +7,7 @@ use MVC\Router;
 use Controllers\LoginController;
 use Controllers\AdminController;
 use Controllers\ClientController;
+use Controllers\APIController;
 $router = new Router();
 
 /*
@@ -97,7 +98,14 @@ $router->post('/cuentasCorrientes', [ClientController::class, 'cuentasCorrientes
 $router->get('/historialVentas', [ClientController::class, 'historialVentas']);
 $router->post('/historialVentas', [ClientController::class, 'historialVentas']);
 
+/*
+----------------------------------
+API CONTROLLER 
+----------------------------------
+*/
 
+//dashboard Client
+$router->get('/api/categorias', [ApiController::class, 'categorias']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();

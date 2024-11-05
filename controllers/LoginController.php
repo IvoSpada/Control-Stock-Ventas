@@ -15,10 +15,10 @@ class LoginController {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Capturar el nombre del usuario seleccionado
-            $nombreUsuario = $_POST['user_role'];  
+            $idUsuario = $_POST['user_role'];  
 
             // Redirigir al login con el nombre del usuario
-            header('Location: /login?user=' . urlencode($nombreUsuario));
+            header('Location: /login?user=' . urlencode($idUsuario));
             exit();
         }
         
@@ -30,22 +30,21 @@ class LoginController {
 
     public static function login(Router $router) {
         $alertas = [];
-        $auth = new Usuario($_POST);
-        $mail = null;
-        $usuario = Usuario::where('admin', 1);
-        if($usuario) {
-            $mail = $usuario->email;
+        $admin = false;
+        // Obtener el id de usuario de la URL
+        $idUsuario = isset($_GET['user']) ? $_GET['user'] : '';
+        $info = Usuario::where('id', $idUsuario);
+        if ($info->email && $info->admin == '1') {
+            $admin = true;
         }
 
-        // Obtener el nombre de usuario de la URL
-        $nombreUsuario = isset($_GET['user']) ? $_GET['user'] : '';
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $auth->nombre = $nombreUsuario; 
+            $auth = new Usuario($_POST);
+            $auth->id = $idUsuario; 
             $alertas = $auth->validarLogin();
             if (empty($alertas)) {
 
-                $usuario = Usuario::where('nombre', $auth->nombre);
+                $usuario = Usuario::where('id', $idUsuario);
 
                 if($usuario) {
                     // Verificar la contraseña
@@ -78,8 +77,9 @@ class LoginController {
         $alertas = Usuario::getAlertas();
         $router->render('auth/login', [
             'alertas' => $alertas,
-            'nombreUsuario' => $nombreUsuario,  // Pasar el nombre del usuario a la vista
-            'email'=>$mail //pasar el mail, puede ser null o no
+            'idUsuario' => $idUsuario, 
+            'nombreUsuario'=>$info->nombre,
+            'admin'=>$admin
         ]);
     }
 
@@ -101,7 +101,7 @@ class LoginController {
                     $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
                     $email->enviarInstrucciones();
                     //enviar Alerta
-                    Usuario::setAlerta('exito','Instrucciones enviadas al Email');
+                    Usuario::setAlerta('exito','Instrucciones enviadas al Email.');
                 } else {
                     Usuario::setAlerta('error','El mail no coincide con el de recuperación');
                 }
