@@ -24,7 +24,7 @@ if (!in_array($ruta_actual, $rutas_excluidas)): ?>
     <header class="header">
         <button class="toggle-sidebar" onclick="toggleSidebar()">☰</button> <!-- Botón para abrir/cerrar -->
         <div class="user-menu">
-            <span id="username">Administrador</span>
+            <span id="username"><?php echo $_SESSION['nombre']?></span>
             <div class="dropdown">
                 <button class="ov-btn-slide-top"><a href="/logout">Cerrar Sesión</a></button>
             </div>

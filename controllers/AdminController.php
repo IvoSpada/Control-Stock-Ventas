@@ -23,6 +23,7 @@ class AdminController {
         $info = Usuario::where('id', $_SESSION['id']);
         if ($info->email && $info->admin == '1') {
             $admin = true;
+            $mail = $info->email;
         }
 
         //si es POST...
