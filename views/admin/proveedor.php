@@ -15,8 +15,8 @@
                 </tr>
 
             </thead>
-            <tbody>
-                <!-- AQUI VAN LOS REGISTROS POR DEFAULT QUE AGREGAREMOS MAS TARDE -->
+            <tbody id="provider-table-body">
+                <!-- Las filas se generarán aquí con JavaScript -->
             </tbody>
 
         </table>
