@@ -16,30 +16,7 @@
 
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Distribuidora Central</td>
-                    <td>555-1234</td>
-                    <td>contacto@distcentral.com</td>
-                    <td style="display: none;">Proveedor de artículos de oficina y papelería</td>
-                    <!-- Columna oculta -->
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Insumos Médicos Global</td>
-                    <td>555-5678</td>
-                    <td>ventas@insumosglobal.com</td>
-                    <td style="display: none;">Especializados en equipos médicos y hospitalarios</td>
-                    <!-- Columna oculta -->
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Electrodomésticos Alba</td>
-                    <td>555-8765</td>
-                    <td>soporte@alba.com</td>
-                    <td style="display: none;">Distribuidor de electrodomésticos y línea blanca</td>
-                    <!-- Columna oculta -->
-                </tr>
+                <!-- AQUI VAN LOS REGISTROS POR DEFAULT QUE AGREGAREMOS MAS TARDE -->
             </tbody>
 
         </table>
