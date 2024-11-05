@@ -13,7 +13,12 @@
                     <th>Correo</th>
                 </tr>
             </thead>
+<<<<<<< HEAD
             <tbody>
+=======
+            <tbody id="employee-table-body">
+                <!-- Las filas se generarán aquí con JavaScript -->
+>>>>>>> 8fae82c3703c07a856e05d1f49fba2051db7f901
             </tbody>
 
         </table>
@@ -87,3 +92,4 @@
 <script src="/build/js/script.js"></script>
 <script src="/build/js/popUps.js"></script>
 <script src="/build/js/responsivesTablas.js"></script>
+<script src="/build/js/bajadaAPI.js"></script>

@@ -106,6 +106,9 @@ API CONTROLLER
 
 //dashboard Client
 $router->get('/api/categorias', [ApiController::class, 'categorias']);
+$router->get('/api/empleados', [ApiController::class, 'empleados']);
+$router->get('/api/productos', [ApiController::class, 'productos']);
+$router->get('/api/proveedores', [ApiController::class, 'proveedores']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();

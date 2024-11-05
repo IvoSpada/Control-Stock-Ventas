@@ -17,37 +17,6 @@
         </tbody>
     </table>
 
-    <script>
-        // Función para obtener categorías y actualizar la tabla
-        async function cargarCategorias() {
-            try {
-                const response = await fetch('/api/categorias');
-                if (!response.ok) throw new Error('Error en la consulta a la API');
-
-                const categorias = await response.json();
-                const tableBody = document.getElementById('categoria-table-body');
-                tableBody.innerHTML = ''; // Limpiar el contenido existente
-
-                categorias.forEach(categoria => {
-                    const row = document.createElement('tr');
-                    
-                    row.innerHTML = `
-                        <td>${categoria.id}</td>
-                        <td>${categoria.nombre}</td>
-                        <td>${categoria.descripcion}</td>
-                    `;
-                    
-                    tableBody.appendChild(row);
-                });
-            } catch (error) {
-                console.error('Error al cargar las categorías:', error);
-            }
-        }
-
-        // Llama a la función al cargar la página
-        cargarCategorias();
-    </script>
-
         <!-- Popup para mostrar detalles de la categoria -->
         <div id="categoryDetailPopup" class="popup">
             <div class="popup-content">
@@ -90,3 +59,4 @@
 <script src="/build/js/script.js"></script>
 <script src="/build/js/popUps.js"></script>
 <script src="/build/js/responsivesTablas.js"></script>
+<script src="/build/js/bajadaAPI.js"></script>

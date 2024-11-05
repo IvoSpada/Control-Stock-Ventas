@@ -14,77 +14,8 @@
                     <th>Descripción</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Lápices de Colores</td>
-                    <td>Marca: Faber-Castell</td>
-                    <td style="display: none;">1</td> <!-- ID Categoría: Papelería Escolar -->
-                    <td>Paquete de 12 lápices de colores de alta calidad</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Cuaderno A4</td>
-                    <td>Marca: Norma</td>
-                    <td style="display: none;">1</td> <!-- ID Categoría: Papelería Escolar -->
-                    <td>Cuaderno de 80 hojas cuadriculadas</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Marcadores Permanentes</td>
-                    <td>Marca: Sharpie</td>
-                    <td style="display: none;">1</td> <!-- ID Categoría: Papelería Escolar -->
-                    <td>Set de 4 marcadores de colores surtidos</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Cemento Portland</td>
-                    <td>Marca: Holcim</td>
-                    <td style="display: none;">2</td> <!-- ID Categoría: Materiales de Construcción -->
-                    <td>Bolsa de 50 kg de cemento de alta resistencia</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Bloques de Concreto</td>
-                    <td>Marca: Bloquera Nacional</td>
-                    <td style="display: none;">2</td> <!-- ID Categoría: Materiales de Construcción -->
-                    <td>Bloques de concreto para construcción de muros</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Pintura Acrílica</td>
-                    <td>Marca: Behr</td>
-                    <td style="display: none;">2</td> <!-- ID Categoría: Materiales de Construcción -->
-                    <td>Galón de pintura acrílica para interiores</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Manzanas Fuji</td>
-                    <td>Marca: Frutas Selectas</td>
-                    <td style="display: none;">3</td> <!-- ID Categoría: Frutas y Verduras Selectas -->
-                    <td>Manzanas frescas Fuji por kilogramo</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>Plátanos</td>
-                    <td>Marca: Frutas Selectas</td>
-                    <td style="display: none;">3</td> <!-- ID Categoría: Frutas y Verduras Selectas -->
-                    <td>Plátanos de alta calidad por kilogramo</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Zanahorias</td>
-                    <td>Marca: Frutas Selectas</td>
-                    <td style="display: none;">3</td> <!-- ID Categoría: Frutas y Verduras Selectas -->
-                    <td>Zanahorias frescas por kilogramo</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>Pepinos</td>
-                    <td>Marca: Frutas Selectas</td>
-                    <td style="display: none;">3</td> <!-- ID Categoría: Frutas y Verduras Selectas -->
-                    <td>Pepinos frescos por kilogramo</td>
-                </tr>
+            <tbody id="product-table-body">
+                <!-- Las filas se generarán aquí con JavaScript -->
             </tbody>
         </table>
 
@@ -140,3 +71,4 @@
 <script src="/build/js/script.js"></script>
 <script src="/build/js/popUps.js"></script>
 <script src="/build/js/responsivesTablas.js"></script>
+<script src="/build/js/bajadaAPI.js"></script>
