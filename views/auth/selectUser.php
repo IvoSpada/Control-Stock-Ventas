@@ -8,4 +8,4 @@
     <form method="POST" action="/"> 
         <?php include_once __DIR__ . "/../templates/mostrarEmpleados.php" ?>
     </form>
-</div>
+</div> 
