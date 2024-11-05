@@ -13,10 +13,10 @@
                     <th>Correo</th>
                 </tr>
             </thead>
+            <tbody>
             <tbody id="employee-table-body">
                 <!-- Las filas se generarán aquí con JavaScript -->
             </tbody>
-
         </table>
 
         <!-- Popup para mostrar detalles del empleado -->
@@ -49,15 +49,32 @@
                 <input type="hidden" id="employeeId" />
                 <div class="input-group">
                     <label for="employeeName">Nombre:</label>
-                    <input type="text" id="employeeName" name="empleadoNombre" />
+                    <input type="text" id="employeeName" name="nombre" />
                 </div>
                 <div class="input-group">
                     <label for="employeeDNI">DNI:</label>
-                    <input type="text" id="employeeDNI" name="empleadoDNI" />
+                    <input type="text" id="employeeDNI" name="dni" />
                 </div>
                 <div class="input-group">
                     <label for="employeeMail">E-mail:</label>
-                    <input type="text" id="employeeMail" name="empleadoMail" />
+                    <input type="text" id="employeeMail" name="email" />
+                </div>
+                <div class="input-group">
+                    <label for="employeeMail">¿Es Administrador?</label>
+                    <div class="radio-group">
+                        <div>
+                        <label for="radioadmin">Sí</label>
+                        <input type="radio" name="admin" id="radioadmin" value="1">
+                        </div>
+                        <div>
+                        <label for="radioadmin">No</label>
+                        <input type="radio" name="admin" id="radioadmin" value="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="employeeMail">Contraseña:</label>
+                    <input type="text" id="employeeMail" name="email" />
                 </div>
                 <button type="submit" class="button-submit">Guardar</button>
             </form>

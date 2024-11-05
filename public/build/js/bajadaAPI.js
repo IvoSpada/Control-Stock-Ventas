@@ -85,7 +85,6 @@ async function cargarEmpleados() {
                 <td>${empleado.dni}</td>
                 <td>${empleado.email}</td>
             `;
-            
             tableBody.appendChild(row);
         });
     } catch (error) {

@@ -519,9 +519,6 @@ DASHBOARD
 
 /* Main Content */
 .main-content {
-    /* flex-grow: 1;
-    display: flex;
-    flex-direction: column; */
     justify-content: space-between;
     margin-left: 250px;
     margin-left: 0;
@@ -1059,6 +1056,16 @@ CSS PARA POP-UP DE PROVEEDORES
     /* Color del texto negro */
     background-color: white;
     /* Fondo blanco */
+}
+.radio-group {
+    display: flex;
+    gap: 10px; /* Espacio entre los elementos */
+    align-items: center;
+    margin-left: 10px; /* Espacio entre la pregunta y las opciones */
+}
+
+.radio-group label, .radio-group input {
+    margin: 0;
 }
 
 .button-submit {
