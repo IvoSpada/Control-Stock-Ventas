@@ -14,7 +14,8 @@
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>DNI</th>
-                    <th>Correo</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody id="employee-table-body">
@@ -67,12 +68,12 @@
                     <label for="employeeMail">¿Es Administrador?</label>
                     <div class="radio-group">
                         <div class='label-radio'>
-                        <label for="radioadmin">Sí</label>
-                        <input type="radio" name="admin" id="radioadmin" value="1" required>
+                            <label for="radioadmin">Sí</label>
+                            <input type="radio" name="admin" id="radioadmin1" value="1" required>
                         </div>
                         <div class='label-radio'>
-                        <label for="radioadmin">No</label>
-                        <input type="radio" name="admin" id="radioadmin" value="0" required>
+                            <label for="radioadmin">No</label>
+                            <input type="radio" name="admin" id="radioadmin0" value="0" required>
                         </div>
                     </div>
                 </div>
@@ -84,17 +85,13 @@
                     <label for="confirmPassword">Repetir Contraseña:</label>
                     <input type="password" id="confirmPassword" name="RepContraseña" />
                 </div>
-                <button type="submit" class="button-submit">Crear</button>
+                <button type="submit" class="button-submit">Guardar</button>
             </form>
-            <div class="popup-footer">
-            </div>
+            <div class="popup-footer"></div>
         </div>
     </div>
 </div>
 
 <footer class="footer"></footer>
 <script src="/build/js/script.js"></script>
-<script src="/build/js/popUps.js"></script>
-<script src="/build/js/responsivesTablas.js"></script>
-<script src="/build/js/bajadaAPI.js"></script>
-<script src="/build/js/form.js"></script>
+<script src="/build/js/empleados.js"></script>

@@ -42,6 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+
+
+
 /*---------------------------------------------
       ----CODIGO JS PARA EL POP-UP DE CATEGORIAS----
       -----------------------------------------------*/
@@ -82,77 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /*---------------------------------------------
-  ----CODIGO JS PARA EL POP-UP DE EMPLEADOS----
-  -----------------------------------------------*/
-document.addEventListener("DOMContentLoaded", () => {
-  const addEmployeeBtn = document.getElementById("addEmployeeBtn");
-  const employeePopup = document.getElementById("employeePopup");
-  const employeeForm = document.getElementById("employeeForm");
-  const passwordField = document.getElementById("password");
-  const confirmPasswordField = document.getElementById("confirmPassword");
-
-  // Abrir el popup
-  addEmployeeBtn.addEventListener("click", () => {
-    employeePopup.style.display = "block"; // Muestra el popup
-    employeeForm.reset(); // Resetea el formulario
-    console.log("boton apretado");
-  });
-
-  // Cerrar el popup
-  window.closePopup = () => {
-    employeePopup.style.display = "none"; // Oculta el popup
-  };
-
-  // Eliminar div de error anterior, si existe
-  const removeErrorDiv = () => {
-    const existingErrorDiv = document.querySelector(".alerta.error");
-    if (existingErrorDiv) {
-      existingErrorDiv.remove();
-    }
-  };
-
-  // Validaciones antes de enviar el formulario
-  employeeForm.addEventListener("submit", (event) => {
-  event.preventDefault(); // Evita que el formulario se envíe inmediatamente
-
-  let isValid = true;
-  let errorMessage = "";
-
-   // Limpiar mensajes de error previos
-  removeErrorDiv();
-
-  // Validaciones
-  if (confirmPasswordField.value && passwordField.value !== confirmPasswordField.value) {
-    isValid = false;
-    errorMessage = "Las contraseñas no coinciden.";
-  }
-  if (!employeeForm.dni.value) {
-    isValid = false;
-    errorMessage = "El Dni es obligatorio.";
-  }
-  if (!employeeForm.nombre.value) {
-    isValid = false;
-    errorMessage = "El nombre es obligatorio.";
-  }
-
-  // Si las validaciones son exitosas, enviar el formulario
-  if (isValid) {
-    // Si todo es válido, deja que el formulario se envíe normalmente
-    employeeForm.submit();
-  } else {
-    // Si no es válido, crea un div de error
-    const errorDiv = document.createElement("div");
-    errorDiv.className = "alerta error";
-    errorDiv.textContent = errorMessage;
-
-    // Agregar el div de error al formulario
-    employeeForm.insertBefore(errorDiv, employeeForm.firstChild);
-  }
-  });
-});
-
-/*---------------------------------------------
-  ---CODIGO JS PARA EL POP-UP DE PRODUCTOS----
+  ---CÓDIGO JS PARA EL POP-UP DE PRODUCTOS----
   -----------------------------------------------*/
 document.addEventListener("DOMContentLoaded", () => {
   const addProductBtn = document.getElementById("addProductBtn");
@@ -197,6 +131,9 @@ addProductBtn.addEventListener("click", () => {
     closePopup();
   });
 });
+
+
+
 
 /*---------------------------------------------
 -----------MOSTRAR DETALLES EN STOCK-----------

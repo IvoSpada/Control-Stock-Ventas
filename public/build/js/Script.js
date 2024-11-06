@@ -9,6 +9,18 @@ alertas.forEach((alerta) => {
   }, 4000);
 });
 
+/*------------------------------------------------------
+---BORRAR LA ALERTA CUANDO SE HACE FOCUS EN EL CAMPO----
+--------------------------------------------------------*/
+// Selecciona todos los que tengan la clase "input-alert"
+document.querySelectorAll('.input-alert').forEach(input => {
+  input.addEventListener('focus', function() {
+      document.querySelectorAll('.alerta').forEach(alert => {
+          alert.style.display = 'none';
+      });
+  });
+});
+
 // Cerrar el dropdown si se hace clic fuera de él
 window.onclick = function (event) {
   if (!event.target.matches(".dropdown-button")) {
@@ -38,4 +50,12 @@ function toggleSidebar() {
   sidebar.classList.toggle("show"); // Añade o quita la clase 'show'
 }
 
-// Cerrar el dropdown si se hace clic fuera de él
+document.addEventListener("DOMContentLoaded", () => {
+  const reloadButton = document.getElementById("reloadButton");
+
+  // Agregar un botón para recargar la página
+  reloadButton.addEventListener("click", () => {
+      // Recargar la página sin enviar el formulario
+      window.location.href = window.location.href; // Redirigir a la misma página
+  });
+});

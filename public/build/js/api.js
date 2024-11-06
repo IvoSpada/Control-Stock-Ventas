@@ -63,34 +63,3 @@ async function cargarProductos() {
 // Llama a la función al cargar la página
 cargarProductos();
 
-/*-------------------------------
----BAJADA DE DATOS DE EMPLEADOS--
----------------------------------*/
-// Función para obtener productos y actualizar la tabla
-async function cargarEmpleados() {
-    try {
-        const response = await fetch('/api/empleados'); // Cambia la ruta si es necesario
-        if (!response.ok) throw new Error('Error en la consulta a la API');
-
-        const empleados = await response.json();
-        const tableBody = document.getElementById('employee-table-body');
-        tableBody.innerHTML = ''; // Limpiar el contenido existente
-
-        empleados.forEach(empleado => {
-            const row = document.createElement('tr');
-            
-            row.innerHTML = `
-                <td>${empleado.id}</td>
-                <td>${empleado.nombre}</td>
-                <td>${empleado.dni}</td>
-                <td>${empleado.email}</td>
-            `;
-            
-            tableBody.appendChild(row);
-        });
-    } catch (error) {
-        console.error('Error al cargar los empleados:', error);
-    }
-}
-// Llama a la función al cargar la página
-cargarEmpleados();

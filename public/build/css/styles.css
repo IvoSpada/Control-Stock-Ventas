@@ -288,7 +288,7 @@ ALERTAS
 */
 .alerta {
     display: block;
-    margin: 0 auto;
+    margin: 15px auto;
     padding: 1rem;
     border-radius: 5px;
     color: white;
@@ -1008,7 +1008,34 @@ CSS PARA POP-UP DE PROVEEDORES
 .actions {
     display: flex;
     gap: 10px;
+    justify-content: space-around;
 }
+
+.info-button {
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.edit-button {
+    color: #4CAF50;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-button {
+    color: #f44336;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.edit-button:hover, .delete-button:hover {
+    opacity: 0.8;
+}
+
 
 @media (max-width: 700px) {
     .actions {
@@ -1144,34 +1171,12 @@ button {
     cursor: pointer;
 }
 
-.edit-button,
-.delete-button,
-.change-password-button {
-    font-weight: bolder;
-}
-
-.edit-button {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.delete-button {
-    background-color: #f44336;
-    color: white;
-}
-
 .change-password-button {
     background-color: #b79900;
     color: white;
 }
 
-/* Media query para dispositivos móviles */
-/* Estilos para pantallas pequeñas */
-.default-table th:nth-child(5),
-.default-table td:nth-child(5),
-.default-table td:nth-child(6) {
-    display: none;
-}
+
 
 @media screen and (max-width: 700px) {
 

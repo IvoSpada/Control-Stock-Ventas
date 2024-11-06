@@ -83,47 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /*---------------------------------------------
-    ---RESPONSIVE PARA CELULARES DE EMPLEADOS----
-    -----------------------------------------------*/
-document.addEventListener("DOMContentLoaded", () => {
-  const employeeList = document.getElementById("employeeList");
-  const employeeDetailPopup = document.getElementById("employeeDetailPopup");
-
-  // Manejar el click en las filas para abrir el popup con más detalles
-  employeeList.addEventListener("click", (event) => {
-    if (event.target && event.target.nodeName === "TD") {
-      const row = event.target.parentNode;
-      const id = row.cells[0].innerText;
-      const name = row.cells[1].innerText;
-      const dni = row.cells[2] ? row.cells[2].innerText : "N/A";
-      const mail = row.cells[3] ? row.cells[3].innerText : "N/A";
-
-      // Mostrar los detalles en el popup
-      showEmployeeDetails(id, name, dni, mail);
-    }
-  });
-
-  // Función para cerrar el popup
-  window.closeDetailPopup = () => {
-    employeeDetailPopup.style.display = "none";
-  };
-
-  // Función para abrir el popup de detalles con la información correcta
-  function showEmployeeDetails(id, name, dni, mail) {
-    const popup = document.getElementById("employeeDetailPopup");
-
-    // Asignar valores al popup
-    document.getElementById("popupId").textContent = `ID: ${id}`;
-    document.getElementById("popupName").textContent = `Nombre: ${name}`;
-    document.getElementById("popupDni").textContent = `DNI: ${dni}`;
-    document.getElementById("popupMail").textContent = `Correo: ${mail}`;
-
-    // Mostrar el popup
-    popup.style.display = "block";
-  }
-});
-
-/*---------------------------------------------
   ---RESPONSIVE PARA CELULARES DE PRODUCTOS----
   -----------------------------------------------*/
 document.addEventListener("DOMContentLoaded", () => {

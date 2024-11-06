@@ -41,7 +41,7 @@ class LoginController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $auth = new Usuario($_POST);
             $auth->id = $idUsuario; 
-            $alertas = $auth->validarLogin();
+            
             if (empty($alertas)) {
 
                 $usuario = Usuario::where('id', $idUsuario);
