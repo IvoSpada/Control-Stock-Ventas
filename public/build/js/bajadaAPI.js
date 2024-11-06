@@ -85,7 +85,6 @@ async function cargarEmpleados() {
                 <td>${empleado.dni}</td>
                 <td>${empleado.email}</td>
             `;
-            
             tableBody.appendChild(row);
         });
     } catch (error) {
@@ -94,3 +93,36 @@ async function cargarEmpleados() {
 }
 // Llama a la función al cargar la página
 cargarEmpleados();
+
+/*-----------------------------------
+--- BAJADA DE DATOS DE PROVEEDORES --
+-------------------------------------*/
+// Función para obtener proveedores y actualizar la tabla
+async function cargarProveedores() {
+    try {
+        const response = await fetch('/api/proveedores'); // Cambia la ruta si es necesario
+        if (!response.ok) throw new Error('Error en la consulta a la API');
+
+        const proveedores = await response.json();
+        const tableBody = document.getElementById('provider-table-body');
+        tableBody.innerHTML = ''; // Limpiar el contenido existente
+
+        proveedores.forEach(proveedor => {
+            const row = document.createElement('tr');
+            
+            row.innerHTML = `
+                <td>${proveedor.id}</td>
+                <td>${proveedor.nombre}</td>
+                <td>${proveedor.telefono}</td>
+                <td>${proveedor.email}</td>
+                <td style="display: none;">${proveedor.descripcion}</td> <!-- Columna oculta -->
+            `;
+            
+            tableBody.appendChild(row);
+        });
+    } catch (error) {
+        console.error('Error al cargar los proveedores:', error);
+    }
+}
+// Llama a la función al cargar la página
+cargarProveedores();

@@ -4,6 +4,7 @@ namespace Controllers;
 
 use MVC\Router;
 use Model\Usuario;
+use Model\Proveedor;
 use Classes\Email;
 
 class AdminController {
@@ -102,8 +103,10 @@ class AdminController {
 
     public static function proveedor(Router $router){
         isAdmin();
+        $proveedor = new Proveedor();
+        $tipoContacto = $proveedor->verificarContactos();        
         //renderizar una vista. una ruta y paramentros
-        $router->render('admin/proveedor');
+        $router->render('admin/proveedor', ['tipoContacto' => $tipoContacto]);
     }
 
     public static function productos(Router $router){
