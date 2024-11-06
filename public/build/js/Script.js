@@ -37,5 +37,9 @@ function toggleSidebar() {
   const sidebar = document.querySelector(".sidebar");
   sidebar.classList.toggle("show"); // Añade o quita la clase 'show'
 }
-
 // Cerrar el dropdown si se hace clic fuera de él
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log(tipoContacto);
+});

@@ -3,18 +3,18 @@ namespace Model;
 
 class Proveedor extends ActiveRecord {
     protected static $tabla = 'proveedores';
-    protected static $columnasDB = ['id', 'nombre', 'contacto', 'email', 'descripcion'];
+    protected static $columnasDB = ['id', 'nombre', 'telefono', 'email', 'descripcion'];
 
     public $id;
     public $nombre;
-    public $contacto;
+    public $telefono;
     public $email;
     public $descripcion;
 
     public function __construct($args = []) {
         $this->id = $args['id'] ?? null;
         $this->nombre = $args['nombre'] ?? '';
-        $this->contacto = $args['contacto'] ?? '';
+        $this->telefono = $args['contacto'] ?? '';
         $this->email = $args['email'] ?? '';
         $this->descripcion = $args['descripcion'] ?? '';
     }
@@ -23,7 +23,7 @@ class Proveedor extends ActiveRecord {
         if(!$this->nombre) {
             self::$alertas['error'][] = 'El nombre es obligatorio';
         }
-        if(!$this->contacto) {
+        if(!$this->telefono) {
             self::$alertas['error'][] = 'El contacto es obligatorio';
         }
         if(!$this->email) {
@@ -35,4 +35,26 @@ class Proveedor extends ActiveRecord {
 
         return self::$alertas;
     }
+   public function verificarContactos() {
+    // Obtén todos los proveedores de la base de datos
+    $proveedores = self::all(); // `all()` es un método común en ActiveRecord para obtener todos los registros
+
+    $tipoContacto = [];
+
+    // Itera sobre cada proveedor y verifica el tipo de contacto
+    foreach ($proveedores as $proveedor) {
+        if ($proveedor->email && $proveedor->telefono) {
+            $tipoContacto[] = ['id' => $proveedor->id, 'tipo' => 'ambos'];
+        } elseif ($proveedor->email) {
+            $tipoContacto[] = ['id' => $proveedor->id, 'tipo' => 'email'];
+        } elseif ($proveedor->telefono) {
+            $tipoContacto[] = ['id' => $proveedor->id, 'tipo' => 'telefono'];
+        } else {
+            $tipoContacto[] = ['id' => $proveedor->id, 'tipo' => 'sin_contacto'];
+        }
+    }
+    return $tipoContacto;
+}
+
+    
 }

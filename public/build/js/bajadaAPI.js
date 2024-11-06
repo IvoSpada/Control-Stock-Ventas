@@ -113,7 +113,7 @@ async function cargarProveedores() {
             row.innerHTML = `
                 <td>${proveedor.id}</td>
                 <td>${proveedor.nombre}</td>
-                <td>${proveedor.telefono || proveedor.email}</td>
+                <td>${proveedor.telefono}</td>
                 <td>${proveedor.email}</td>
                 <td style="display: none;">${proveedor.descripcion}</td> <!-- Columna oculta -->
             `;
