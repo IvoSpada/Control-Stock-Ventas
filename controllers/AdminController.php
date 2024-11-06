@@ -126,8 +126,25 @@ class AdminController {
 
     public static function empleados(Router $router){
         isAdmin();
+        $alertas = [];
+
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $empleado = new Usuario($_POST);
+            $empleado->hashPassword();
+            $usuario = Usuario::where('dni', $empleado->dni);
+
+            if ($usuario) {
+                Usuario::setAlerta('error', 'Ya existe un usuario con ese DNI');
+            } elseif ($empleado->guardar()) {
+                Usuario::setAlerta('exito', 'Usuario cargado correctamente');
+            } 
+        } 
+
+        $alertas = Usuario::getAlertas();
         //renderizar una vista. una ruta y paramentros
-        $router->render('admin/empleados');
+        $router->render('admin/empleados', [
+            'alertas'=>$alertas
+        ]);
     }
 
     public static function historialCajas(Router $router){

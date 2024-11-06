@@ -1,9 +1,13 @@
 <!-- Main Content -->
 <div class="main-content">
+    <?php include_once __DIR__ . "/../templates/alertas.php"?>
     <h1>Empleados</h1>
     <div class="employee-container">
         <h2>Administrar Lista de Empleados</h2>
+        <div class="acciones-agregar">
         <button id="addEmployeeBtn" class="button-add">Agregar Empleado</button>
+        <i class="fa-solid fa-arrows-rotate" id="reloadButton"></i>
+        </div>
         <table id="employeeList" class="default-table">
             <thead>
                 <tr>
@@ -13,7 +17,7 @@
                     <th>Correo</th>
                 </tr>
             </thead>
-            <tbody>
+
             <tbody id="employee-table-body">
                 <!-- Las filas se generarán aquí con JavaScript -->
             </tbody>
@@ -45,7 +49,7 @@
         <div class="popup-content">
             <span class="close-popup" onclick="closePopup()">&times;</span>
             <h3 id="popupTitle">Agregar Empleado</h3>
-            <form id="employeeForm">
+            <form id="employeeForm"  method="POST">
                 <input type="hidden" id="employeeId" />
                 <div class="input-group">
                     <label for="employeeName">Nombre:</label>
@@ -53,7 +57,7 @@
                 </div>
                 <div class="input-group">
                     <label for="employeeDNI">DNI:</label>
-                    <input type="text" id="employeeDNI" name="dni" />
+                    <input type="number" id="employeeDNI" name="dni" />
                 </div>
                 <div class="input-group">
                     <label for="employeeMail">E-mail:</label>
@@ -62,21 +66,25 @@
                 <div class="input-group">
                     <label for="employeeMail">¿Es Administrador?</label>
                     <div class="radio-group">
-                        <div>
+                        <div class='label-radio'>
                         <label for="radioadmin">Sí</label>
-                        <input type="radio" name="admin" id="radioadmin" value="1">
+                        <input type="radio" name="admin" id="radioadmin" value="1" required>
                         </div>
-                        <div>
+                        <div class='label-radio'>
                         <label for="radioadmin">No</label>
-                        <input type="radio" name="admin" id="radioadmin" value="0">
+                        <input type="radio" name="admin" id="radioadmin" value="0" required>
                         </div>
                     </div>
                 </div>
                 <div class="input-group">
-                    <label for="employeeMail">Contraseña:</label>
-                    <input type="text" id="employeeMail" name="email" />
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="contraseña" />
                 </div>
-                <button type="submit" class="button-submit">Guardar</button>
+                <div class="input-group">
+                    <label for="confirmPassword">Repetir Contraseña:</label>
+                    <input type="password" id="confirmPassword" name="RepContraseña" />
+                </div>
+                <button type="submit" class="button-submit">Crear</button>
             </form>
             <div class="popup-footer">
             </div>
@@ -89,3 +97,4 @@
 <script src="/build/js/popUps.js"></script>
 <script src="/build/js/responsivesTablas.js"></script>
 <script src="/build/js/bajadaAPI.js"></script>
+<script src="/build/js/form.js"></script>

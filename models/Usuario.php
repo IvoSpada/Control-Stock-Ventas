@@ -77,6 +77,29 @@ class Usuario extends ActiveRecord {
         }
         return $datos_sanitizados;
     }
+
+    public function ValidarNuevoUsuario() {
+        if (!$this->dni) {
+            self::$alertas['error'][] = 'El DNI es obligatorio';
+        } 
+
+        if (!$this->nombre) {
+            self::$alertas['error'][] = 'El nombre es obligatorio';
+        }
+
+        if (!$this->nombre) {
+            self::$alertas['error'][] = 'El nombre es obligatorio';
+        }
+
+        if (!$this->admin) {
+            self::$alertas['error'][] = 'El rol es obligatorio';
+        }
+
+        if (!$this->contraseña) {
+            self::$alertas['error'][] = 'La Contraseña es obligatorio';
+        }
+
+    }
 }
 
 
