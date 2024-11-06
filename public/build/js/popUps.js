@@ -88,7 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const addEmployeeBtn = document.getElementById("addEmployeeBtn");
   const employeePopup = document.getElementById("employeePopup");
   const employeeForm = document.getElementById("employeeForm");
-  const employeeList = document.getElementById("employeeList");
+  const passwordField = document.getElementById("password");
+  const confirmPasswordField = document.getElementById("confirmPassword");
 
   // Abrir el popup
   addEmployeeBtn.addEventListener("click", () => {
@@ -102,24 +103,51 @@ document.addEventListener("DOMContentLoaded", () => {
     employeePopup.style.display = "none"; // Oculta el popup
   };
 
-  // Manejar el envío del formulario
+  // Eliminar div de error anterior, si existe
+  const removeErrorDiv = () => {
+    const existingErrorDiv = document.querySelector(".alerta.error");
+    if (existingErrorDiv) {
+      existingErrorDiv.remove();
+    }
+  };
+
+  // Validaciones antes de enviar el formulario
   employeeForm.addEventListener("submit", (event) => {
-    event.preventDefault(); // Previene el comportamiento por defecto
+  event.preventDefault(); // Evita que el formulario se envíe inmediatamente
 
-    const id = employeeList.rows.length; // Genera un ID basado en el número de filas
-    const name = document.getElementById("employeeName").value;
-    const dni = document.getElementById("employeeDNI").value;
-    const mail = document.getElementById("employeeMail").value;
+  let isValid = true;
+  let errorMessage = "";
 
-    const newRow = employeeList.insertRow();
-    newRow.innerHTML = `
-                      <td>${id}</td>
-                      <td>${name}</td>
-                      <td>${dni}</td>
-                      <td>${mail}</td>
-                  `;
-    // Cerrar el popup
-    closePopup();
+   // Limpiar mensajes de error previos
+  removeErrorDiv();
+
+  // Validaciones
+  if (confirmPasswordField.value && passwordField.value !== confirmPasswordField.value) {
+    isValid = false;
+    errorMessage = "Las contraseñas no coinciden.";
+  }
+  if (!employeeForm.dni.value) {
+    isValid = false;
+    errorMessage = "El Dni es obligatorio.";
+  }
+  if (!employeeForm.nombre.value) {
+    isValid = false;
+    errorMessage = "El nombre es obligatorio.";
+  }
+
+  // Si las validaciones son exitosas, enviar el formulario
+  if (isValid) {
+    // Si todo es válido, deja que el formulario se envíe normalmente
+    employeeForm.submit();
+  } else {
+    // Si no es válido, crea un div de error
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "alerta error";
+    errorDiv.textContent = errorMessage;
+
+    // Agregar el div de error al formulario
+    employeeForm.insertBefore(errorDiv, employeeForm.firstChild);
+  }
   });
 });
 

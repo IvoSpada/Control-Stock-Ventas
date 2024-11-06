@@ -5,6 +5,16 @@ function cerrarPestaña() {
     window.close();
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const reloadButton = document.getElementById("reloadButton");
+
+    // Agregar un botón para recargar la página
+    reloadButton.addEventListener("click", () => {
+        // Recargar la página sin enviar el formulario
+        window.location.href = window.location.href; // Redirigir a la misma página
+    });
+});
+
 //si se esta mandando un mail;
 document.addEventListener('DOMContentLoaded', function() {
     const botonEnviar = document.getElementById('enviar-mail');

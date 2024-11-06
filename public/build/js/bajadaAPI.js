@@ -83,7 +83,7 @@ async function cargarEmpleados() {
                 <td>${empleado.id}</td>
                 <td>${empleado.nombre}</td>
                 <td>${empleado.dni}</td>
-                <td>${empleado.correo}</td>
+                <td>${empleado.email}</td>
             `;
             
             tableBody.appendChild(row);

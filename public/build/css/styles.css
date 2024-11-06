@@ -968,6 +968,17 @@ CSS PARA POP-UP DE PROVEEDORES
     background-color: #45a049;
 }
 
+.acciones-agregar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.acciones-agregar I {
+    font-size: 2.5rem;
+    
+}
+
 .default-table {
     width: 100%;
     border-collapse: collapse;
@@ -1059,13 +1070,19 @@ CSS PARA POP-UP DE PROVEEDORES
 }
 .radio-group {
     display: flex;
-    gap: 10px; /* Espacio entre los elementos */
+    gap: 5rem; /* Espacio entre los elementos */
     align-items: center;
     margin-left: 10px; /* Espacio entre la pregunta y las opciones */
 }
 
 .radio-group label, .radio-group input {
     margin: 0;
+}
+
+.label-radio {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
 .button-submit {
