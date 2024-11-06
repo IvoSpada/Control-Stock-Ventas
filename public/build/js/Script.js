@@ -44,12 +44,12 @@ window.onclick = function (event) {
 };
 
 /* CODIGO PARA EL ASIDE RESPONSIVE EN MOBILE */
-
 function toggleSidebar() {
   const sidebar = document.querySelector(".sidebar");
   sidebar.classList.toggle("show"); // Añade o quita la clase 'show'
 }
 
+// Cerrar el dropdown si se hace clic fuera de él
 document.addEventListener("DOMContentLoaded", () => {
   const reloadButton = document.getElementById("reloadButton");
 
@@ -58,4 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Recargar la página sin enviar el formulario
       window.location.href = window.location.href; // Redirigir a la misma página
   });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log(tipoContacto);
 });

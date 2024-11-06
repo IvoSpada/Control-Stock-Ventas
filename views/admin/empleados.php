@@ -18,10 +18,10 @@
                     <th>Acciones</th>
                 </tr>
             </thead>
+
             <tbody id="employee-table-body">
                 <!-- Las filas se generarán aquí con JavaScript -->
             </tbody>
-
         </table>
 
         <!-- Popup para mostrar detalles del empleado -->

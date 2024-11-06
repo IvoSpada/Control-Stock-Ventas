@@ -72,5 +72,8 @@
 
 <footer class="footer"></footer>
 <script src="/build/js/script.js"></script>
-<script src="/build/js/popUps.js"></script>
-<script src="/build/js/responsivesTablas.js"></script>
+<script src="/build/js/proveedor.js"></script>
+<script>
+    // Pasar el valor de $tipoContacto a una variable JavaScript
+    const tipoContacto = <?php echo json_encode($tipoContacto); ?>;
+</script>
