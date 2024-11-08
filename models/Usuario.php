@@ -98,7 +98,6 @@ class Usuario extends ActiveRecord {
         if (!$this->contraseña) {
             self::$alertas['error'][] = 'La Contraseña es obligatorio';
         }
-
     }
 }
 

@@ -38,9 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
 //                     <td>${descr}</td>
 //                     `;
 //     // Cerrar el popup
-    closePopup();
-  });
-
+//     closePopup();
+//   });
+});
 
 /*---------------------------------------------
 ---RESPONSIVE PARA CELULARES DE PROVEEDORES----

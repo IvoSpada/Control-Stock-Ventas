@@ -84,7 +84,8 @@ class Proveedor extends ActiveRecord
         if ($this->telefono && strlen($this->telefono) < 10) {
             self::$alertas['error'][] = 'El número de celular debe tener al menos 10 dígitos';
         }
-
         return self::$alertas['error'];
     }
+
+
 }

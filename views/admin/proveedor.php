@@ -60,7 +60,6 @@
                 </div>
                 <button type="submit" class="button-submit">Guardar</button>
             </form>
-
         </div>
     </div>
 

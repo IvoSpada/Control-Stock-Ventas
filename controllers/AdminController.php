@@ -104,9 +104,9 @@ class AdminController
         ]);
     }
     public static function proveedor(Router $router)
-    {
-        isAdmin();
-    $proveedor = new Proveedor($_POST);
+{
+    isAdmin();
+    $proveedor = new Proveedor();
     $tipoContacto = $proveedor->verificarContactos();
 
     // Comprobar si es una solicitud POST (subida de datos)
@@ -121,9 +121,12 @@ class AdminController
         $proveedor = new Proveedor($datos);
         $alertas = $proveedor->validarNuevoProveedor();
 
+        // Verificar si hay errores de validación
         if (!empty($alertas)) {
+            // Si hay errores, enviamos el JSON con las alertas
             $respuesta['error'] = true;
             $respuesta['mensaje'] = $alertas;
+
             echo json_encode($respuesta);
             return;
         }
@@ -133,20 +136,19 @@ class AdminController
 
         if ($resultado) {
             $respuesta['mensaje'] = 'Proveedor creado exitosamente';
-            // Redirigir al usuario a la misma página o una página de éxito
-            exit; // Asegúrate de detener la ejecución después de la redirección
         } else {
             $respuesta['error'] = true;
             $respuesta['mensaje'] = 'Error al crear el proveedor';
         }
 
+        // Enviar la respuesta en formato JSON
         echo json_encode($respuesta);
-        header('Location: /admin/proveedor'); // Cambia esta ruta por la correcta
         return;
     }
-        // Renderizar la vista si no es una solicitud POST
-        $router->render('admin/proveedor', ['tipoContacto' => $tipoContacto]);
-    }
+
+    // Renderizar la vista si no es una solicitud POST
+    $router->render('admin/proveedor', ['tipoContacto' => $tipoContacto]);
+}
 
 
     public static function productos(Router $router)
