@@ -59,7 +59,3 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = window.location.href; // Redirigir a la misma página
   });
 });
-
-document.addEventListener('DOMContentLoaded', function() {
-    console.log(tipoContacto);
-});

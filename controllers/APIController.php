@@ -22,7 +22,19 @@ class ApiController {
         echo json_encode($productos);
     }
     public static function proveedores() {
-        $proveedores = Proveedor::all(); // Utiliza el modelo de proveedor para obtener todos los proveedores
-        echo json_encode($proveedores);
+        $id = $_GET['id'] ?? null;
+        if ($id) {
+            $proveedor = Proveedor::find($id);
+            if($proveedor){
+                echo json_encode($proveedor);
+            }
+            else {
+                echo json_encode(['error' => 'Proveedor NO encontrado']);
+            }
+        }
+        else{
+            $proveedores = Proveedor::all(); 
+            echo json_encode($proveedores);
+        }
     }
 }

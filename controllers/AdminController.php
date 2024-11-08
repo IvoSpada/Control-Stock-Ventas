@@ -7,15 +7,18 @@ use Model\Usuario;
 use Model\Proveedor;
 use Classes\Email;
 
-class AdminController {
+class AdminController
+{
 
-    public static function admin(Router $router){
+    public static function admin(Router $router)
+    {
         isAdmin();
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/index');
     }
 
-    public static function perfil(Router $router) {
+    public static function perfil(Router $router)
+    {
         isAdmin();
         $alertas = [];
         $cambiarcontraseña = false;
@@ -28,11 +31,11 @@ class AdminController {
         }
 
         //si es POST...
-        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //crear instancia usuario y  pasarle post
             $auth = new Usuario($_POST);
             $auth->sanitizarAtributos();
-            
+
             if ($_POST['formulario'] === 'recuperar_mail') {
                 $confirmarMail = true;
                 $alertas = $auth->validarEmail();
@@ -52,9 +55,9 @@ class AdminController {
                         $email->enviarConfirmacion();
 
                         //enviar Alerta
-                        Usuario::setAlerta('exito','Instrucciones enviadas al Email');
+                        Usuario::setAlerta('exito', 'Instrucciones enviadas al Email');
                     } else {
-                        Usuario::setAlerta('error','El usuario no existe o No esta confirmado');
+                        Usuario::setAlerta('error', 'El usuario no existe o No esta confirmado');
                     }
                 }
             } elseif ($_POST['formulario'] === 'cambiar_contraseña') {
@@ -65,11 +68,11 @@ class AdminController {
                     $usuario = Usuario::where('admin', 1);
                     if ($usuario) {
                         //verificar si esta bien la contraseña
-                        if($usuario->comprobarPassword($auth->contraseña)) {
+                        if ($usuario->comprobarPassword($auth->contraseña)) {
                             $contraseñaNueva = $_POST['contraseñaNueva'];
                             $repetirContraseña = $_POST['repetirContraseña'];
                             // Verificar que las contraseñas coincidan
-                            if(!empty($contraseñaNueva) && !empty($repetirContraseña)) {
+                            if (!empty($contraseñaNueva) && !empty($repetirContraseña)) {
                                 if ($contraseñaNueva === $repetirContraseña) {
                                     $usuario->contraseña = password_hash($contraseñaNueva, PASSWORD_BCRYPT);
                                     $usuario->guardar(); // Guardar la nueva contraseña en la base de datos
@@ -87,47 +90,88 @@ class AdminController {
                     }
                 }
             }
-            
+
         }
 
         $alertas = Usuario::getAlertas();
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/perfil', [
-            'alertas'=>$alertas,
-            'email'=>$mail,
-            'cambiarcontraseña'=>$cambiarcontraseña,
-            'confirmarMail'=>$confirmarMail
+            'alertas' => $alertas,
+            'email' => $mail,
+            'cambiarcontraseña' => $cambiarcontraseña,
+            'confirmarMail' => $confirmarMail
 
         ]);
     }
-
-    public static function proveedor(Router $router){
+    public static function proveedor(Router $router)
+    {
         isAdmin();
-        $proveedor = new Proveedor();
-        $tipoContacto = $proveedor->verificarContactos();        
-        //renderizar una vista. una ruta y paramentros
+    $proveedor = new Proveedor($_POST);
+    $tipoContacto = $proveedor->verificarContactos();
+
+    // Comprobar si es una solicitud POST (subida de datos)
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Inicializar respuesta
+        $respuesta = ['error' => false, 'mensaje' => ''];
+
+        // Recoger datos sanitizados
+        $datos = Proveedor::sanitizarDatos($_POST);
+
+        // Validar datos obligatorios
+        $proveedor = new Proveedor($datos);
+        $alertas = $proveedor->validarNuevoProveedor();
+
+        if (!empty($alertas)) {
+            $respuesta['error'] = true;
+            $respuesta['mensaje'] = $alertas;
+            echo json_encode($respuesta);
+            return;
+        }
+
+        // Guardar en la base de datos
+        $resultado = $proveedor->guardar();
+
+        if ($resultado) {
+            $respuesta['mensaje'] = 'Proveedor creado exitosamente';
+            // Redirigir al usuario a la misma página o una página de éxito
+            exit; // Asegúrate de detener la ejecución después de la redirección
+        } else {
+            $respuesta['error'] = true;
+            $respuesta['mensaje'] = 'Error al crear el proveedor';
+        }
+
+        echo json_encode($respuesta);
+        header('Location: /admin/proveedor'); // Cambia esta ruta por la correcta
+        return;
+    }
+        // Renderizar la vista si no es una solicitud POST
         $router->render('admin/proveedor', ['tipoContacto' => $tipoContacto]);
     }
 
-    public static function productos(Router $router){
+
+    public static function productos(Router $router)
+    {
         isAdmin();
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/producto');
     }
 
-    public static function stock(Router $router){
+    public static function stock(Router $router)
+    {
         isAdmin();
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/stock');
     }
 
-    public static function categorias(Router $router){
+    public static function categorias(Router $router)
+    {
         isAdmin();
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/categorias');
     }
 
-    public static function empleados(Router $router){
+    public static function empleados(Router $router)
+    {
         isAdmin();
         $alertas = [];
 
@@ -140,17 +184,18 @@ class AdminController {
                 Usuario::setAlerta('error', 'Ya existe un usuario con ese DNI');
             } elseif ($empleado->guardar()) {
                 Usuario::setAlerta('exito', 'Usuario cargado correctamente');
-            } 
-        } 
+            }
+        }
 
         $alertas = Usuario::getAlertas();
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/empleados', [
-            'alertas'=>$alertas
+            'alertas' => $alertas
         ]);
     }
 
-    public static function historialCajas(Router $router){
+    public static function historialCajas(Router $router)
+    {
         isAdmin();
         //renderizar una vista. una ruta y paramentros
         $router->render('admin/historialCajas');
