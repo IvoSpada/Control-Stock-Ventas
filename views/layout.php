@@ -11,7 +11,7 @@
 </head>
 <?php
 // Lista de rutas excluidas
-$rutas_excluidas = ['/', '/login', '/confirmar', '/recuperar', '/nueva-contraseña', '/olvide', '/recuperar', '/cambio-contraseña', '/mensaje'];
+$rutas_excluidas = ['/', '/login', '/confirmar', '/recuperar', '/nueva-contraseña', '/olvide', '/recuperar', '/cambio-contraseña'];
 
 // Obtener solo el path de la URL actual
 $ruta_actual = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -24,7 +24,7 @@ if (!in_array($ruta_actual, $rutas_excluidas)): ?>
     <header class="header">
         <button class="toggle-sidebar" onclick="toggleSidebar()">☰</button> <!-- Botón para abrir/cerrar -->
         <div class="user-menu">
-            <span id="username"><?php echo $_SESSION['nombre']?></span>
+            <span id="username">Administrador</span>
             <div class="dropdown">
                 <button class="ov-btn-slide-top"><a href="/logout">Cerrar Sesión</a></button>
             </div>

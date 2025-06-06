@@ -1,11 +1,10 @@
 <?php
 
-$db = mysqli_connect('localhost', 'root', '', 'Control');
-
+$db = mysqli_connect('localhost', 'root', '', 'control');
 
 if (!$db) {
-    echo "Error: No se pudo conectar a MySQL.";
-    echo "errno de depuración: " . mysqli_connect_errno();
-    echo "error de depuración: " . mysqli_connect_error();
+    echo "Error: No se pudo conectar a MySQL.<br>";
+    echo "errno de depuración: " . mysqli_connect_errno() . "<br>";
+    echo "error de depuración: " . mysqli_connect_error() . "<br>";
     exit;
 }

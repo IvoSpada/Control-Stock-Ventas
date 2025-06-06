@@ -2,12 +2,16 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
+error_reporting(E_ALL);
+
 //lamar al router y los Controladores
 use MVC\Router;
 use Controllers\LoginController;
 use Controllers\AdminController;
 use Controllers\ClientController;
-use Controllers\APIController;
+use Controllers\SupplierController;
 $router = new Router();
 
 /*
@@ -98,17 +102,18 @@ $router->post('/cuentasCorrientes', [ClientController::class, 'cuentasCorrientes
 $router->get('/historialVentas', [ClientController::class, 'historialVentas']);
 $router->post('/historialVentas', [ClientController::class, 'historialVentas']);
 
+
 /*
 ----------------------------------
-API CONTROLLER 
+Supplier CONTROLLER
 ----------------------------------
 */
+$router->get('/api/proveedores/listar', [SupplierController::class, 'listar']);
+$router->post('/api/proveedores/crear', [SupplierController::class, 'crear']);
+$router->get('/api/proveedores/crear', [SupplierController::class, 'crear']);
+$router->post('/api/proveedores/eliminar', [SupplierController::class, 'eliminar']);
+$router->get('/api/proveedores/eliminar', [SupplierController::class, 'eliminar']);
 
-//dashboard Client
-$router->get('/api/categorias', [ApiController::class, 'categorias']);
-$router->get('/api/empleados', [ApiController::class, 'empleados']);
-$router->get('/api/productos', [ApiController::class, 'productos']);
-$router->get('/api/proveedores', [ApiController::class, 'proveedores']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();

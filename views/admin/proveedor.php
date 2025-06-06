@@ -10,77 +10,71 @@
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Contacto</th>
-                    <th style="display: none;">Descripción</th> <!-- Columna oculta -->
+                    <th>Correo</th>
+                    <th>Descripción</th>
+                    <th>Dirección</th>
                 </tr>
-
             </thead>
-            <tbody id="provider-table-body">
-                <!-- Las filas se generarán aquí con JavaScript -->
-            </tbody>
+            <tbody id="supplierList"></tbody> <!-- JS llenará esto dinámicamente -->
 
         </table>
 
         <!-- Popup para mostrar detalles del proveedor -->
-        <!-- Popup de Detalles del Proveedor -->
         <div id="supplierDetailPopup" class="popup">
             <div class="popup-content">
-                <span class="close" onclick="closeDetailPopup()">×</span>
+                <div class="popup-header">
+                    <span class="close" onclick="closeDetailPopup()">&times;</span>
+                </div>
                 <h2>Detalles del Proveedor</h2>
                 <p id="popupId"></p>
                 <p id="popupName"></p>
-                <div id="popupContact"></div> <!-- Para mostrar el contacto (teléfono/correo) -->
-                <div id="popupContactButton"></div> <!-- Para el botón "Ver Contactos" si es necesario -->
-                <p id="popupDescr"></p>
+                <p id="popupContact"></p>
+                <p id="popupMail"></p>
+                <p id="popupDescr"></p> <!-- Aquí se muestra solo la descripción -->
+                <div class="popup-footer">
+                    <button class="edit-button" onclick="editSupplier()">Editar</button>
+                    <button class="delete-button" onclick="deleteSupplier()">Eliminar</button>
+                </div>
             </div>
         </div>
-
     </div>
+
     <!-- Popup para agregar/editar proveedor (solo un popup) -->
     <div id="supplierPopup" class="popup">
         <div class="popup-content">
             <span class="close-popup" onclick="closePopup()">&times;</span>
             <h3 id="popupTitle">Agregar Proveedor</h3>
-            <form id="supplierForm" method="POST">
+            <form id="supplierForm">
                 <input type="hidden" id="supplierId" />
                 <div class="input-group">
                     <label for="supplierName">Nombre:</label>
-                    <input type="text" id="supplierName" name="nombre" />
+                    <input name="supplierName" placeholder="Nombre" required />
                 </div>
                 <div class="input-group">
                     <label for="supplierContact">Telefono:</label>
-                    <input type="text" id="supplierContact" name="contacto" />
+                    <input name="supplierContact" placeholder="Teléfono" required />
                 </div>
                 <div class="input-group">
                     <label for="supplierMail">E-mail:</label>
-                    <input type="text" id="supplierMail" name="email" />
+                    <input name="supplierMail" type="email" placeholder="Correo" required />
                 </div>
                 <div class="input-group">
-                    <label for="supplierDescription">Descripcion:</label>
-                    <textarea id="supplierDescription" name="descripcion"></textarea>
+                    <label for="supplierDescription">Descripción:</label>
+                    <input name="supplierDescription" placeholder="Descripción" />
+                </div>
+                <div class="input-group">
+                    <label for="supplierAddress">Dirección:</label>
+                    <input name="supplierAddress" placeholder="Dirección" />
                 </div>
                 <button type="submit" class="button-submit">Guardar</button>
+                <button type="button" id="closePopupBtn">Cancelar</button>
             </form>
         </div>
     </div>
-
-    <!-- Popup de Contactos -->
-    <div id="contactPopup" class="popup">
-        <div class="popup-content">
-            <div class="popup-header">
-                <span class="close" onclick="closeContactPopup()">&times;</span>
-            </div>
-            <h2>Detalles de Contacto</h2>
-            <p id="popupPhone"></p>
-            <p id="popupEmail"></p>
-        </div>
-    </div>
-
 </div>
 
 <footer class="footer"></footer>
 <script src="/build/js/script.js"></script>
-<script src="/build/js/proveedor.js"></script>
-<script>
-    // Pasar el valor de $tipoContacto a una variable JavaScript
-    const tipoContacto = <?php echo json_encode($tipoContacto); ?>;
-</script>
+<script src="/build/js/popUps.js"></script>
+<script src="/build/js/responsivesTablas.js"></script>
+<script src="/build/js/supplier_front.js"></script>

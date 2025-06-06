@@ -1,27 +1,84 @@
 <!-- Main Content -->
 <div class="main-content">
-    <?php include_once __DIR__ . "/../templates/alertas.php"?>
     <h1>Empleados</h1>
     <div class="employee-container">
         <h2>Administrar Lista de Empleados</h2>
-        <div class="acciones-agregar">
         <button id="addEmployeeBtn" class="button-add">Agregar Empleado</button>
-        <i class="fa-solid fa-arrows-rotate" id="reloadButton"></i>
-        </div>
         <table id="employeeList" class="default-table">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>DNI</th>
-                    <th>Rol</th>
-                    <th>Acciones</th>
+                    <th>Correo</th>
                 </tr>
             </thead>
-
-            <tbody id="employee-table-body">
-                <!-- Las filas se generarán aquí con JavaScript -->
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Ana López</td>
+                    <td>123-456-789</td>
+                    <td>ana.lopez@example.com</td>
+                    <td style="display: none;">Gerente de ventas con 5 años de experiencia</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Carlos Pérez</td>
+                    <td>987-654-321</td>
+                    <td>carlos.perez@example.com</td>
+                    <td style="display: none;">Especialista en logística y transporte</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Lucía García</td>
+                    <td>456-789-123</td>
+                    <td>lucia.garcia@example.com</td>
+                    <td style="display: none;">Asistente administrativa bilingüe</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Servicios Gráficos Luna</td>
+                    <td>555-4321</td>
+                    <td>info@graficosluna.com</td>
+                    <td style="display: none;">Impresión y diseño gráfico para empresas</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Ana Torres</td>
+                    <td>123456789</td>
+                    <td>ana.torres@email.com</td>
+                    <td style="display: none;">Encargada de Recursos Humanos</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Martín López</td>
+                    <td>987654321</td>
+                    <td>martin.lopez@email.com</td>
+                    <td style="display: none;">Supervisor de Producción</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Elena García</td>
+                    <td>456789123</td>
+                    <td>elena.garcia@email.com</td>
+                    <td style="display: none;">Analista de Finanzas</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Carlos Ruiz</td>
+                    <td>789123456</td>
+                    <td>carlos.ruiz@email.com</td>
+                    <td style="display: none;">Asistente Administrativo</td> <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Valeria Martínez</td>
+                    <td>321456789</td>
+                    <td>valeria.martinez@email.com</td>
+                    <td style="display: none;">Especialista en Logística</td> <!-- Columna oculta -->
+                </tr>
             </tbody>
+
         </table>
 
         <!-- Popup para mostrar detalles del empleado -->
@@ -50,48 +107,29 @@
         <div class="popup-content">
             <span class="close-popup" onclick="closePopup()">&times;</span>
             <h3 id="popupTitle">Agregar Empleado</h3>
-            <form id="employeeForm"  method="POST">
+            <form id="employeeForm">
                 <input type="hidden" id="employeeId" />
                 <div class="input-group">
                     <label for="employeeName">Nombre:</label>
-                    <input type="text" id="employeeName" name="nombre" />
+                    <input type="text" id="employeeName" name="empleadoNombre" />
                 </div>
                 <div class="input-group">
                     <label for="employeeDNI">DNI:</label>
-                    <input type="number" id="employeeDNI" name="dni" />
+                    <input type="text" id="employeeDNI" name="empleadoDNI" />
                 </div>
                 <div class="input-group">
                     <label for="employeeMail">E-mail:</label>
-                    <input type="text" id="employeeMail" name="email" />
-                </div>
-                <div class="input-group">
-                    <label for="employeeMail">¿Es Administrador?</label>
-                    <div class="radio-group">
-                        <div class='label-radio'>
-                            <label for="radioadmin">Sí</label>
-                            <input type="radio" name="admin" id="radioadmin1" value="1" required>
-                        </div>
-                        <div class='label-radio'>
-                            <label for="radioadmin">No</label>
-                            <input type="radio" name="admin" id="radioadmin0" value="0" required>
-                        </div>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="contraseña" />
-                </div>
-                <div class="input-group">
-                    <label for="confirmPassword">Repetir Contraseña:</label>
-                    <input type="password" id="confirmPassword" name="RepContraseña" />
+                    <input type="text" id="employeeMail" name="empleadoMail" />
                 </div>
                 <button type="submit" class="button-submit">Guardar</button>
             </form>
-            <div class="popup-footer"></div>
+            <div class="popup-footer">
+            </div>
         </div>
     </div>
 </div>
 
 <footer class="footer"></footer>
 <script src="/build/js/script.js"></script>
-<script src="/build/js/empleados.js"></script>
+<script src="/build/js/popUps.js"></script>
+<script src="/build/js/responsivesTablas.js"></script>

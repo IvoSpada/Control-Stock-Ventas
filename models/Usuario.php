@@ -4,57 +4,53 @@ namespace Model;
 class Usuario extends ActiveRecord {
     //Base de datos
     protected static $tabla = 'usuarios';
-    protected static $columnasDB = ['id','dni','nombre','admin','contraseña','email','token'];
+    protected static $columnasDB = ['id','dni','nombre','admin','contrasena','email','token'];
 
     public $id;
     public $dni;
     public $nombre;
     public $admin;
-    public $contraseña;
+    public $contrasena;
     public $email;
     public $token;
 
     public function __construct($args=[]) {
-        $this->dni = $args['id'] ?? NULL;
+        $this->id = $args['id'] ?? NULL;
         $this->dni = $args['dni'] ?? '';
         $this->nombre = $args['nombre'] ?? '';
         $this->admin = $args['admin'] ?? 0;
-        $this->contraseña = $args['contraseña'] ?? '';
+        $this->contrasena = $args['contrasena'] ?? '';
         $this->email = $args['email'] ?? NULL;
         $this->token = $args['token'] ?? NULL;
     }
 
     public function validarLogin() {
-        if (!$this->contraseña) {
-            self::$alertas['error'][]= 'El campo contraseña es obligatorio';
+        if (!$this->contrasena) {
+            self::$alertas['error'][]= 'El campo contrasena es obligatorio';
         }
         return self::$alertas;
     }
-    public function validarCambioContraseña($repContraseña) {
-        if (!$this->contraseña || !$repContraseña) {
+
+    public function validarCambioContrasena($repContrasena) {
+        if (!$this->contrasena || !$repContrasena) {
             self::$alertas['error'][]= 'Todos los campos son obligatorios';
         } 
-        if (strlen($this->contraseña) < 8) {
-            self::$alertas['error'][]= 'La contraseña debe tener al menos 8 caracteres';
+        if (strlen($this->contrasena) < 8) {
+            self::$alertas['error'][]= 'La contrasena debe tener al menos 8 caracteres';
         } 
-        if ($this->contraseña !== $repContraseña) {
-            self::$alertas['error'][]= 'Las contraseñas no coinciden';
+        if ($this->contrasena !== $repContrasena) {
+            self::$alertas['error'][]= 'Las contrasenas no coinciden';
         }
         return self::$alertas;
     }
 
-
-    public function comprobarPassword($contraseña) {
-        $resultado = password_verify($contraseña, $this->contraseña);
+    public function comprobarPassword($contrasena) {
+        $resultado = password_verify($contrasena, $this->contrasena);
         
-        if (!$resultado) {
-            return false;
-        } else {
-            return true;
-        }
+        return $resultado;
     }
 
-    public function validarEmail () {
+    public function validarEmail() {
         if (!$this->email) {
             self::$alertas['error'][] = 'El email es obligatorio';
         } 
@@ -62,10 +58,10 @@ class Usuario extends ActiveRecord {
     }
 
     public function hashPassword() {
-        $this->contraseña = password_hash($this->contraseña, PASSWORD_BCRYPT);
+        $this->contrasena = password_hash($this->contrasena, PASSWORD_BCRYPT);
     }
     
-    public function CrearToken() {
+    public function crearToken() {
         $this->token = uniqid();
     }
 
@@ -77,29 +73,5 @@ class Usuario extends ActiveRecord {
         }
         return $datos_sanitizados;
     }
-
-    public function ValidarNuevoUsuario() {
-        if (!$this->dni) {
-            self::$alertas['error'][] = 'El DNI es obligatorio';
-        } 
-
-        if (!$this->nombre) {
-            self::$alertas['error'][] = 'El nombre es obligatorio';
-        }
-
-        if (!$this->nombre) {
-            self::$alertas['error'][] = 'El nombre es obligatorio';
-        }
-
-        if (!$this->admin) {
-            self::$alertas['error'][] = 'El rol es obligatorio';
-        }
-
-        if (!$this->contraseña) {
-            self::$alertas['error'][] = 'La Contraseña es obligatorio';
-        }
-    }
 }
-
-
 ?>

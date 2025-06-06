@@ -4,18 +4,36 @@
     <div class="category-container">
         <h2>Administrar Lista de Categorías</h2>
         <button id="addCategoryBtn" class="button-add">Agregar Categoría</button>
-        <table id="categoryList" class="default-table" border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Descripción</th> <!-- Columna que podemos ocultar si es necesario -->
-            </tr>
-        </thead>
-        <tbody id="categoria-table-body">
-            <!-- Las filas se generarán aquí con JavaScript -->
-        </tbody>
-    </table>
+        <table id="categoryList" class="default-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th> <!-- Columna oculta -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Papelería Escolar</td>
+                    <td>Proveedor de artículos para escuelas y oficinas</td>
+                    <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Materiales de Construcción Gómez</td>
+                    <td>Distribuidor de cemento, arena y materiales para construcción</td>
+                    <!-- Columna oculta -->
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Frutas y Verduras Selectas</td>
+                    <td>Proveedor de productos agrícolas frescos para supermercados</td>
+                    <!-- Columna oculta -->
+                </tr>
+            </tbody>
+
+        </table>
 
         <!-- Popup para mostrar detalles de la categoria -->
         <div id="categoryDetailPopup" class="popup">
@@ -57,4 +75,5 @@
 </div>
 <footer class="footer"></footer>
 <script src="/build/js/script.js"></script>
-<script src="/build/js/categoria.js"></script>
+<script src="/build/js/popUps.js"></script>
+<script src="/build/js/responsivesTablas.js"></script>

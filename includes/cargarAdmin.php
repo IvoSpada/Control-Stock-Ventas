@@ -1,31 +1,42 @@
 <?php
 
-require 'database.php';
+require 'database.php'; // Asegúrate de que $db esté conectado correctamente
 
-function hashearAdmin($contra): string {
-    $hash = password_hash($contra, PASSWORD_BCRYPT);
-    return $hash;
+if ($db) {
+    echo "Conexión OK<br>";
+} else {
+    echo "Fallo de conexión<br>";
 }
-$dni = "46234790";
-$nombre = "Administrador"; 
-$admin = 1; 
+
+
+$nombre = "Administrador";
+$rol = "admin";
 $contra = "prueba123";
 
-$hash = hashearAdmin($contra);
-
-$query = "INSERT INTO usuarios (dni, nombre, admin, contraseña) VALUES (?, ?, ?, ?)";
-
-$stmt = mysqli_prepare($db, $query);
-
-if ($stmt) {
-    mysqli_stmt_bind_param($stmt, "isis", $dni , $nombre, $admin, $hash);
-    if (mysqli_stmt_execute($stmt)) {
-        echo "Usuario insertado correctamente";
-    } else {
-        echo "Error al insertar el usuario: " . mysqli_error($db);
-    }
-    mysqli_stmt_close($stmt);
-} else {
-    echo "Error al preparar la consulta: " . mysqli_error($db);
+// Verifica conexión
+if (!$db) {
+    die("❌ Error de conexión: " . mysqli_connect_error());
 }
+echo "Conexión OK<br>";
+
+// Hashear la contraseña
+$hash = password_hash($contra, PASSWORD_BCRYPT);
+
+// Escapar para evitar errores de comillas
+$nombre = mysqli_real_escape_string($db, $nombre);
+$rol = mysqli_real_escape_string($db, $rol);
+$hash = mysqli_real_escape_string($db, $hash);
+
+// ✅ Consulta correcta con nombre exacto de la tabla
+$sql = "INSERT INTO usuarios (nombre, rol, contrasena) VALUES ('$nombre', '$rol', '$hash')";
+
+// Ejecutar
+echo "Consulta SQL: $sql<br>";
+
+if (mysqli_query($db, $sql)) {
+    echo "✅ Usuario insertado correctamente.";
+} else {
+    echo "❌ Error al insertar el usuario: " . mysqli_error($db);
+}
+
 mysqli_close($db);

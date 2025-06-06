@@ -6,7 +6,6 @@ use MVC\Router;
 use Model\Usuario;
 use Classes\Email;
 
-
 class LoginController {
     public static function SelectUser(Router $router) {
 
@@ -15,10 +14,10 @@ class LoginController {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Capturar el nombre del usuario seleccionado
-            $idUsuario = $_POST['user_role'];  
+            $nombreUsuario = $_POST['user_role'];  
 
             // Redirigir al login con el nombre del usuario
-            header('Location: /login?user=' . urlencode($idUsuario));
+            header('Location: /login?user=' . urlencode($nombreUsuario));
             exit();
         }
         
@@ -30,25 +29,26 @@ class LoginController {
 
     public static function login(Router $router) {
         $alertas = [];
-        $admin = false;
-        // Obtener el id de usuario de la URL
-        $idUsuario = isset($_GET['user']) ? $_GET['user'] : '';
-        $info = Usuario::where('id', $idUsuario);
-        if ($info->email && $info->admin == '1') {
-            $admin = true;
+        $auth = new Usuario($_POST);
+        $mail = null;
+        $usuario = Usuario::where('admin', 1);
+        if($usuario) {
+            $mail = $usuario->email;
         }
 
+        // Obtener el nombre de usuario de la URL
+        $nombreUsuario = isset($_GET['user']) ? $_GET['user'] : '';
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $auth = new Usuario($_POST);
-            $auth->id = $idUsuario; 
-            
+            $auth->nombre = $nombreUsuario; 
+            $alertas = $auth->validarLogin();
             if (empty($alertas)) {
 
-                $usuario = Usuario::where('id', $idUsuario);
+                $usuario = Usuario::where('nombre', $auth->nombre);
 
                 if($usuario) {
-                    // Verificar la contraseña
-                    if ($usuario->comprobarPassword($auth->contraseña)) {
+                    // Verificar la contrasena
+                    if ($usuario->comprobarPassword($auth->contrasena)) {
                         
                         if (session_status() === PHP_SESSION_NONE) {
                             session_start();
@@ -66,7 +66,7 @@ class LoginController {
                         }
                         exit();
                     } else {
-                        Usuario::setAlerta('error', 'Contraseña incorrecta');
+                        Usuario::setAlerta('error', 'Contrasena incorrecta');
                     }
                 } else {
                     Usuario::setAlerta('error', 'El usuario no existe');
@@ -77,9 +77,8 @@ class LoginController {
         $alertas = Usuario::getAlertas();
         $router->render('auth/login', [
             'alertas' => $alertas,
-            'idUsuario' => $idUsuario, 
-            'nombreUsuario'=>$info->nombre,
-            'admin'=>$admin
+            'nombreUsuario' => $nombreUsuario,  // Pasar el nombre del usuario a la vista
+            'email'=>$mail //pasar el mail, puede ser null o no
         ]);
     }
 
@@ -101,7 +100,7 @@ class LoginController {
                     $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
                     $email->enviarInstrucciones();
                     //enviar Alerta
-                    Usuario::setAlerta('exito','Instrucciones enviadas al Email.');
+                    Usuario::setAlerta('exito','Instrucciones enviadas al Email');
                 } else {
                     Usuario::setAlerta('error','El mail no coincide con el de recuperación');
                 }
@@ -128,20 +127,20 @@ class LoginController {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             //sanitizar la entrada de datos
             $datos_sanitizados = Usuario::sanitizarDatos($_POST);
-            $repContraseña = $datos_sanitizados['repContraseña'] ?? null;
+            $repContrasena = $datos_sanitizados['repContrasena'] ?? null;
 
-            //asignar contraseña a la instancia usuario recién creada
-            $contraseña = new Usuario($_POST);
+            //asignar contrasena a la instancia usuario recién creada
+            $contrasena = new Usuario($_POST);
             
             //validar los campos
-            $alertas = $contraseña->validarCambioContraseña($repContraseña);
+            $alertas = $contrasena->validarCambioContrasena($repContrasena);
             if (empty($alertas)) {
-                //usuario password = null
-                $usuario->contraseña = '';
+                //usuario contrasena = null
+                $usuario->contrasena = '';
                 $usuario->token = NULL;
                 $token = NULL;
-                //reasignamos la contraseña por la que puso el usuario
-                $usuario->contraseña = $contraseña->contraseña;
+                //reasignamos la contrasena por la que puso el usuario
+                $usuario->contrasena = $contrasena->contrasena;
                 //hashear
                 $usuario->hashPassword();
 
@@ -201,4 +200,4 @@ class LoginController {
         $_SESSION = [];
         header('Location: /');
     }
-} 
+}

@@ -256,16 +256,18 @@ p {
 
 .popup {
     display: none;
+    /* Oculto por defecto */
     position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
+
 }
 
 .popup-content {
@@ -288,7 +290,7 @@ ALERTAS
 */
 .alerta {
     display: block;
-    margin: 15px auto;
+    margin: 0 auto;
     padding: 1rem;
     border-radius: 5px;
     color: white;
@@ -519,12 +521,16 @@ DASHBOARD
 
 /* Main Content */
 .main-content {
+    /* flex-grow: 1;
+    display: flex;
+    flex-direction: column; */
     justify-content: space-between;
     margin-left: 250px;
     margin-left: 0;
     height: 100vh;
     overflow-y: auto;
-    padding-top: 120px;
+    padding-top: 80px;
+    margin-top: 40px;
 }
 
 /* Header */
@@ -968,17 +974,6 @@ CSS PARA POP-UP DE PROVEEDORES
     background-color: #45a049;
 }
 
-.acciones-agregar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.acciones-agregar I {
-    font-size: 2.5rem;
-    
-}
-
 .default-table {
     width: 100%;
     border-collapse: collapse;
@@ -1008,34 +1003,7 @@ CSS PARA POP-UP DE PROVEEDORES
 .actions {
     display: flex;
     gap: 10px;
-    justify-content: space-around;
 }
-
-.info-button {
-    color: #ffffff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.edit-button {
-    color: #4CAF50;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.delete-button {
-    color: #f44336;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.edit-button:hover, .delete-button:hover {
-    opacity: 0.8;
-}
-
 
 @media (max-width: 700px) {
     .actions {
@@ -1094,22 +1062,6 @@ CSS PARA POP-UP DE PROVEEDORES
     /* Color del texto negro */
     background-color: white;
     /* Fondo blanco */
-}
-.radio-group {
-    display: flex;
-    gap: 5rem; /* Espacio entre los elementos */
-    align-items: center;
-    margin-left: 10px; /* Espacio entre la pregunta y las opciones */
-}
-
-.radio-group label, .radio-group input {
-    margin: 0;
-}
-
-.label-radio {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
 }
 
 .button-submit {
@@ -1171,12 +1123,34 @@ button {
     cursor: pointer;
 }
 
+.edit-button,
+.delete-button,
+.change-password-button {
+    font-weight: bolder;
+}
+
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
 .change-password-button {
     background-color: #b79900;
     color: white;
 }
 
-
+/* Media query para dispositivos móviles */
+/* Estilos para pantallas pequeñas */
+.default-table th:nth-child(5),
+.default-table td:nth-child(5),
+.default-table td:nth-child(6) {
+    display: none;
+}
 
 @media screen and (max-width: 700px) {
 
@@ -1289,7 +1263,3 @@ button {
     /* Verde claro */
     color: #155724;
 }
-
-/*----------------------------------------
-----CSS PARA LOS DETALLES DE CONTACTO----
------------------------------------------*/
